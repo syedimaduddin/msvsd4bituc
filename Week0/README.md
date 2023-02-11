@@ -1,7 +1,7 @@
-# Here is the update of Week 0 of VSD Mixed-signal PD Research Program
+# Here is the update of Week-0 of VSD Mixed-signal PD Research Program
 
 | S. No.    |Day|Action Item|Status| 
-|----------|-----|--------|-------|-----------------------|
+|----------|--------|-------|-----------------------|
 |1.|1|Install Oracle virtual box with Ubuntu 20.04|✅|
 |2.|2|Install Magic, ngspice and SKY130 PDKs|✅|
 |3.|2|Install ALIGN tool|✅|
@@ -52,7 +52,7 @@
 6. Install Ubuntu 22.04.1 LTS in the virtualbox.
 
 # 2. Installation of Tools and SKY130 PDKs
-## 2.a. Magic
+## 2.i. Magic
 Magic is an open-source VLSI layout tool.
 Install magic and its dependencies using the following commands. The dependencies can also be installed using Synaptic Manager. Synaptic manager can be first installed using `sudo apt install synaptic`.\
 
@@ -85,7 +85,7 @@ Install magic and its dependencies using the following commands. The dependencie
 # Install magic
     $sudo make install
 ```
-## 2.b. Ngspice
+## 2.ii. Ngspice
 Ngspice is the open source spice simulator for electric and electronic circuits. 
 Download ngspice-39 tarball `ngspice-39.tar.gz`from [https://ngspice.sourceforge.io/download.html](https://ngspice.sourceforge.io/download.html) into the work directory. Install ngspice and all its dependicies using the following commands. 
 ```
@@ -113,7 +113,7 @@ Download ngspice-39 tarball `ngspice-39.tar.gz`from [https://ngspice.sourceforge
 # Install 
     $sudo make install
 ```
-## 2.c. Netgen
+## 2.iii. Netgen
 Netgen is a tool for comparing netlists, a process known as LVS, which stands for "Layout vs. Schematic". Install netgen and all its dependicies using the following commands. 
 
 ```
@@ -131,7 +131,7 @@ make
 # Install the package
 sudo make install
 ```
-## 2.d. Xschem
+## 2.iv. Xschem
 Xschem is a schematic capture program, it allows creation of hierarchical representation of circuits with a top down approach. Install xschem and all its dependicies using the following commands. 
 
 ```
@@ -156,7 +156,7 @@ Xschem is a schematic capture program, it allows creation of hierarchical repres
     $sudo make install
 ```
 
-## 2.e. Open_PDKs
+## 2.v. Open_PDKs
 Open_PDKs is distributed with files that support the Google/SkyWater sky130 open process description https://github.com/google/skywater-pdk. Open_PDKs will set up an environment for using the SkyWater sky130 process with open-source EDA tools and tool flows such as magic, qflow, openlane, netgen, klayout, etc.More information can be found on [http://opencircuitdesign.com/open_pdks/](http://opencircuitdesign.com/open_pdks/).
 Install open_pdks using the following commands.
 
@@ -175,7 +175,7 @@ Install open_pdks using the following commands.
 # Install the PDK
     $sudo make install
 ```
-## 2.f. ALIGN Tool
+## 2.vi. ALIGN Tool
 ALIGN is an open source automatic layout generator for analog circuits. Install ALIGN and all its dependencies using the following commands.
 
 ```
@@ -233,7 +233,7 @@ schematic2layout.py ../examples/telescopic_ota -p ../pdks/FinFET14nm_Mock_PDK/
 EXAMPLE 2:
 schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
 ```
-## 2.g. Verifiying the open_pdk installation
+## 2.vii. Verifiying the open_pdk installation
 An initial working directory can be made by copying the required files as follows:
 ```
 $ mkdir LAB1
@@ -249,12 +249,14 @@ $ cp /usr/local/share/pdk/sky130A/libs.tech/magic/sky130A.magicrc .magicrc
 $ cd ../netgen
 $ cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 ```
+
+<!--
 # 3. Simulation of Inverter using Xschem and Ngspice
 Invoke Xschem by typing `xschem` as shown
 ```
      ~/VSD_4bituc/LAB1/xschem$ xschem
 ```
-<!--
+
 ![image](https://user-images.githubusercontent.com/104830557/218099150-16d93b7a-4bfe-42de-99da-753df315fbc7.png)
 
 ## 3.a Pre-layout Simulation using Xschem and Ngspice
