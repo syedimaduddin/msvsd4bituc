@@ -4,8 +4,8 @@
 |--------|-------|-----------------------|
 |1|Install Oracle virtual box with Ubuntu 20.04|✅|
 |2|Install Magic, ngspice, SKY130 PDKs, and ALIGN tool|✅|
-|3|Create inverter and perform pre-layout using xschem or ngspice, and post-layout characterization using magic|✅|
-|4|Inverter post-layout characterization using ALIGN tool, and compare post-layout simulations using magic and ALIGN tool|✅|
+|3|Create inverter and perform pre-layout using xschem or ngspice, and post-layout characterization using magic||
+|4|Inverter post-layout characterization using ALIGN tool, and compare post-layout simulations using magic and ALIGN tool||
 |5|Enroll in FREE VSD-custom layout course |✅|
 |6|Update the findings on GitHub repo with the title “Week 0”|✅|
 
