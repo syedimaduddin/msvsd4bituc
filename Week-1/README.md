@@ -1,4 +1,4 @@
-# Here is the update of Week-1 of VSD Mixed-signal PD Research Program
+Here is the update of Week-1 of VSD Mixed-signal PD Research Program
 
 # Index
 - [Installation of Oracle Virtual Box with Ubuntu 22.04](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#1-installation-of-oracle-virtual-box-with-ubuntu-2204)
