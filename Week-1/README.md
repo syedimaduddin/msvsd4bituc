@@ -56,7 +56,7 @@ Magic is an open-source VLSI layout tool.
 Install magic and its dependencies using the following commands. The dependencies can also be installed using Synaptic Manager. Synaptic manager can be first installed using `sudo apt install synaptic`.\
 
 ```
-# Ipdate your system
+# Update your system
     $sudo apt update
     $sudo apt install -y git
 # Install build-essential tools
