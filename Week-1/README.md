@@ -8,12 +8,12 @@
   * [Netgen](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iii-netgen)
   * [Xschem](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iv-xschem)
   * [Open_PDKs](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2v-open_pdks)
-  * [Verifying the open_pdk installation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vii-verifiying-the-open_pdk-installation)
-- [Simulation of Inverter using Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-simulation-of-inverter-using-ngspice)
-  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3i-pre-layout-simulation-of-inverter-using-ngspice)
-  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ii-post-layout-simulation-of-inverter-using-ngspice)
-- [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
-- [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#5-lvs-report)
+  * [Verifying the open_pdk installation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vi-verifiying-the-open_pdk-installation)
+- [Simulation of CMOS Inverter with SKY130 pdk](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3-simulation-of-inverter-using-xschem-and-ngspice)
+  * [Pre-Layout Simulation of Inverter using Xschem and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3i-simulation-of-inverter-using-xschem-and-ngspice)
+  * [Post-Layout Simulation of Inverter using Magic and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ii-post-layout-simulation-of-inverter-using-ngspice)
+  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3iii-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
+  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3iv-lvs-report)
   
 # 1. Installation of Oracle Virtual Box with Ubuntu 22.04
 
@@ -172,11 +172,11 @@ $ cd ../netgen
 $ cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 ```
 
-# 3. Simulation of Inverter using Xschem and Ngspice
+# 3. Simulation of CMOS Inverter with SKY130 pdk
 
-## 3.i Pre-layout Simulation using Xschem and Ngspice
+# 3.i Pre-layout Simulation using Xschem and Ngspice
 
-### 3.i.a. DC Analaysis of CMOS inverter
+## 3.i.a. DC Analaysis of CMOS inverter
 
 Create the schematic for inverter in Xschem. 
 Take a `code_shown.sym` component from xschem library and write the sky130 library path into it.
@@ -258,7 +258,7 @@ Use `ngspice inv.spice`and `plot out vs time in` to get the following plot.
 
 <!-- ![image](https://user-images.githubusercontent.com/104830557/218082285-c7cc110d-a2ef-4f98-93bc-f9784ff3692e.png) -->
 
-## 4. Comparison of Pre-layout and Post-layout timing parameters for inverter.
+## 3.iv. Comparison of Pre-layout and Post-layout timing parameters for inverter.
 
 | Parameter    | Value from Pre-layout Simulation| Value from Post-layout Simulation|
 |----------|-----|-----|
@@ -267,7 +267,7 @@ Use `ngspice inv.spice`and `plot out vs time in` to get the following plot.
 |Cell Rise Delay|32.79 ps|41.29 ps|
 |Cell Fall Delay|4.3 ps|4.4 ps|
 
-## 5. LVS Report
+## 3.iv. LVS Report
 The layout vs schematic compares the pre-layout netlist with the netlist extracted from the layout. The mismatch is due to the extra parasitic capacitances in the post-layout netlist. The report `comp.out` is obtained using Netgen by typing the following command.
 ```
 ~/VSD_4bituc/LAB1/netgen$ netgen -batch lvs INV_pre.spice INV_post.spice
