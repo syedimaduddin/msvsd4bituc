@@ -220,14 +220,13 @@ NMH = $V_{OH}$ - $V_{IH}$= 878 mV
 
 ### 3.i.b. Transient Analaysis of CMOS inverter
 The transient analysis of the inverter can be obtained by adding `.tran ` in the `code_shown.sym` block.
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_transient_sch.png)
 
-<!-- ![image](https://user-images.githubusercontent.com/104830557/217892619-3aaac162-2c3f-4811-a245-152ecafc1003.png) -->
-Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created. Click on `Simulate` to run the simulation and obtain the out vs time and in vs time.
+Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created. Click on `Simulate` to run the simulation and obtain the out vs time and in vs time using `Vout vs time Vin` command in the ngspice terminal.
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/ngspice_sch_transient.png)
 
-<!-- ![image](https://user-images.githubusercontent.com/104830557/217894614-6f71e536-1c11-4dd3-943d-31820b1d2e99.png) -->
 The graph shows the input and output variations with time. Timing parameters can be calculated from the graph below.
-
-<!-- ![image](https://user-images.githubusercontent.com/104830557/217895260-eae643c1-9253-4513-ad7e-5502bb917441.png) -->
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/transient_char_plot.png) 
 
 The timing parameters are calculated as
 
