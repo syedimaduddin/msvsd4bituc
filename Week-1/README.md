@@ -384,20 +384,6 @@ Cells have no pins;  pin matching not needed.
 Device classes INV_pre.spice and INV_post.spice are equivalent.
 Final result: Netlists do not match.
 
-## 5. Comparison of results
-We can note that the graph of out vs time for both pre-layout simulation and post layout simulation are similar. Pre-layout simulation considers zero net delays and parasitic capacitances, hence the timing values are more optimistic. Post- layout simulation includes parasitic capacitance and non-zero netdelays, hence the timing values are more accurate.
-
-## 6. LVS Report
-
-The layout vs schematic compares the pre-layout netlist with the netlist extracted from the layout. The mismatch is due to the extra parasitic capacitances in the post-layout netlist. The report `comp.out` is obtained using Netgen by typing the following command.
-```
-~/VSD_4bituc/LAB1/netgen$ netgen -batch lvs INV_pre.spice INV_post.spice
-```
-The content of the report is as shown.
-![image](https://user-images.githubusercontent.com/104830557/218120933-50b65183-17cf-464f-9a6e-413828482d80.png)
-
-It can be seen that except for 4 extra devices(Capacitances) and corresponding nets, the pre-layout netlist and the post-layout extracted netlist are same.
-
 
 ## References
 
