@@ -253,35 +253,24 @@ $ cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 ```
 
 # 3. Simulation of Inverter using Xschem and Ngspice
-Invoke Xschem by typing `xschem` as shown
-```
-     ~/msvd4bituc/LAB1/xschem$ xschem
-```
-
-<!-- ![image](https://user-images.githubusercontent.com/104830557/218099150-16d93b7a-4bfe-42de-99da-753df315fbc7.png) -->
 
 ## 3.i Pre-layout Simulation using Xschem and Ngspice
 
 ### 3.i.a. DC Analaysis of CMOS inverter
 
-Create the schematic for inverter in Xschem. The TT_MODELS contain the process corner details for PMOS and NMOS. The contents of TT_MODELS will be
+Create the schematic for inverter in Xschem. 
+Take a `code_shown.sym` component from xschem library and write the sky130 library path into it.
 ```
-name= TT_MODELS1
-only_toplevel=true
-format="tcleval(@value)"
-** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
-"
-spice_ignore=false
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 ```
-DC analysis is done by using the `.dc` command using `code_shown.sym` from components.
+DC analysis is done by using the `.dc` command inside another `code_shown.sym` component.
 ```
 .dc Vin 0 1.8 0.01
 .save all
 ```
 The schematic is as shown.
 
-<!-- ![image](https://user-images.githubusercontent.com/104830557/217892948-42cfc89b-df8e-4f48-a0d5-bbc9d4754f22.png) -->
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_schematic.png)
 
 Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created. Click on `Simulate` to run the simulation and obtain the voltage-transfer characteristic(VTC) for the inverter.
 
