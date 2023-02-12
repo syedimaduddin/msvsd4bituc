@@ -138,6 +138,11 @@ Xschem is a schematic capture program, it allows creation of hierarchical repres
     $sudo apt-get -y install libjpeg-dev
 # Install xcb
     $sudo apt-get -y install xcb
+    $sudo apt-get -y install libxcb1
+    $sudo apt-get -y install libx11-xcb-dev
+# Install cairo
+    $sudo apt-get -y install libcairo2 
+    $sudo apt-get -y install libcairo2-dev
 # Clone the repository
     $git clone https://github.com/StefanSchippers/xschem.git xschem-src
     $cd xschem-src
