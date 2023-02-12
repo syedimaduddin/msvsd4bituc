@@ -386,9 +386,6 @@ Final result: Netlists do not match.
 
 
 ## References
-
-https://xschem.sourceforge.io/stefan/xschem_man/xschem_man.html
-
-http://opencircuitdesign.com/magic/
-
-http://opencircuitdesign.com/open_pdks/
+* https://xschem.sourceforge.io/stefan/xschem_man/xschem_man.html
+* http://opencircuitdesign.com/magic/
+* http://opencircuitdesign.com/open_pdks/
