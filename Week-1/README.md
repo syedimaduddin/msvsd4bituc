@@ -248,7 +248,7 @@ Invoke Xschem by typing `xschem` as shown
      ~/VSD_4bituc/LAB1/xschem$ xschem
 ```
 
-![image](https://user-images.githubusercontent.com/104830557/218099150-16d93b7a-4bfe-42de-99da-753df315fbc7.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/218099150-16d93b7a-4bfe-42de-99da-753df315fbc7.png) -->
 
 ## 3.i Pre-layout Simulation using Xschem and Ngspice
 
@@ -271,15 +271,15 @@ DC analysis is done by using the `.dc` command using `code_shown.sym` from compo
 ```
 The schematic is as shown.
 
-![image](https://user-images.githubusercontent.com/104830557/217892948-42cfc89b-df8e-4f48-a0d5-bbc9d4754f22.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/217892948-42cfc89b-df8e-4f48-a0d5-bbc9d4754f22.png) -->
 
 Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created. Click on `Simulate` to run the simulation and obtain the voltage-transfer characteristic(VTC) for the inverter.
 
-![image](https://user-images.githubusercontent.com/104830557/217897083-a9f9b789-49d3-4bbd-861f-c7a76b4d5e0c.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/217897083-a9f9b789-49d3-4bbd-861f-c7a76b4d5e0c.png) -->
 
 The VTC is as shown.
 
-![image](https://user-images.githubusercontent.com/104830557/217896817-b1cc6ba3-343f-476d-9bec-bf5c09375f64.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/217896817-b1cc6ba3-343f-476d-9bec-bf5c09375f64.png) -->
 
 From the VTC, we get the values of the following parameters.
 
@@ -295,13 +295,13 @@ NMH = $V_{OH}$ - $V_{IH}$= 878 mV
 ### 3.i.b. Transient Analaysis of CMOS inverter
 The transient analysis of the inverter can be obtained by adding `.tran ` in the `code_shown.sym` block.
 
-![image](https://user-images.githubusercontent.com/104830557/217892619-3aaac162-2c3f-4811-a245-152ecafc1003.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/217892619-3aaac162-2c3f-4811-a245-152ecafc1003.png) -->
 Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created. Click on `Simulate` to run the simulation and obtain the out vs time and in vs time.
 
-![image](https://user-images.githubusercontent.com/104830557/217894614-6f71e536-1c11-4dd3-943d-31820b1d2e99.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/217894614-6f71e536-1c11-4dd3-943d-31820b1d2e99.png) -->
 The graph shows the input and output variations with time. Timing parameters can be calculated from the graph below.
 
-![image](https://user-images.githubusercontent.com/104830557/217895260-eae643c1-9253-4513-ad7e-5502bb917441.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/217895260-eae643c1-9253-4513-ad7e-5502bb917441.png) -->
 
 The timing parameters are calculated as
 
@@ -330,14 +330,14 @@ The tech file ['min2.tech']() and model file used [130nm BSIM4 model card for bu
 ## 4.i. Pre-layout Simulation of Inverter using Ngspice
 The figure shown the pre-layout netlist of the inverter
 
-![image](https://user-images.githubusercontent.com/104830557/218102867-11f3b0fd-0f88-41c6-8e6e-430f0f9a5224.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/218102867-11f3b0fd-0f88-41c6-8e6e-430f0f9a5224.png) -->
 
 
-![image](https://user-images.githubusercontent.com/104830557/218084345-fe34ce3e-eea0-4c61-a677-79e4abebec33.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/218084345-fe34ce3e-eea0-4c61-a677-79e4abebec33.png) -->
 
 ## 4.ii. Post-layout Simulation of Inverter using Ngspice
 The layout  'inv.mag' was drawn in Magic as shown.
-![image](https://user-images.githubusercontent.com/104830557/218103878-9ff2a9bf-27ee-4a01-b286-c82596e604c9.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/218103878-9ff2a9bf-27ee-4a01-b286-c82596e604c9.png) -->
 
 Extract the netlist from the layout using
 ```
@@ -347,11 +347,11 @@ ext2spice
 ```
 Simulate the spice file extracted from magic after modifications. 
 
-![image](https://user-images.githubusercontent.com/104830557/218105205-85ed2b21-1df1-4640-b39d-b40c4257add0.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/218105205-85ed2b21-1df1-4640-b39d-b40c4257add0.png) -->
 
 Use `ngspice inv.spice`and `plot out vs time in` to get the following plot.
 
-![image](https://user-images.githubusercontent.com/104830557/218082285-c7cc110d-a2ef-4f98-93bc-f9784ff3692e.png)
+<!-- ![image](https://user-images.githubusercontent.com/104830557/218082285-c7cc110d-a2ef-4f98-93bc-f9784ff3692e.png) -->
 
 ## 4.iii. Comparison of Pre-layout and Post-layout timing parameters for inverter.
 
