@@ -19,7 +19,9 @@
   * [Netgen](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iii-netgen)
   * [Xschem](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iv-xschem)
   * [Open_PDKs](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2v-open_pdks)
+<!--
   * [ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vi-align-tool)
+-->
   * [Verifying the open_pdk installation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vii-verifiying-the-open_pdk-installation)
 - [Simulation of Inverter using Xschem and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3-simulation-of-inverter-using-xschem-and-ngspice)
   * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3i-pre-layout-simulation-using-xschem-and-ngspice)
@@ -164,7 +166,7 @@ Install open_pdks using the following commands.
 # Install setup-tools
     $sudo apt-get -y install python3-setuptools
 # Clone the Open PDK repository
-    $git clone git://opencircuitdesign.com/open_pdks
+    $git clone https://github.com/RTimothyEdwards/open_pdks
     $cd open_pdks
 # Configure Open PDK to use Sky130 libraries
     $./configure --enable-sky130-pdk
@@ -173,6 +175,7 @@ Install open_pdks using the following commands.
 # Install the PDK
     $sudo make install
 ```
+<!--
 ## 2.vi. ALIGN Tool
 ALIGN is an open source automatic layout generator for analog circuits. Install ALIGN and all its dependencies using the following commands.
 
@@ -231,7 +234,8 @@ schematic2layout.py ../examples/telescopic_ota -p ../pdks/FinFET14nm_Mock_PDK/
 EXAMPLE 2:
 schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
 ```
-## 2.vii. Verifiying the open_pdk installation
+-->
+## 2.vi. Verifiying the open_pdk installation
 An initial working directory can be made by copying the required files as follows:
 ```
 $ mkdir Week1
