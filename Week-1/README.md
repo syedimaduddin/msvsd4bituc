@@ -33,11 +33,13 @@
   * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#3b-post-layout-simulation-of-inverter-using-ngspice)
   * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#3c-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
   * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#3d-lvs-report)
+<!--
 - [Simulation of a function *Fn= [(B+D).(A+C)+E.F]'* using Magic and Ngspice](#simulation-of-a-function-using-magic-and-ngspice)
   * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#4a-pre-layout-simulation-of-function-fn-using-ngspice)
   * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#4b-post-layout-simulation-of-function-fn-using-magic-and-ngspice)
   * [Comparison of results](#comparison-of-results)
   * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#4d-lvs-report)
+-->
   
 # 1. Installation of Oracle Virtual Box with Ubuntu 22.04
 
@@ -388,7 +390,7 @@ Netlists do not match.
 Cells have no pins;  pin matching not needed.
 Device classes INV_pre.spice and INV_post.spice are equivalent.
 Final result: Netlists do not match.
-
+<!--
 # 5. Simulation of a function using Magic and Ngspice
 Euler path and stick diagrams are helpful for getting better layouts for circuits with many MOSFETs. One such funtion is implemented here using CMOS.
 Fn = Fn= [(B+D).(A+C)+E.F]'
@@ -506,6 +508,7 @@ Run the ngspice simulation using the following commands.
     ngspice 3 -> plot out
 ```
 ![image](https://user-images.githubusercontent.com/104830557/218010876-af06f84e-8d51-47b2-8ded-4adda43f5560.png)
+-->
 
 ## 4.iii. Comparison of results
 We can note that the graph of out vs time for both pre-layout simulation and post layout simulation are similar. Pre-layout simulation considers zero net delays and parasitic capacitances, hence the timing values are more optimistic. Post- layout simulation includes parasitic capacitance and non-zero netdelays, hence the timing values are more accurate.
