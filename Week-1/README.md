@@ -274,11 +274,11 @@ The schematic is as shown.
 
 Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created. Click on `Simulate` to run the simulation and obtain the voltage-transfer characteristic(VTC) for the inverter.
 
-<!-- ![image](https://user-images.githubusercontent.com/104830557/217897083-a9f9b789-49d3-4bbd-861f-c7a76b4d5e0c.png) -->
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/ngspice_schematic_cmd.png)
 
 The VTC is as shown.
 
-<!-- ![image](https://user-images.githubusercontent.com/104830557/217896817-b1cc6ba3-343f-476d-9bec-bf5c09375f64.png) -->
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/vtc_plot.png)
 
 From the VTC, we get the values of the following parameters.
 
