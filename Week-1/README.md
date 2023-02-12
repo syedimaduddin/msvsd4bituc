@@ -62,12 +62,12 @@ Install magic and its dependencies using the following commands. The dependencie
     $sudo apt install -y x11-xserver-utils
 # Install OpenGL
     $sudo apt install -y libglu1-mesa-dev freeglut3-dev mesa-common-dev
-# Cnstall Tcl/Tk
+# Install Tcl/Tk
     $sudo apt install -y tcl-dev tk-dev
 # Change to the work directory
-    $cd ~/VSD_4bituc
+    $cd ~/msvd4bituc
 # Clone the git repo
-    $git clone git://opencircuitdesign.com/magic
+    $git clone https://github.com/RTimothyEdwards/magic
 # Change into the magic directory
     $cd magic
 # Configure magic
@@ -79,10 +79,10 @@ Install magic and its dependencies using the following commands. The dependencie
 ```
 ## 2.ii. Ngspice
 Ngspice is the open source spice simulator for electric and electronic circuits. 
-Download ngspice-39 tarball `ngspice-39.tar.gz`from [https://ngspice.sourceforge.io/download.html](https://ngspice.sourceforge.io/download.html) into the work directory. Install ngspice and all its dependicies using the following commands. 
+Download ngspice-39 tarball `ngspice-39.tar.gz`from [https://ngspice.sourceforge.io/download.html](https://sourceforge.net/projects/ngspice/files/ng-spice-rework/39/) into the work directory. Install ngspice and all its dependicies using the following commands. 
 ```
 # Home directory
-    $cd ~/VSD_4bituc
+    $cd ~/msvd4bituc
     $tar -xzvf ngspice-39.tar.gz
     $mkdir release
     $cd release 
