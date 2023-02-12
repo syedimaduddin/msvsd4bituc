@@ -1,5 +1,5 @@
 # Here is the update of Week-1 of VSD Mixed-signal PD Research Program
-
+<--
 |S.No.|Action Item|Status| 
 |--------|-------|-----------------------|
 |1|Install Oracle virtual box with Ubuntu 20.04|✅|
@@ -10,34 +10,34 @@
 |6|Create the design shown in section 7 of the course and perform pre-layout using xschem or ngspice with general pdks ||
 |7|Post layout characterization using ngspice with general pdks||
 |8|Update the findings on GitHub repo with the title “Week 1”|✅|
-
+-->
 # Index
-- [Installation of Oracle Virtual Box with Ubuntu 22.04](https://github.com/prajwalita17/msvsd8tsram/blob/main/README.md#installation-of-oracle-virtual-box-with-ubuntu-2204)
-- [Installation of Tools and SKY130 PDKs](https://github.com/prajwalita17/msvsd8tsram/blob/main/README.md#1-installation-of-tools-and-sky130-pdks)
-  * [Magic](https://github.com/prajwalita17/msvsd8tsram/blob/main/README.md#1a-magic)
-  * [Ngspice](https://github.com/prajwalita17/msvsd8tsram/blob/main/README.md#1b-ngspice)
-  * [Netgen](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#1c-netgen)
-  * [Xschem](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#1d-xschem)
-  * [Open_PDKs](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#1e-open_pdks)
-  * [ALIGN Tool](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#1f-align-tool)
-  * [Verifying the open_pdk installation](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#2g-verifiying-the-open_pdk-installation)
+- [Installation of Oracle Virtual Box with Ubuntu 22.04](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#installation-of-oracle-virtual-box-with-ubuntu-2204)
+- [Install Magic, ngspice, and SKY130 PDKs](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#1-installation-of-tools-and-sky130-pdks)
+  * [Magic](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#1a-magic)
+  * [Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#1b-ngspice)
+  * [Netgen](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#1c-netgen)
+  * [Xschem](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#1d-xschem)
+  * [Open_PDKs](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#1e-open_pdks)
+  * [ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#1f-align-tool)
+  * [Verifying the open_pdk installation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#2g-verifiying-the-open_pdk-installation)
 - [Simulation of Inverter using Xschem and Ngspice]()
-  * [Pre-layout Simulation](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#2-pre-layout-simulation-using-xschem-and-ngspice)
-    + [DC Analaysis of CMOS inverter](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#2a-dc-analaysis-of-cmos-inverter)
-    + [Transient Analaysis of CMOS inverter](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#2b-transient-analaysis-of-cmos-inverter)
-  * [Post-layout Simulation](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#2-pre-layout-simulation-using-xschem-and-ngspice)
+  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#2-pre-layout-simulation-using-xschem-and-ngspice)
+    + [DC Analaysis of CMOS inverter](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#2a-dc-analaysis-of-cmos-inverter)
+    + [Transient Analaysis of CMOS inverter](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#2b-transient-analaysis-of-cmos-inverter)
+  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#2-pre-layout-simulation-using-xschem-and-ngspice)
   * [Comparison of pre-layout and post-layout timing parameters]()
   * [LVS Report]()  
 - [Simulation of Inverter using Ngspice]()
-  * [Pre-layout Simulation](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#3a-pre-layout-simulation-of-inverter-using-ngspice)
-  * [Post-layout Simulation](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#3b-post-layout-simulation-of-inverter-using-ngspice)
-  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#3c-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
-  * [LVS Report](https://github.com/prajwalita17/msvsd8tsram/blob/main/README.md#3d-lvs-report)
+  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#3a-pre-layout-simulation-of-inverter-using-ngspice)
+  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#3b-post-layout-simulation-of-inverter-using-ngspice)
+  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#3c-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
+  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#3d-lvs-report)
 - [Simulation of a function *Fn= [(B+D).(A+C)+E.F]'* using Magic and Ngspice](#simulation-of-a-function-using-magic-and-ngspice)
-  * [Pre-layout Simulation](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#4a-pre-layout-simulation-of-function-fn-using-ngspice)
-  * [Post-layout Simulation](https://github.com/prajwalita17/msvsd8tsram/edit/main/README.md#4b-post-layout-simulation-of-function-fn-using-magic-and-ngspice)
+  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#4a-pre-layout-simulation-of-function-fn-using-ngspice)
+  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#4b-post-layout-simulation-of-function-fn-using-magic-and-ngspice)
   * [Comparison of results](#comparison-of-results)
-  * [LVS Report](https://github.com/prajwalita17/msvsd8tsram/blob/main/README.md#4d-lvs-report)
+  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#4d-lvs-report)
   
 # 1. Installation of Oracle Virtual Box with Ubuntu 22.04
 
