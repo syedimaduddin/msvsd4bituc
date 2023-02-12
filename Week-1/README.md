@@ -12,33 +12,33 @@
 |8|Update the findings on GitHub repo with the title “Week 1”|✅|
 -->
 # Index
-- [Installation of Oracle Virtual Box with Ubuntu 22.04](https://github.com/syedimaduddin/msvsd4bituc/Week-1/blob/main/README.md#installation-of-oracle-virtual-box-with-ubuntu-2204)
-- [Installation of required tools](https://github.com/syedimaduddin/msvsd4bituc/Week-1/blob/main/README.md#1-installation-of-tools-and-sky130-pdks)
-  * [Magic](https://github.com/syedimaduddin/msvsd4bituc/Week-1/blob/main/README.md#1a-magic)
-  * [Ngspice](https://github.com/syedimaduddin/msvsd4bituc/Week-1/blob/main/README.md#1b-ngspice)
-  * [Netgen](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#1c-netgen)
-  * [Xschem](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#1d-xschem)
-  * [Open_PDKs](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#1e-open_pdks)
-  * [ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#1f-align-tool)
-  * [Verifying the open_pdk installation](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#2g-verifiying-the-open_pdk-installation)
-- [Simulation of Inverter using Xschem and Ngspice]()
-  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#2-pre-layout-simulation-using-xschem-and-ngspice)
-    + [DC Analaysis of CMOS inverter](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#2a-dc-analaysis-of-cmos-inverter)
-    + [Transient Analaysis of CMOS inverter](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#2b-transient-analaysis-of-cmos-inverter)
+- [Installation of Oracle Virtual Box with Ubuntu 22.04](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#1-installation-of-oracle-virtual-box-with-ubuntu-2204)
+- [Installation of required tools](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2-installation-of-tools-and-sky130-pdks)
+  * [Magic](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2i-magic)
+  * [Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2ii-ngspice)
+  * [Netgen](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iii-netgen)
+  * [Xschem](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iv-xschem)
+  * [Open_PDKs](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2v-open_pdks)
+  * [ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vi-align-tool)
+  * [Verifying the open_pdk installation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vii-verifiying-the-open_pdk-installation)
+- [Simulation of Inverter using Xschem and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3-simulation-of-inverter-using-xschem-and-ngspice)
+  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3i-pre-layout-simulation-using-xschem-and-ngspice)
+    + [DC Analaysis of CMOS inverter](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ia-dc-analaysis-of-cmos-inverter)
+    + [Transient Analaysis of CMOS inverter](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ib-transient-analaysis-of-cmos-inverter)
   * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#2-pre-layout-simulation-using-xschem-and-ngspice)
   * [Comparison of pre-layout and post-layout timing parameters]()
   * [LVS Report]()  
-- [Simulation of Inverter using Ngspice]()
-  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#3a-pre-layout-simulation-of-inverter-using-ngspice)
-  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#3b-post-layout-simulation-of-inverter-using-ngspice)
+- [Simulation of Inverter using Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-simulation-of-inverter-using-ngspice)
+  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4i-pre-layout-simulation-of-inverter-using-ngspice)
+  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4ii-post-layout-simulation-of-inverter-using-ngspice)
   * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#3c-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
   * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/Week-1/blob/main/README.md#3d-lvs-report)
 <!--
 - [Simulation of a function *Fn= [(B+D).(A+C)+E.F]'* using Magic and Ngspice](#simulation-of-a-function-using-magic-and-ngspice)
   * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#4a-pre-layout-simulation-of-function-fn-using-ngspice)
   * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#4b-post-layout-simulation-of-function-fn-using-magic-and-ngspice)
-  * [Comparison of results](#comparison-of-results)
-  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#4d-lvs-report)
+  * [Comparison of results](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4iii-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
+  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4iv-lvs-report)
 -->
   
 # 1. Installation of Oracle Virtual Box with Ubuntu 22.04
@@ -259,7 +259,7 @@ Invoke Xschem by typing `xschem` as shown
 
 ## 3.i Pre-layout Simulation using Xschem and Ngspice
 
-### 3.ii.a. DC Analaysis of CMOS inverter
+### 3.i.a. DC Analaysis of CMOS inverter
 
 Create the schematic for inverter in Xschem. The TT_MODELS contain the process corner details for PMOS and NMOS. The contents of TT_MODELS will be
 ```
@@ -299,7 +299,7 @@ NML = $V_{IL}$ - $V_{OL}$= 750 mV
 NMH = $V_{OH}$ - $V_{IH}$= 878 mV
 
 
-### 3.ii.b. Transient Analaysis of CMOS inverter
+### 3.i.b. Transient Analaysis of CMOS inverter
 The transient analysis of the inverter can be obtained by adding `.tran ` in the `code_shown.sym` block.
 
 ![image](https://user-images.githubusercontent.com/104830557/217892619-3aaac162-2c3f-4811-a245-152ecafc1003.png)
