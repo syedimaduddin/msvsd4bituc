@@ -31,15 +31,8 @@
 - [Simulation of Inverter using Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-simulation-of-inverter-using-ngspice)
   * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4i-pre-layout-simulation-of-inverter-using-ngspice)
   * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4ii-post-layout-simulation-of-inverter-using-ngspice)
-  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#3c-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
-  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/Week-1/blob/main/README.md#3d-lvs-report)
-<!--
-- [Simulation of a function *Fn= [(B+D).(A+C)+E.F]'* using Magic and Ngspice](#simulation-of-a-function-using-magic-and-ngspice)
-  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#4a-pre-layout-simulation-of-function-fn-using-ngspice)
-  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#4b-post-layout-simulation-of-function-fn-using-magic-and-ngspice)
-  * [Comparison of results](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4iii-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
-  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4iv-lvs-report)
--->
+  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#4iii-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
+  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/Week-1/blob/main/README.md#4iv-lvs-report)
   
 # 1. Installation of Oracle Virtual Box with Ubuntu 22.04
 
@@ -390,130 +383,11 @@ Netlists do not match.
 Cells have no pins;  pin matching not needed.
 Device classes INV_pre.spice and INV_post.spice are equivalent.
 Final result: Netlists do not match.
-<!--
-# 5. Simulation of a function using Magic and Ngspice
-Euler path and stick diagrams are helpful for getting better layouts for circuits with many MOSFETs. One such funtion is implemented here using CMOS.
-Fn = Fn= [(B+D).(A+C)+E.F]'
-![image](https://user-images.githubusercontent.com/104830557/218004046-205b15ce-bafd-4023-b527-9591cad9ea42.png)
 
-## 5.i Pre-layout Simulation of function Fn using Ngspice
-
-The netlist `fn_prelayout.spice` for the function **Fn** given can be written as 
-```
-***Netlist description for prelayout simulation***
-M1 3 a vdd vdd pmos W=2.125u L=0.25u
-M2 2 b vdd vdd pmos W=2.125u L=0.25u
-M3 4 d 2 2 pmos W=2.125u L=0.25u
-M4 4 c 3 3 pmos W=2.125u L=0.25u
-M5 out e 4 4 pmos W=2.125u L=0.25u
-M6 out f 4 4 pmos W=2.125u L=0.25u
-
-M7 out a 6 6 nmos W=2.125u L=0.25u
-M8 out c 6 6 nmos W=2.125u L=0.25u
-M9 out e 7 7 nmos W=2.125u L=0.25u
-M10 6 b 0 0 nmos W=2.125u L=0.25u
-M11 6 d 0 0 nmos W=2.125u L=0.25u
-M12 7 f 0 0 nmos W=2.125u L=0.25u
-
-cload out 0 10f
-
-Vdd vdd 0 2.5
-V1 a 0 0 pulse 0 2.5 0.1n 10p 10p 1n 2n
-V2 b 0 0 pulse 0 2.5 0.2n 10p 10p 1n 2n
-V3 c 0 0 pulse 0 2.5 0.3n 10p 10p 1n 2n
-V4 d 0 0 pulse 0 2.5 0.4n 10p 10p 1n 2n
-V5 e 0 0 pulse 0 2.5 0.5n 10p 10p 1n 2n
-V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
-
-***Simulation commands***
-.op
-.tran 10p 4n
-
-*** .include model file ***
-.include my_model_file.mod
-.end
-```
-Run the ngspice simulation using the following commands.
-```
-    $ngspice fn_prelayout.spice
-```
-```
-    ngspice 2 -> run
-    ngspice 3 -> plot out
-```
-![image](https://user-images.githubusercontent.com/104830557/218006311-1a970c75-bc35-4d2d-9d40-a701253359c6.png)
-
-## 5.ii Post-layout Simulation of function Fn using Magic and Ngspice
-![image](https://user-images.githubusercontent.com/104830557/218008163-b35a4fea-e8f9-4428-a76f-b2da4c400984.png)
-
-Extract the netlist from the from the magic layout by typing these commands in tkcon 2.3 Main console.
-
-![image](https://user-images.githubusercontent.com/104830557/218009160-0503c4c0-659b-4349-92e5-3644f0f54bc8.png)
-The netlist `fn_postlayout.spice` generated is as shown. The netlist shows the parasitic capacitances also. Model file is same as the one used for pre-layout simulation. 
-
-```
-***Netlist description for post-layout simulation***
-* SPICE3 file created from fn_postlayout.ext - technology: min2
-.option scale=0.09u
-M1000 a_46_38# d a_22_38# vdd pmos w=17 l=2
-+  ad=102 pd=46 as=204 ps=92
-M1001 out c a_14_9# gnd nmos w=17 l=2
-+  ad=204 pd=92 as=204 ps=92
-M1002 vdd b a_46_38# vdd pmos w=17 l=2
-+  ad=204 pd=92 as=0 ps=0
-M1003 gnd f a_30_9# gnd nmos w=17 l=2
-+  ad=204 pd=92 as=102 ps=46
-M1004 gnd b a_14_9# gnd nmos w=17 l=2
-+  ad=0 pd=0 as=0 ps=0
-M1005 out e a_22_38# vdd pmos w=17 l=2
-+  ad=102 pd=46 as=0 ps=0
-M1006 a_14_38# a vdd vdd pmos w=17 l=2
-+  ad=102 pd=46 as=0 ps=0
-M1007 a_14_9# a out gnd nmos w=17 l=2
-+  ad=0 pd=0 as=0 ps=0
-M1008 a_30_9# e out gnd nmos w=17 l=2
-+  ad=0 pd=0 as=0 ps=0
-M1009 a_22_38# f out vdd pmos w=17 l=2
-+  ad=0 pd=0 as=0 ps=0
-M1010 a_22_38# c a_14_38# vdd pmos w=17 l=2
-+  ad=0 pd=0 as=0 ps=0
-M1011 a_14_9# d gnd gnd nmos w=17 l=2
-+  ad=0 pd=0 as=0 ps=0
-C0 a_30_9# gnd 3.37fF
-C1 a_14_9# gnd 6.82fF
-C2 out gnd 8.40fF
-C3 a_22_38# gnd 3.02fF
-C4 vdd gnd 9.58fF
-
-Vdd vdd 0 2.5
-V1 a 0 0 pulse 0 2.5 0.1n 10p 10p 1n 2n
-V2 b 0 0 pulse 0 2.5 0.2n 10p 10p 1n 2n
-V3 c 0 0 pulse 0 2.5 0.3n 10p 10p 1n 2n
-V4 d 0 0 pulse 0 2.5 0.4n 10p 10p 1n 2n
-V5 e 0 0 pulse 0 2.5 0.5n 10p 10p 1n 2n
-V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
-***Simulation commands***
-.op
-.tran 10p 4n
-*** .include model file ***
-.include  my_model_file.mod
-.end
-```
-Run the ngspice simulation using the following commands.
-```
-    $ngspice fn_postlayout.spice
-```
-```
-    ngspice 2 -> run
-    ngspice 3 -> plot out
-```
-![image](https://user-images.githubusercontent.com/104830557/218010876-af06f84e-8d51-47b2-8ded-4adda43f5560.png)
--->
-
-## 4.iii. Comparison of results
+## 5. Comparison of results
 We can note that the graph of out vs time for both pre-layout simulation and post layout simulation are similar. Pre-layout simulation considers zero net delays and parasitic capacitances, hence the timing values are more optimistic. Post- layout simulation includes parasitic capacitance and non-zero netdelays, hence the timing values are more accurate.
 
-## 4.iv LVS Report
+## 6. LVS Report
 
 The layout vs schematic compares the pre-layout netlist with the netlist extracted from the layout. The mismatch is due to the extra parasitic capacitances in the post-layout netlist. The report `comp.out` is obtained using Netgen by typing the following command.
 ```
@@ -526,6 +400,9 @@ It can be seen that except for 4 extra devices(Capacitances) and corresponding n
 
 
 ## References
+
 https://xschem.sourceforge.io/stefan/xschem_man/xschem_man.html
+
 http://opencircuitdesign.com/magic/
+
 http://opencircuitdesign.com/open_pdks/
