@@ -1,16 +1,5 @@
 # Here is the update of Week-1 of VSD Mixed-signal PD Research Program
-<!--
-|S.No.|Action Item|Status| 
-|--------|-------|-----------------------|
-|1|Install Oracle virtual box with Ubuntu 20.04|✅|
-|2|Install Magic, ngspice, and SKY130 PDKs|✅|
-|3|Create inverter and perform pre-layout using xschem or ngspice||
-|4|Inverter Post-layout characterization using 2)||
-|5|Enroll in FREE VSD-custom layout course |✅|
-|6|Create the design shown in section 7 of the course and perform pre-layout using xschem or ngspice with general pdks ||
-|7|Post layout characterization using ngspice with general pdks||
-|8|Update the findings on GitHub repo with the title “Week 1”|✅|
--->
+
 # Index
 - [Installation of Oracle Virtual Box with Ubuntu 22.04](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#1-installation-of-oracle-virtual-box-with-ubuntu-2204)
 - [Installation of required tools](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2-installation-of-tools-and-sky130-pdks)
@@ -19,9 +8,6 @@
   * [Netgen](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iii-netgen)
   * [Xschem](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iv-xschem)
   * [Open_PDKs](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2v-open_pdks)
-<!--
-  * [ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vi-align-tool)
--->
   * [Verifying the open_pdk installation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vii-verifiying-the-open_pdk-installation)
 - [Simulation of Inverter using Xschem and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3-simulation-of-inverter-using-xschem-and-ngspice)
   * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3i-pre-layout-simulation-using-xschem-and-ngspice)
@@ -175,66 +161,7 @@ Install open_pdks using the following commands.
 # Install the PDK
     $sudo make install
 ```
-<!--
-## 2.vi. ALIGN Tool
-ALIGN is an open source automatic layout generator for analog circuits. Install ALIGN and all its dependencies using the following commands.
 
-```
-# Home directory
-    $cd ~/msvd4bituc
-# Clone the ALIGN source
-    $git clone https://github.com/ALIGN-analoglayout/ALIGN-public
-    $cd ALIGN-public
-# Install virtual environment for python
-    $sudo apt -y install python3.8-venv
-# Install the latest pip
-    $sudo apt-get -y install python3-pip
-# Create python virtual envronment
-    $python3 -m venv general
-    $source general/bin/activate
-    $python3 -m pip install pip --upgrade
-    $pip install align
-    $pip install pandas
-    $pip install scipy
-    $pip install nltk
-    $pip install gensim
-    $pip install setuptools wheel pybind11 scikit-build cmake ninja
-# Install ALIGN as a user
-    $pip install -v .
-# Install ALIGN  as a developer
-    $pip install -e .
-    $pip install -v -e .[test] --no-build-isolation
-    $pip install wheel setuptools pip --upgrade
-    $pip3 install wheel setuptools pip --upgrade
-    $pip install -v --no-build-isolation -e . --no-deps --install-option='-DBUILD_TESTING=ON'
-```
-#### Making ALIGN Portable to Sky130 tehnology
-Clone the following Repository inside ALIGN-public directory
-```
-    $git clone https://github.com/ALIGN-analoglayout/ALIGN-pdk-sky130
-```
-Move SKY130_PDK folder to ~/VSD_4bituc/ALIGN-public/pdks.
-Everytime we start the tool in new terminal, run the following commands.
-
-```
-# Running ALIGN TOOL
-    $python -m venv general
-    $source general/bin/activate
-```
-Commands to run ALIGN (goto ALIGN-public directory)
-```
-    $mkdir work
-    $cd work
-```
-General syntax to give inputs
-```
-schematic2layout.py <NETLIST_DIR> -p <PDK_DIR> -c
-EXAMPLE 1:
-schematic2layout.py ../examples/telescopic_ota -p ../pdks/FinFET14nm_Mock_PDK/
-EXAMPLE 2:
-schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
-```
--->
 ## 2.vi. Verifiying the open_pdk installation
 An initial working directory can be made by copying the required files as follows:
 ```
