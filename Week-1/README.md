@@ -247,20 +247,7 @@ The timing parameters obtained from pre-layout simulations is tabulated below.
 |Cell Rise Delay|66.6 ps|
 |Cell Fall Delay|56.3 ps|
 
-
-# 4. Simulation of Inverter using Ngspice
-
-The tech file ['min2.tech']() and model file used [130nm BSIM4 model card for bulk CMOS](http://ptm.asu.edu/modelcard/2006/130nm_bulk.pm) has been for simulation of inverter and boolean function in the next section.
-
-## 4.i. Pre-layout Simulation of Inverter using Ngspice
-The figure shown the pre-layout netlist of the inverter
-
-<!-- ![image](https://user-images.githubusercontent.com/104830557/218102867-11f3b0fd-0f88-41c6-8e6e-430f0f9a5224.png) -->
-
-
-<!-- ![image](https://user-images.githubusercontent.com/104830557/218084345-fe34ce3e-eea0-4c61-a677-79e4abebec33.png) -->
-
-## 4.ii. Post-layout Simulation of Inverter using Ngspice
+## 3.ii. Post-layout Simulation of Inverter using Magic and Ngspice
 The layout  'inv.mag' was drawn in Magic as shown.
 <!-- ![image](https://user-images.githubusercontent.com/104830557/218103878-9ff2a9bf-27ee-4a01-b286-c82596e604c9.png) -->
 
@@ -278,7 +265,7 @@ Use `ngspice inv.spice`and `plot out vs time in` to get the following plot.
 
 <!-- ![image](https://user-images.githubusercontent.com/104830557/218082285-c7cc110d-a2ef-4f98-93bc-f9784ff3692e.png) -->
 
-## 4.iii. Comparison of Pre-layout and Post-layout timing parameters for inverter.
+## 4. Comparison of Pre-layout and Post-layout timing parameters for inverter.
 
 | Parameter    | Value from Pre-layout Simulation| Value from Post-layout Simulation|
 |----------|-----|-----|
@@ -287,7 +274,7 @@ Use `ngspice inv.spice`and `plot out vs time in` to get the following plot.
 |Cell Rise Delay|32.79 ps|41.29 ps|
 |Cell Fall Delay|4.3 ps|4.4 ps|
 
-## 4.iv LVS Report
+## 5. LVS Report
 The layout vs schematic compares the pre-layout netlist with the netlist extracted from the layout. The mismatch is due to the extra parasitic capacitances in the post-layout netlist. The report `comp.out` is obtained using Netgen by typing the following command.
 ```
 ~/VSD_4bituc/LAB1/netgen$ netgen -batch lvs INV_pre.spice INV_post.spice
