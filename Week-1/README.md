@@ -31,8 +31,8 @@
 - [Simulation of Inverter using Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-simulation-of-inverter-using-ngspice)
   * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4i-pre-layout-simulation-of-inverter-using-ngspice)
   * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4ii-post-layout-simulation-of-inverter-using-ngspice)
-  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#4iii-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
-  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/Week-1/blob/main/README.md#4iv-lvs-report)
+  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4iii-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
+  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4iv-lvs-report)
   
 # 1. Installation of Oracle Virtual Box with Ubuntu 22.04
 
