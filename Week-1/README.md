@@ -13,7 +13,7 @@
 -->
 # Index
 - [Installation of Oracle Virtual Box with Ubuntu 22.04](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#installation-of-oracle-virtual-box-with-ubuntu-2204)
-- [Install Magic, ngspice, and SKY130 PDKs](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#1-installation-of-tools-and-sky130-pdks)
+- [Installation of required tools](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#1-installation-of-tools-and-sky130-pdks)
   * [Magic](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#1a-magic)
   * [Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/README.md#1b-ngspice)
   * [Netgen](https://github.com/syedimaduddin/msvsd4bituc/edit/main/README.md#1c-netgen)
