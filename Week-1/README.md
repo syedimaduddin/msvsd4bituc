@@ -9,18 +9,11 @@
   * [Xschem](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2iv-xschem)
   * [Open_PDKs](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2v-open_pdks)
   * [Verifying the open_pdk installation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2vii-verifiying-the-open_pdk-installation)
-- [Simulation of Inverter using Xschem and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3-simulation-of-inverter-using-xschem-and-ngspice)
-  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3i-pre-layout-simulation-using-xschem-and-ngspice)
-    + [DC Analaysis of CMOS inverter](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ia-dc-analaysis-of-cmos-inverter)
-    + [Transient Analaysis of CMOS inverter](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ib-transient-analaysis-of-cmos-inverter)
-  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/Week-1/edit/main/README.md#2-pre-layout-simulation-using-xschem-and-ngspice)
-  * [Comparison of pre-layout and post-layout timing parameters]()
-  * [LVS Report]()  
 - [Simulation of Inverter using Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-simulation-of-inverter-using-ngspice)
-  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4i-pre-layout-simulation-of-inverter-using-ngspice)
-  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4ii-post-layout-simulation-of-inverter-using-ngspice)
-  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4iii-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
-  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4iv-lvs-report)
+  * [Pre-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3i-pre-layout-simulation-of-inverter-using-ngspice)
+  * [Post-layout Simulation](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ii-post-layout-simulation-of-inverter-using-ngspice)
+- [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
+- [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#5-lvs-report)
   
 # 1. Installation of Oracle Virtual Box with Ubuntu 22.04
 
