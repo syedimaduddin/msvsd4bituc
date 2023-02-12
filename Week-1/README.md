@@ -84,6 +84,7 @@ Download ngspice-39 tarball `ngspice-39.tar.gz`from [https://ngspice.sourceforge
 # Home directory
     $cd ~/msvd4bituc
     $tar -xzvf ngspice-39.tar.gz
+    $cd ngspice-39
     $mkdir release
     $cd release 
 # Update the system
@@ -97,7 +98,7 @@ Download ngspice-39 tarball `ngspice-39.tar.gz`from [https://ngspice.sourceforge
 # Install flex
     $sudo apt-get -y install flex
 # Install readlines library
-    $sudo apt-get -y install libreadlines6-dev
+    $sudo apt-get -y install libreadline-dev
 # Run configuration
     $../configure  --with-x --with-readline=yes --disable-debug
 # Build
@@ -110,25 +111,25 @@ Netgen is a tool for comparing netlists, a process known as LVS, which stands fo
 
 ```
 # Home directory
-cd ~/VSD_4bituc
+    $cd ~/msvd4bituc
 # Install GNU m4
-sudo apt-get install -y m4
+    $sudo apt-get install -y m4
 # Clone the repository
-git clone git://opencircuitdesign.com/netgen
-cd netgen
+    $git clone https://github.com/RTimothyEdwards/netgen
+    $cd netgen
 # Configure the package
-./configure
+    $./configure
 # Compile the package
-make
+    $make
 # Install the package
-sudo make install
+    $sudo make install
 ```
 ## 2.iv. Xschem
 Xschem is a schematic capture program, it allows creation of hierarchical representation of circuits with a top down approach. Install xschem and all its dependicies using the following commands. 
 
 ```
 # Home directory
-    $cd ~/VSD_4bituc
+    $cd ~/msvd4bituc
 # Update the system
     $sudo apt-get update 
 # Install flex and bison
@@ -154,7 +155,7 @@ Install open_pdks using the following commands.
 
 ```
 # Home directory
-    $cd ~/VSD_4bituc
+    $cd ~/msvd4bituc
 # Install setup-tools
     $sudo apt-get -y install python3-setuptools
 # Clone the Open PDK repository
@@ -172,7 +173,7 @@ ALIGN is an open source automatic layout generator for analog circuits. Install 
 
 ```
 # Home directory
-    $cd ~/VSD_4bituc
+    $cd ~/msvd4bituc
 # Clone the ALIGN source
     $git clone https://github.com/ALIGN-analoglayout/ALIGN-public
     $cd ALIGN-public
@@ -228,8 +229,8 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/
 ## 2.vii. Verifiying the open_pdk installation
 An initial working directory can be made by copying the required files as follows:
 ```
-$ mkdir LAB1
-$ cd LAB1
+$ mkdir Week1
+$ cd Week1
 $ mkdir mag
 $ mkdir netgen
 $ mkdir xschem
@@ -245,7 +246,7 @@ $ cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 # 3. Simulation of Inverter using Xschem and Ngspice
 Invoke Xschem by typing `xschem` as shown
 ```
-     ~/VSD_4bituc/LAB1/xschem$ xschem
+     ~/msvd4bituc/LAB1/xschem$ xschem
 ```
 
 <!-- ![image](https://user-images.githubusercontent.com/104830557/218099150-16d93b7a-4bfe-42de-99da-753df315fbc7.png) -->
