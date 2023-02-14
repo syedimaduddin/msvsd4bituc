@@ -12,8 +12,7 @@ Here is the update of Week-1 of VSD Mixed-signal PD Research Program
 - [Simulation of CMOS Inverter with SKY130 pdk](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3-simulation-of-inverter-using-xschem-and-ngspice)
   * [Pre-Layout Simulation of Inverter using Xschem and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3i-simulation-of-inverter-using-xschem-and-ngspice)
   * [Post-Layout Simulation of Inverter using Magic and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ii-post-layout-simulation-of-inverter-using-ngspice)
-  * [Comparison of pre-layout and post-layout timing parameters](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3iii-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
-  * [LVS Report](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3iv-lvs-report)
+  * [Comparison of Pre-Layout and Post-Layout timing parameters for Inverter](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
   
 # 1. Installation of Oracle Virtual Box with Ubuntu 22.04
 
@@ -353,7 +352,7 @@ When we expand at the 50% rise points(approximately selected), and click on the 
 
 Post Layout Delay = (1.66723 - 1.48739)ns = 0.17984ns (0.18ns approx).
 
-## Comparison of pre-LAYOUT  and post-LAYOUT
+# 4. Comparison of Pre-Layout and Post-Layout timing parameters for Inverter
 
 Input pulse specification in both 
 - Rise Time- 1ns
@@ -361,6 +360,7 @@ Input pulse specification in both
 - On time- 4ns
 - Period- 10ns
 
+Delay values for pre-layout and post-layout simulations
 - Pre-Layout Delay Vout-Vin - 0.20ns
 - Post-Layout Delay Vout-Vin - 0.18ns
 
