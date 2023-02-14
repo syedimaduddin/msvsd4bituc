@@ -211,7 +211,10 @@ The transient analysis of the inverter can be obtained by adding `.tran ` in the
 - on time - 4ns
 - period - 10ns
 
-Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created. Click on `Simulate` to run the simulation and obtain the out vs time and in vs time using `Vout vs time Vin` command in the ngspice terminal.
+Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created.
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/tran_prelayout_netlist.png)
+
+Click on `Simulate` to run the simulation and obtain the out vs time and in vs time using `Vout vs time Vin` command in the ngspice terminal.
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/ngspice_sch_transient.png)
 
 The graph shows the input and output variations with time. Timing parameters can be calculated from the graph below.
