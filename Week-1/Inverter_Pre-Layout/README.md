@@ -1,1 +1,1 @@
-Here is a schematic file created using Xschem tool, and sky130 pdk.
+Here are schematic file, and spice file generated using Xschem tool, and sky130 pdk.
