@@ -1,0 +1,45 @@
+* SPICE3 file created from inverter.ext - technology: sky130A
+** sch_path: /home/syedimaduddin/Desktop/Week-1/xschem/inverter.sch
+**.subckt inverter
+XM1 Vout Vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vout Vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+Vdd VDD GND 1.8
+.save i(vdd)
+Vin Vin GND pulse(0 1.8 1ns 1ns 1ns 4ns 10ns)
+.save i(vin)
+**** begin user architecture code
+
+.tran 0.01n 30n
+.save all
+
+
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**** end user architecture code
+**.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+
+
+.subckt inverter Vin Vdd Gnd Vout
+X0 Vout Vin Gnd VSUBS sky130_fd_pr__nfet_01v8 ad=1.218e+11p pd=1.42e+06u as=1.218e+11p ps=1.42e+06u w=420000u l=150000u
+X1 Vout Vin Vdd w_192_1556# sky130_fd_pr__pfet_01v8 ad=1.218e+11p pd=1.42e+06u as=1.218e+11p ps=1.42e+06u w=420000u l=150000u
+C0 Vin w_192_1556# 0.37fF
+C1 Vout Gnd 0.08fF
+C2 Vout Vdd 0.08fF
+C3 w_192_1556# Vout 0.14fF
+C4 Vin Gnd 0.11fF
+C5 Vin Vout 0.10fF
+C6 w_192_1556# Vdd 0.19fF
+C7 Vin Vdd 0.10fF
+C8 Vin VSUBS 0.34fF
+C9 Vout VSUBS 0.26fF
+C10 Vdd VSUBS 0.04fF
+C11 w_192_1556# VSUBS 0.91fF **FLOATING
+C12 Gnd VSUBS 0.22fF
+.ends

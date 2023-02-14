@@ -1,0 +1,55 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1676315893
+<< nwell >>
+rect 192 1556 234 1586
+<< metal1 >>
+rect 188 1904 404 1934
+rect 188 1586 220 1904
+rect 282 1652 354 1700
+rect 188 1556 258 1586
+rect 378 1556 598 1586
+rect 282 1478 354 1488
+rect 28 1448 354 1478
+rect 28 1316 58 1448
+rect 282 1440 354 1448
+rect -86 1276 58 1316
+rect 28 1124 58 1276
+rect 566 1316 598 1556
+rect 566 1276 690 1316
+rect 280 1124 354 1132
+rect 28 1094 354 1124
+rect 280 1086 354 1094
+rect 566 1028 598 1276
+rect 188 998 256 1028
+rect 376 998 598 1028
+rect 188 712 220 998
+rect 279 892 353 938
+rect 188 678 458 712
+use sky130_fd_pr__nfet_01v8_648S5X  XM1
+timestamp 1676315893
+transform 1 0 158 0 1 857
+box 0 0 1 1
+use sky130_fd_pr__pfet_01v8_XGS3BL  XM2
+timestamp 1676315893
+transform 1 0 527 0 1 813
+box 0 0 1 1
+use sky130_fd_pr__nfet_01v8_EDB9KC  sky130_fd_pr__nfet_01v8_EDB9KC_0
+timestamp 1676315893
+transform 1 0 316 0 1 1012
+box -211 -252 211 252
+use sky130_fd_pr__pfet_01v8_M479BZ  sky130_fd_pr__pfet_01v8_M479BZ_0
+timestamp 1676315893
+transform 1 0 318 0 1 1570
+box -211 -261 211 261
+<< labels >>
+rlabel metal1 -82 1296 -82 1296 3 Vin
+port 1 e
+rlabel metal1 400 1920 400 1920 1 Vdd
+port 2 n
+rlabel metal1 452 696 452 696 1 Gnd
+port 3 n
+rlabel metal1 680 1298 680 1298 1 Vout
+port 4 n
+<< end >>
