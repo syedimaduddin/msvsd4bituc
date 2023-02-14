@@ -225,57 +225,145 @@ The graph shows the input and output variations with time. Timing parameters can
 
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_prelayout_delay.png)
 
-The difference in coordinates give the pre-layout inverter delay values delay = (1.68969 - 1.48505)ns = 0.20464ns. So, approximate delay for the pre-layout inverter is 20ps. 
+The difference in coordinates give the pre-layout inverter delay values delay = (1.68969 - 1.48505)ns = 0.20464ns (0.20ns approx). 
 
 
 ## 3.ii. Post-layout Simulation of Inverter using Magic and Ngspice
-The layout  'inv.mag' was drawn in Magic as shown.
-<!-- ![image](https://user-images.githubusercontent.com/104830557/218103878-9ff2a9bf-27ee-4a01-b286-c82596e604c9.png) -->
-
-Extract the netlist from the layout using
+Create a working directory with sky130A.tech, .xschemrc and .sky130magicrc files or you can import these files to the MAGIC directory itself. Either way open the working directory and use the following command
 ```
+'MAGIC -T sky130A.tech
+```
+This opens up the tkcon and layout windows.
+
+In the Layout window import the spice netlist of your inverter(one which has pins and fets, and is the bottomost hierarchy of the inverter testbench)
+The metal input and output pins are imported and the nfet and pfet is imported. Then we press s (to select the pfet and nfet) and then press x (to make them visible).
+Now route the metal1 layer such that the layout is DRC free
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_layout.png)
+Now, go to File --> save and select autowrite. We're not done yet. Go to the command window and type the following:
+```
+extract do local
 extract all
-ext2spice rthesh 0 cthresh 0
+```
+Extract do local is an instruction to perform all extractions to the local directory and extract all does the actual extraction. We want our extraction for lvs to be in the spice format, so run the following commands.
+```
+ext2spice lvs
+ext2spice cthresh 0 rthresh 0
 ext2spice
 ```
-Simulate the spice file extracted from magic after modifications. 
+Now, we can close magic.
 
-<!-- ![image](https://user-images.githubusercontent.com/104830557/218105205-85ed2b21-1df1-4640-b39d-b40c4257add0.png) -->
+If we run an ls in this directory we should see our .ext files and .mag files for the 
+circuit - inverter.mag inverter.ext
+We can also see a .spice netlist. This inverter.spice netlist generated post layout contains the parasitics that were absent in pre-layout netlist.
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_netlist_from_magic.png)
 
-Use `ngspice inv.spice`and `plot out vs time in` to get the following plot.
-
-<!-- ![image](https://user-images.githubusercontent.com/104830557/218082285-c7cc110d-a2ef-4f98-93bc-f9784ff3692e.png) -->
-
-## 3.iv. Comparison of Pre-layout and Post-layout timing parameters for inverter.
-
-| Parameter    | Value from Pre-layout Simulation| Value from Post-layout Simulation|
-|----------|-----|-----|
-|Rise Time|40.8 ps|54.679 ps|
-|Fall Time|25.01 ps|26.97 ps|
-|Cell Rise Delay|32.79 ps|41.29 ps|
-|Cell Fall Delay|4.3 ps|4.4 ps|
-
-## 3.iv. LVS Report
-The layout vs schematic compares the pre-layout netlist with the netlist extracted from the layout. The mismatch is due to the extra parasitic capacitances in the post-layout netlist. The report `comp.out` is obtained using Netgen by typing the following command.
+Now we need to use our pre-layout spice witht he post-layout parasitics netlist and perform spice simulations.
+- Step I
+Paste the pre-layout netlist of inverter testbench into the magic generated inverter spice netlist
+### Pre- Layout Inverter Testbench Spice Netlist
 ```
-~/VSD_4bituc/LAB1/netgen$ netgen -batch lvs INV_pre.spice INV_post.spice
+** sch_path: /home/syedimaduddin/Desktop/Week-1/xschem/inverter.sch
+**.subckt inverter
+XM1 Vout Vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vout Vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+Vdd VDD GND 1.8
+.save i(vdd)
+Vin Vin GND pulse(0 1.8 1ns 1ns 1ns 4ns 10ns)
+.save i(vin)
+**** begin user architecture code
+.tran 0.01n 30n
+.save all
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end
 ```
-The content of the report is as shown.
+After selectively pasting this netlist into the inverter.spice generated(extracted) from Magic Tool, the inverter.spice netlist looks like this
+```
+* SPICE3 file created from inverter.ext - technology: sky130A
 
-Subcircuit summary:
-Circuit 1: INV_pre.spice                   |Circuit 2: INV_post.spice
--------------------------------------------|-------------------------------------------
-nmos (1)                                   |nmos (1)
-pmos (1)                                   |pmos (1)
-vsrc (2)                                   |vsrc (2)
-(no matching element)                      |c (5)
-Number of devices: 4 **Mismatch**          |Number of devices: 9 **Mismatch**
-Number of nets: 5                          |Number of nets: 5
+** sch_path: /home/syedimaduddin/Desktop/Week-1/xschem/inverter.sch
+**.subckt inverter
+XM1 Vout Vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vout Vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+Vdd VDD GND 1.8
+.save i(vdd)
+Vin Vin GND pulse(0 1.8 1ns 1ns 1ns 4ns 10ns)
+.save i(vin)
+**** begin user architecture code
+.tran 0.01n 30n
+.save all
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
 
-Netlists do not match.
-Cells have no pins;  pin matching not needed.
-Device classes INV_pre.spice and INV_post.spice are equivalent.
-Final result: Netlists do not match.
+.subckt inverter Vin Vdd Gnd Vout
+X0 Vout Vin Gnd VSUBS sky130_fd_pr__nfet_01v8 ad=1.218e+11p pd=1.42e+06u as=1.218e+11p ps=1.42e+06u w=420000u l=150000u
+X1 Vout Vin Vdd w_192_1556# sky130_fd_pr__pfet_01v8 ad=1.218e+11p pd=1.42e+06u as=1.218e+11p ps=1.42e+06u w=420000u l=150000u
+C0 Vin w_192_1556# 0.37fF
+C1 Vout Gnd 0.08fF
+C2 Vout Vdd 0.08fF
+C3 w_192_1556# Vout 0.14fF
+C4 Vin Gnd 0.11fF
+C5 Vin Vout 0.10fF
+C6 w_192_1556# Vdd 0.19fF
+C7 Vin Vdd 0.10fF
+C8 Vin VSUBS 0.34fF
+C9 Vout VSUBS 0.26fF
+C10 Vdd VSUBS 0.04fF
+C11 w_192_1556# VSUBS 0.91fF **FLOATING
+C12 Gnd VSUBS 0.22fF
+.ends
+```
+
+Open inverter.spice with ngspice
+```
+ngspice inverter.spice
+```
+run the following commands
+```
+run
+dsiplay   //list of plots available
+plot Vout vs time Vin
+```
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_postlayout_ngspice_cmd.png)
+
+
+The plot Vout vs time and Vin vs time is generated as below :
+
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_postlayout_trans.png)
+
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_postlayout_delay.png)
+
+
+We right click and stretch on the plots vin and vout. A new expkanded vin vs vout is generated. We expand until the vin and vout pulses are far apart. 
+When we expand at the 50% rise points(approximately selected), and click on the two plots, the x coordinate(time) and y coordinate(voltage) appears on ngspice. If we subtract them we get the required delay(post-layout).
+
+Post Layout Delay = (1.66723 - 1.48739)ns = 0.17984ns (0.18ns approx).
+
+## Comparison of pre-LAYOUT  and post-LAYOUT
+
+Input pulse specification in both 
+- Rise Time- 1ns
+- Fall Time- 1ns
+- On time- 4ns
+- Period- 10ns
+
+- Pre-Layout Delay Vout-Vin - 0.20ns
+- Post-Layout Delay Vout-Vin - 0.18ns
+
 
 
 ## References
