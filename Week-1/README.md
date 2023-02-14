@@ -201,20 +201,15 @@ The VTC is as shown.
 
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/vtc_plot.png)
 
-From the VTC, we get the values of the following parameters.
-
-$V_{OL}$= 0 V, $V_{IL}$= 750 mV V, $V_{IH}$= 921.8 mA V, $V_{OH}$= 1.8 V
-
-The obtained values can be used to calculate noise margins.
-
-NML = $V_{IL}$ - $V_{OL}$= 750 mV
-
-NMH = $V_{OH}$ - $V_{IH}$= 878 mV
-
 
 ### 3.i.b. Transient Analaysis of CMOS inverter
 The transient analysis of the inverter can be obtained by adding `.tran ` in the `code_shown.sym` block.
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_transient_sch.png)
+#### Input pulse properties
+- rise time - 1ns
+- fall time - 1ns
+- on time - 4ns
+- period - 10ns
 
 Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` from the menu to generate a spice file for the schematic created. Click on `Simulate` to run the simulation and obtain the out vs time and in vs time using `Vout vs time Vin` command in the ngspice terminal.
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/ngspice_sch_transient.png)
@@ -222,24 +217,13 @@ Go to `Options> Spice netlist` to set the netlist option. Click on `Netlist` fro
 The graph shows the input and output variations with time. Timing parameters can be calculated from the graph below.
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/transient_char_plot.png) 
 
-The timing parameters are calculated as
 
-Rise time = **time(@80 % of Vout)** - **time(@20% of Vout)**
+#### Calculation of Pre-layout Inverter delay using ngspice and plots. Clicking on the Vin and Vout curves give coordinates on the ngspice terminal
 
-Fall time = **time(@20 % of Vout)** - **time(@80% of Vout)**
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_prelayout_delay.png)
 
-Cell Rise Delay =**time taken by output to rise to its 50% value** - **time taken by the input to fall to its 50% value**
+The difference in coordinates give the pre-layout inverter delay values delay = (1.68969 - 1.48505)ns = 0.20464ns. So, approximate delay for the pre-layout inverter is 20ps. 
 
-Cell Rise Delay =**time taken by output to fall to its 50% value** - **time taken by the input to rise to its 50% value**
-
-The timing parameters obtained from pre-layout simulations is tabulated below.
-
-| Parameter    | Value| 
-|----------|-----|
-|Rise Time|82.1 ps|
-|Fall Time|4.1 ps|
-|Cell Rise Delay|66.6 ps|
-|Cell Fall Delay|56.3 ps|
 
 ## 3.ii. Post-layout Simulation of Inverter using Magic and Ngspice
 The layout  'inv.mag' was drawn in Magic as shown.
