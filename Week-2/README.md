@@ -1,1 +1,4 @@
-Here are week 2 updates
+# Function for pre-layout and post-layout simulation is: 
+```
+Fn = [(B + D).(A + C) + E.F]'
+```
