@@ -1,7 +1,13 @@
 ## Function for pre-layout and post-layout simulation
 ```
-Fn = [(B + D).(A + C) + E.F]'
+Y = [(B + D).(A + C) + E.F]'
 ```
+
+## Schematic of given function 'Y' using hands
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Schematic_by_hand.png)
+
+## Schematic of given function 'Y' using Xschem tool
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Schematic_by_Xschem.png)
 
 ## Installation of ALIGN Tool
 ```
