@@ -1,4 +1,4 @@
-### Function for pre-layout and post-layout simulation
+## Function for pre-layout and post-layout simulation
 ```
 Fn = [(B + D).(A + C) + E.F]'
 ```
