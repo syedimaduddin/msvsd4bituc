@@ -35,7 +35,8 @@ The function implementation using xschem is shown in below figure.
 The netlist extracted from xschem is shown below
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/prelayout_netlist_1.png)
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/prelayout_netlist_2.png)
-The output plots of the above netlist using ngspice is shown below
+
+The output plots of the above netlist using ngspice are shown below
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_1.png)
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_2.png)
 
