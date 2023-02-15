@@ -3,7 +3,7 @@
 Fn = [(B + D).(A + C) + E.F]'
 ```
 
-## Installation of Align Tool
+## Installation of ALIGN Tool
 ```
 # Home directory
     $cd ~/VSD_4bituc
