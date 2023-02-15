@@ -6,8 +6,39 @@ Y = [(B + D).(A + C) + E.F]'
 ## Schematic of given function 'Y' using hands
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Schematic_by_hand.png)
 
+## Setup environment for magic and xschem
+```
+$ mkdir Week2
+$ cd Week2
+$ mkdir mag
+$ mkdir netgen
+$ mkdir xschem
+$ cd xschem
+$ cp /usr/local/share/pdk/sky130A/libs.tech/xschem/xschemrc .
+$ cp /usr/local/share/pdk/sky130A/libs.tech/ngspice/spinit .spiceinit
+$ cd ../mag
+$ cp /usr/local/share/pdk/sky130A/libs.tech/magic/sky130A.magicrc .magicrc
+$ cd ../netgen
+$ cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
+```
+
 ## Schematic of given function 'Y' using Xschem tool
+```
+# Open the Week2 directory and write below commands
+$ cd xschem
+$ xschem
+```
+The function implementation using xschem is shown in below figure.
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Schematic_by_Xschem.png)
+
+## Pre-layout simulation using Xschem and Ngspice
+The netlist extracted from xschem is shown below
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/prelayout_netlist_1.png)
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/prelayout_netlist_2.png)
+The output plots of the above netlist using ngspice is shown below
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_1.png)
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_2.png)
+
 
 ## Installation of ALIGN Tool
 ```
