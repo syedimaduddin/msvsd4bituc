@@ -92,8 +92,6 @@ Commands to run ALIGN (goto ALIGN-public directory)
 General syntax to give inputs
 ```
 schematic2layout.py <NETLIST_DIR> -p <PDK_DIR> -c
-EXAMPLE 1:
-schematic2layout.py ../examples/telescopic_ota -p ../pdks/FinFET14nm_Mock_PDK/
-EXAMPLE 2:
+EXAMPLE:
 schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
 ```
