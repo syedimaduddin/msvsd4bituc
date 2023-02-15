@@ -23,8 +23,8 @@ $ cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 ```
 
 ## Schematic of given function 'Y' using Xschem tool
+Open the Week2 directory and write below commands
 ```
-# Open the Week2 directory and write below commands
 $ cd xschem
 $ xschem
 ```
