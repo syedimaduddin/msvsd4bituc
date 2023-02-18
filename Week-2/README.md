@@ -105,7 +105,12 @@ cd work
 schematic2layout.py ../ALIGN-pdk-sky130/examples/function -p ../pdks/SKY130_PDK/ --viewer
 ```
 A link is generated to view the layout. In addition, it generates a GDS file that can be viewed using klayout software as well as magic tool.
-Browser View is shown below
+
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_browser-view.png)
-Klayout view is shown below
+<p align="center"> Browser View of layout of the given function </p>
+
 ![image]()
+<p align="center"> Layout of the function in Klayout software </p>
+
+![image]()
+<p align="center"> Layout of the in magic tool </p>
