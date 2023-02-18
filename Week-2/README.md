@@ -107,10 +107,13 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/function -p ../pdks/SKY130_PDK/
 A link is generated to view the layout. In addition, it generates a GDS file that can be viewed using klayout software as well as magic tool.
 
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_browser-view.png"> </p>
-<p align="center"> Browser View of layout of the given function </p>
+<p align="center"> <strong>Browser View of layout of the given function</strong> </p>
 
-![image]()
-<p align="center"> Layout of the function in Klayout software </p>
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_in_klayout_lef.png"> </p>
+<p align="center"> <strong>Layout of the function in lef format in Klayout software</strong> </p>
 
-![image]()
-<p align="center"> Layout of the in magic tool </p>
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_in_klayout_gds.png"> </p>
+<p align="center"> <strong>Layout of the function in gds format in Klayout software</strong> </p>
+
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_in_magic.png"> </p>
+<p align="center"> <strong>Layout of the in magic tool</strong> </p>
