@@ -1,3 +1,17 @@
+# Index
+- [Function for pre-layout and post-layout simulation](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#function-for-pre-layout-and-post-layout-simulation)
+- [Schematic of given function 'Y' using hands](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#schematic-of-given-function-y-using-hands)
+- [Setup environment for magic and xschem](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#setup-environment-for-magic-and-xschem)
+- [Schematic of given function 'Y' using Xschem tool. Open the Week2 directory and write below commands](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#schematic-of-given-function-y-using-xschem-tool-open-the-week2-directory-and-write-below-commands)
+- [Pre-layout simulation using Xschem and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#pre-layout-simulation-using-xschem-and-ngspice)
+- [Installation of ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#installation-of-align-tool)
+- [Making ALIGN Portable to Sky130 tehnology](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#making-align-portable-to-sky130-tehnology)
+- [Post-layout simulation using ALIGN and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#post-layout-simulation-using-align-and-ngspice)
+- [Post-layout simulation using Magic and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#post-layout-simulation-using-magic-and-ngspice)
+- [Conclusion](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#conclusion)
+- [References](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#references)
+
+  
 ## Function for pre-layout and post-layout simulation
 ```
 Y = [(B + D).(A + C) + E.F]'
