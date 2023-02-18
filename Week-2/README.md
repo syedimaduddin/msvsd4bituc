@@ -34,6 +34,7 @@ The function implementation using xschem is shown in below figure.
 ## Pre-layout simulation using Xschem and Ngspice
 To view the netlist extracted from xschem Click Here👇
 <details><summary>Netlist:</summary>
+
 ```
 ** sch_path: /home/syedimaduddin/Desktop/VSD PD Research Program/Week-2/xschem/function.sch
 **.subckt function
