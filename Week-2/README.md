@@ -10,52 +10,6 @@ Y = [(B + D).(A + C) + E.F]'
 ```
 $ mkdir Week2
 $ cd Week2
-$ mkdir mag2
-
-```
-
-3
-
-Y = [(B + D).(A + C) + E.F]'
-
-4
-
-```
-
-5
-
-​
-
-6
-
-## Schematic of given function 'Y' using hands
-
-7
-
-<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Schematic_by_hand.png"> </p>
-
-8
-
-​
-
-9
-
-## Setup environment for magic and xschem
-
-10
-
-```
-
-11
-
-$ mkdir Week2
-
-12
-
-$ cd Week2
-
-13
-
 $ mkdir mag
 $ mkdir netgen
 $ mkdir xschem
@@ -68,8 +22,7 @@ $ cd ../netgen
 $ cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 ```
 
-## Schematic of given function 'Y' using Xschem tool
-Open the Week2 directory and write below commands
+## Schematic of given function 'Y' using Xschem tool. Open the Week2 directory and write below commands
 ```
 $ cd xschem
 $ xschem
