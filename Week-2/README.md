@@ -185,16 +185,16 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/function -p ../pdks/SKY130_PDK/
 A link is generated to view the layout. In addition, it generate LEF and GDS files which can be viewed using klayout software as well as magic tool.
 
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_browser-view.png"> </p>
-<p align="center"> <strong>Browser View of layout of the given function</strong> </p>
+<p align="center"> <strong>Browser View of ALIGN layout of the given function</strong> </p>
 
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_in_klayout_lef.png"> </p>
-<p align="center"> <strong>Layout of the function in lef format in Klayout software</strong> </p>
+<p align="center"> <strong>ALIGN layout of the function in lef format in Klayout software</strong> </p>
 
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_in_klayout_gds.png"> </p>
 <p align="center"> <strong>Layout of the function in gds format in Klayout software</strong> </p>
 
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_in_magic.png"> </p>
-<p align="center"> <strong>Layout of the given function in magic tool</strong> </p>
+<p align="center"> <strong>ALIGN layout of the given function in magic tool</strong> </p>
 
 
 To view the netlist extracted from the layout of ALIGN Click Here👇
