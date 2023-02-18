@@ -95,3 +95,17 @@ schematic2layout.py <NETLIST_DIR> -p <PDK_DIR> -c
 EXAMPLE:
 schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
 ```
+
+## Post-layout simulation using ALIGN and Ngspice
+The netlist of the function should be copied from xschem into the ALIGN-public/ALIGN-pdk-sky130/examples/function folder and renamed from .spice to .sp. Then make some edits to make it processable for ALIGN. In the ALIGN-public directory, run the following command
+```
+python -m venv general
+source general/bin/activate
+cd work
+schematic2layout.py ../ALIGN-pdk-sky130/examples/function -p ../pdks/SKY130_PDK/ --viewer
+```
+A link is generated to view the layout. In addition, it generates a GDS file that can be viewed using klayout software as well as magic tool.
+Browser View is shown below
+![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_browser-view.png)
+Klayout view is shown below
+![image]()
