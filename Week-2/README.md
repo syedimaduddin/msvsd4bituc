@@ -441,9 +441,14 @@ The output plots of the above netlist using ngspice are shown below
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Postlayout_Simulation_using_Align_2.png"> </p>
 
 ## Post-layout simulation using Magic and Ngspice
-The netlist of the function imported into the magic tool to generate the pfets and nfets. Then the connections were made in magic tool.
+To create the layout of the given function in magic tool firstly I have selected the euler's path as <strong>BDFECA</strong>. Stick Diagram for the layout of the function is shown below
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Stick_diagram_of_function.png"> </p>
+
+Now, the netlist of the function imported into the magic tool to generate the pfets and nfets. Then the connections were made in magic tool.
 <p align="center"> <img src=""> </p>
+
 After that the netlist will generated using the following commands
+
 ```
 extract do local
 extract all
