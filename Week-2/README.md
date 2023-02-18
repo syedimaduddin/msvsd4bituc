@@ -4,7 +4,7 @@ Y = [(B + D).(A + C) + E.F]'
 ```
 
 ## Schematic of given function 'Y' using hands
-![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Schematic_by_hand.png)
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Schematic_by_hand.png"> </p>
 
 ## Setup environment for magic and xschem
 ```
@@ -101,8 +101,8 @@ Vdd VDD GND 1.8
 </details><br>
 
 The output plots of the above netlist using ngspice are shown below
-![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_1.png)
-![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_2.png)
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_1.png"> </p>
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_2.png"> </p>
 
 
 ## Installation of ALIGN Tool
@@ -437,5 +437,28 @@ C47 m1_2720_560# GND 3.97fF
 </details><br>
 
 The output plots of the above netlist using ngspice are shown below
-![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Postlayout_Simulation_using_Align_1.png)
-![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Postlayout_Simulation_using_Align_2.png)
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Postlayout_Simulation_using_Align_1.png"> </p>
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Postlayout_Simulation_using_Align_2.png"> </p>
+
+## Post-layout simulation using Magic and Ngspice
+The netlist of the function imported into the magic tool to generate the pfets and nfets. Then the connections were made in magic tool.
+<p align="center"> <img src=""> </p>
+After that the netlist will generated using the following commands
+```
+extract do local
+extract all
+ext2spice hierarchy on
+ext2spice scale off
+ext2spice cthresh 0 rthresh 0
+ext2spice 
+```
+
+## Conclusion
+It can be concluded that pre-layout simulation and post-layout simulation produce slightly different waveforms. It is because parasitic capacitances and resistances are considered in post-layout simulations rather than in pre-layout simulations where they are ignored. There is also a difference between post-layout simulation using magic and ALIGN. ALIGN has a lower parasitic effect than Magic. The delay observed with Magic is greater than with ALIGN when running post-layout simulations.
+
+
+
+
+## References
+* https://github.com/ALIGN-analoglayout/ALIGN-public
+* http://opencircuitdesign.com/magic/
