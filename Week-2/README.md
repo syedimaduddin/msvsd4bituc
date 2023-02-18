@@ -116,4 +116,4 @@ A link is generated to view the layout. In addition, it generates a GDS file tha
 <p align="center"> <strong>Layout of the function in gds format in Klayout software</strong> </p>
 
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/align-layout_in_magic.png"> </p>
-<p align="center"> <strong>Layout of the in magic tool</strong> </p>
+<p align="center"> <strong>Layout of the given function in magic tool</strong> </p>
