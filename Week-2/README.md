@@ -115,8 +115,8 @@ Vdd VDD GND 1.8
 </details><br>
 
 The output plots of the above netlist using ngspice are shown below
-<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_1.png"> </p>
-<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_2.png"> </p>
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_using_Xschem_1.png"> </p>
+<p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-2/Images/Prelayout_Simulation_using_Xschem_2.png"> </p>
 
 
 ## Installation of ALIGN Tool
