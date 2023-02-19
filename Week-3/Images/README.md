@@ -1,1 +1,1 @@
-Here are the all images used in Readme of week 3
+Here are all the images used in Readme of week 3
