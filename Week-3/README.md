@@ -1,4 +1,23 @@
-Setting up the environment for OpenFASOC in Ubuntu 20.04
+# Index
+- [Installation of OpenFASOC](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#installation-of-openfasoc)
+- [Installation of Yosys](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#installation-of-yosys)
+- [Installation of OpenROAD](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#installation-of-openroad)
+- [Temperature Sensor Auxiliary Cells](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#temperature-sensor-auxiliary-cells)
+    * [Circuit Diagram of Temperature Sensor](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#circuit)
+    * [OpenFASOC flow for Temperature Sensor Generation](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#openfasoc-flow-for-temperature-sensor-generation)
+    * [Verilog Generation](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#verilog-generation)
+        - [Directory where verilog files are generated](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#directory-where-verilog-files-are-generated)
+    * [Synthesis](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#synthesis)
+    * [Floorplan](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#floorplan)
+    * [Placement](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#placement)
+        - [The Global Placement power and area report](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#the-global-placement-power-and-area-report-is-shown-below)
+        - [The Detail Placement power and area report](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#the-detail-placement-power-and-area-report-is-shown-below)
+    * [Routing](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#routing)
+        - [The Global route power and area report](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#the-global-route-power-and-area-report-is-shown-below)
+        - [The finished power and area report](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#the-finished-power-and-area-report-is-shown-below)
+    * [Final layout after routing](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#final-layout-after-routing)
+    * [Post-layout verification](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#post-layout-verification)
+- [References](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#references)
 
 ## Installation of OpenFASOC
 
