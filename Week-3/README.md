@@ -47,10 +47,10 @@ $ make
 $ sudo make install
 ```
 
-# 3. Temperature Sensor Auxiliary Cells
+# Temperature Sensor Auxiliary Cells
 An overview of how the Temperature Sensor Generator (temp-sense-gen) works internally in OpenFASoC
 
-## 3.1 Circuit
+## Circuit
 This generator creates a compact mixed-signal temperature sensor based on the topology from this paper. It consists of a ring oscillator whose frequency is controlled by the voltage drop over a MOSFET operating in subthreshold regime, where its dependency on temperature is exponential.
 
 <p align="center">
@@ -76,7 +76,7 @@ The layout of the SLC cell is shown below:
 </p>
 
 
-# OpenFASOC flow for Temperature Sensor Generation
+## OpenFASOC flow for Temperature Sensor Generation
 To configure circuit specifications, modify the test.json specfile in the generators/temp-sense-gen/ folder.
 
 To run the default generator, cd into openfasoc/generators/temp-sense-gen/ and execute the following command:
