@@ -67,12 +67,12 @@ The gds and lef files of HEADER and SLC cells are pre-created before the start o
 
 The layout of the HEADER cell is shown below:
 <p align="center">
-  <img width="1000" height="500" src="https://user-images.githubusercontent.com/110079890/207322258-561ed913-58b6-433c-bb46-4d8772cb8845.png">
+  <img width="1000" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/Header_Layout.png">
 </p>
 
 The layout of the SLC cell is shown below:
 <p align="center">
-  <img width="1000" height="500" src="https://user-images.githubusercontent.com/110079890/207323939-51a7531f-f1df-4e8f-af5f-6ae798c07a6c.png">
+  <img width="1000" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/SLC_Layout.png">
 </p>
 
 
@@ -102,7 +102,7 @@ The generator uses this model file to automatically determine the number of head
 The test.json file shown in the below screenshot corresponds to the temp_sense_gen.
 
 <p align="center">
-  <img width="1000" height="500" src="https://user-images.githubusercontent.com/110079890/200110700-17034822-61a6-4b29-aee5-09888bcde8ae.png">
+  <img width="1000" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/test_json.png">
 </p>
 
 In this file temperature is being varied from -20 C to 100 C.Based on the operating temperature range, generator calculates the number of header and inverters to minimize the error.
@@ -113,14 +113,17 @@ To replace these lines with the correct circuit elements, temp-sense-gen takes c
 
 The generator references the model file in an iterative process until either meeting specifications or failing.
 <p align="center">
-  <img width="1000" height="500" src="https://user-images.githubusercontent.com/110079890/207328599-f40c124e-06cc-4128-a0f8-1ab3808210be.png">
+  <img width="1000" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/temp_verilog_1.png">
+</p>
+<p align="center">
+  <img width="1000" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/temp_verilog_2.png">
 </p>
 
 As shown in the above picture, the tool is trying to minimize the error iteratively, by varying the number of inverters and headers for the given temperature range.
 
 #### Directory where verilog files are generated
 <p align="center">
-  <img width="700" height="500" src="https://user-images.githubusercontent.com/110079890/201682391-8468fd05-dfe6-408e-a94d-54da7b8c6a2c.png">
+  <img width="700" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/verilog_directory.png">
 </p>
 After running the `make sky130hd_temp_verilog` command the verilog files of counter.v, TEMP_ANALOG_hv.nl.v, TEMP_ANALOG_lv.nl.v are created in the src folder.
 
@@ -132,12 +135,12 @@ The OpenROAD Flow starts with a flow configuration file config.mk, the chosen pl
 
 The config.mk file is shown below:
 <p align="center">
-  <img width="1000" height="1000" src="https://user-images.githubusercontent.com/110079890/207945871-6812a6ed-9e19-48c8-8ea0-6b6689a6d9a0.png">
+  <img width="1000" height="1000" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/config_mk.png">
 </p>
 
 The synthesis is run using Yosys to find the appropriate circuit implementation from the available cells in the platform. The synthesized verilog netlist is saved as shown in the below figure.
 <p align="center">
-  <img width="2000" height="400" src="https://user-images.githubusercontent.com/110079890/207364136-3c0d4fe7-7620-4b9c-9329-225b65925228.png">
+  <img width="2000" height="400" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/synth_verilog.png">
 </p>
 
 ## Floorplan
@@ -145,13 +148,13 @@ The floorplan for the physical design is generated with OpenROAD, which requires
 
 The floorplan final power report is shown below:
 <p align="center">
-  <img width="700" height="500" src="https://user-images.githubusercontent.com/110079890/207365893-86f050f0-037f-4f2f-822f-78f02161d825.png">
+  <img width="700" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/floorplan_final_report_power.png">
 </p>
 
 This temperature sensor design implements two voltage domains: one for the VDD that powers most of the circuit, and another for the VIN that powers the ring oscillator and is an output of the HEADER cells. Such voltage domains are created within the floorplan.tcl script, with the following lines of code:
 
 <p align="center">
-  <img width="700" height="500" src="https://user-images.githubusercontent.com/110079890/207369337-441cabe9-8ff6-463b-ab31-ca984f2d6061.png">
+  <img width="700" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/floorplan_tcl.png">
 </p>
 
 In the image, line #34 will create a voltage domain named TEMP_ANALOG with area coordinates as defined in config.mk.
@@ -167,36 +170,36 @@ Placement takes place after the floorplan is ready and has two phases: global pl
 
 #### The Global Placement power and area report is shown below:
 <p align="center">
-  <img width="700" height="500" src="https://user-images.githubusercontent.com/110079890/207367846-cd120f44-d050-44ab-ad64-b3be19542531.png">
+  <img width="700" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/global_place_report_power.png">
 </p>
 
 #### The Detail Placement power and area report is shown below:
 <p align="center">
-  <img width="700" height="500" src="https://user-images.githubusercontent.com/110079890/207370865-49874446-01d1-499b-9ba3-0b531b416b04.png">
+  <img width="700" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/detailed_place_report_power.png">
 </p>
 
 ## Routing
 Routing is also divided into two phases: global routing and detailed routing. Right before global routing, OpenFASoC calls pre_global_route.tcl:
 <p align="center">
-  <img width="1000" height="500" src="https://user-images.githubusercontent.com/110079890/207374779-15b542d2-9b53-4b6d-9870-5c63a7b8d2fe.png">
+  <img width="1000" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/pre-global-route_tcl.png">
 </p>
 
 This script sources two other files: add_ndr_rules.tcl, which adds an NDR rule to the VIN net to improve routes that connect both voltage domains, and create_custom_connections.tcl, which creates the connection between the VIN net and the HEADER instances.
 
 #### The Global route power and area report is shown below:
 <p align="center">
-  <img width="700" height="500" src="https://user-images.githubusercontent.com/110079890/207372763-4d811680-c1f7-432d-84e8-b3c7a6f7e8cf.png">
+  <img width="700" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/global_route_report_power.png">
 </p>
 
 #### The finished power and area report is shown below:
 <p align="center">
-  <img width="700" height="500" src="https://user-images.githubusercontent.com/110079890/207377437-e6d78adc-05cb-476f-8751-db3d731d5dc7.png">
+  <img width="700" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/finish_report_power.png">
 </p>
 
 ## Final layout after routing:
 
 <p align="center">
-  <img width="700" height="500" src="https://user-images.githubusercontent.com/110079890/207379770-e9cb8f5f-b8ed-4ace-880e-266944286578.png">
+  <img width="700" height="500" src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/final_layout_after_routing.png">
 </p>
 
 
