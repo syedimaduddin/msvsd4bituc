@@ -6,6 +6,7 @@
 - [Pre-layout simulation using Xschem and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#pre-layout-simulation-using-xschem-and-ngspice)
 - [Installation of ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#installation-of-align-tool)
 - [Making ALIGN Portable to Sky130 tehnology](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#making-align-portable-to-sky130-tehnology)
+- [Installation of KLayout Viewer]()
 - [Post-layout simulation using ALIGN and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#post-layout-simulation-using-align-and-ngspice)
 - [Post-layout simulation using Magic and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#post-layout-simulation-using-magic-and-ngspice)
 - [Conclusion](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2#conclusion)
@@ -172,6 +173,14 @@ General syntax to give inputs
 schematic2layout.py <NETLIST_DIR> -p <PDK_DIR> -c
 EXAMPLE:
 schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
+```
+
+## Installation of KLayout Viewer
+Firstly, we have to download the klayout viewer from https://www.klayout.org/downloads/Ubuntu-20/klayout_0.28.5-1_amd64.deb then run the following commands in the download directory to install KLayout
+```
+# sudo dpkg -i /path_to_deb_file
+sudo dpkg -i /klayout_0.28.5-1_amd64.deb
+sudo apt-get install -f
 ```
 
 ## Post-layout simulation using ALIGN and Ngspice
