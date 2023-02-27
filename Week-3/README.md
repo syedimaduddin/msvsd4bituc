@@ -117,7 +117,7 @@ You may get this PDK_ROOT error while running the make command
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/PDK_ROOT_error.png"> </p>
 
 
-This error is due to wrong path given in <strong>temp-sense-gen/tools/temp-sense-gen.py</strong> file. To correct the path first open <strong>temp-sense-gen/tools</strong> folder then open the temp-sense-gen.py file in notepad and edit it as given blow 
+This error is due to wrong path given in <strong>temp-sense-gen/tools/temp-sense-gen.py</strong> file. To correct the path first open <strong>temp-sense-gen/tools</strong> folder then open the <strong>temp-sense-gen.py</strong> file in notepad and edit it as given blow 
 <p align="center"> <strong>Change the os.getenv("PDK_ROOT") and os.environ["PDK_ROOT"]</strong> </p>
 <p align="center"> <img src="https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-3/Images/temp_without_change.png"> </p>
 
