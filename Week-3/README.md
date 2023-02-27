@@ -111,8 +111,18 @@ The default circuit’s physical design generation can be divided into three par
 3. Post-layout verification (DRC and LVS)
 
 ## Verilog Generation
-To run verilog generation, type the command
-`make sky130hd_temp_verilog`
+To run verilog generation, type the command `make sky130hd_temp_verilog`
+
+You may get this PDK_ROOT error while running the make command
+<p align="center"> <img src=""> </p>
+
+
+This error is due to wrong path given in tools/temp-sense-gen.py file. To correct the path first open the terminal in temp-sense-gen/tools folder then open the temp-sense-gen.py file in notepad and edit it as given blow 
+<p align="center"> <strong>Change the os.getenv("PDK_ROOT") and os.environ["PDK_ROOT"]</strong> </p>
+<p align="center"> <img src=""> </p>
+
+<p align="center"> <strong>Create a new variable named PDK_ROOT and give a string of path to sky130 folder</strong> </p>
+<p align="center"> <img src=""> </p>
 
 The generator must first parse the user’s requirements into a high-level circuit description or verilog. User input parsing is implemented by reading from a JSON spec file directly in the temp-sense-gen repository. The JSON allows for specifying power, area, maximum error (temperature result accuracy), an optimization option (to choose which option to prioritize), and an operating temperature range (minimum and maximum operating temperature values). The operating temperature range and optimization must be specified, but other items can be left blank.
 
