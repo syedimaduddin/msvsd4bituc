@@ -4,8 +4,8 @@ A ring oscillator is a self-toggling circuit that generates clock-like pulses wi
 
 <img src="./Images/ring_oscillator_schematic.png">
 
-To view the netlist extracted from xschem Click Here👇
-<details><summary>**Netlist of the Ring Oscillator:**</summary>
+To view the netlist extracted from xschem, Click Here👇
+<details><summary>Netlist of the Ring Oscillator</summary>
 
 ```
 ** sch_path: /home/syedimaduddin/Desktop/VSD_PD_Research_Program/Week-4/xschem/ring_oscillator.sch
