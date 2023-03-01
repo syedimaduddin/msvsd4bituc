@@ -2,19 +2,56 @@
 
 A ring oscillator is a self-toggling circuit that generates clock-like pulses without any external input, other than the power that it needs. This is created by cascading inverters back to back in odd numbers (so that the next output is different than the previous). Following figure shows the design of a 3-stage ring oscillator created in **Xschem**. 
 
-<img src="">
+<img src="./Images/ring_oscillator_schematic.png">
 
-This circuit generates the netlist: 
+To view the netlist extracted from xschem Click Here👇
+<details><summary>**Netlist of the Ring Oscillator:**</summary>
 
-Then, the above circuit can be simulated using Xschem by creating the following testbench.
+```
+** sch_path: /home/syedimaduddin/Desktop/VSD_PD_Research_Program/Week-4/xschem/ring_oscillator.sch
+**.subckt ring_oscillator
+XM1 net1 out GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 out net2 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net1 out VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM6 out net2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+Vdd VDD GND 1.8
+.save i(vdd)
+**** begin user architecture code
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.tran 1p 3n 0
+.control
+  run
+  print allv > plot_data_v.txt
+  print alli > plot_data_i.txt
+  plot v(out)
+.endc
+.save all
+**** end user architecture code
+**.ends
+.GLOBAL VDD
+.GLOBAL GND
+.end
+```
+</details>
 
-<img src="">
 
-The netlist for the complete testbench with the ring oscillator is here: [ring_oscillator.spice]()
+Running the simulation for 3ns with a 1ps steps, we get the following output waveform. 
 
-Running the simulation for 4 nanoseconds, we get the following output waveform. 
-
-<img src="">
+<img src="./Images/ring_oscillator_output.png">
 
 <br><br>
 
