@@ -88,9 +88,12 @@ Now, we get gds file of ring oscillator layout and it will be opened in Magic by
 When we extract the spice netlist, using the below commands: 
 
 ```
+extract do local
 extract all
+ext2spice hierarchy on
+ext2spice scale off
 ext2spice cthresh 0 rthresh 0
-ext2spice
+ext2spice 
 ```
 
 Then, we get this netlist
