@@ -240,20 +240,13 @@ Now route the metal1 layer such that the layout is DRC free
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_layout.png)
 Now, go to File --> save and select autowrite. We're not done yet. Go to the command window and type the following:
 ```
-extract do local
 extract all
-```
-Extract do local is an instruction to perform all extractions to the local directory and extract all does the actual extraction. We want our extraction for lvs to be in the spice format, so run the following commands.
-```
-ext2spice lvs
 ext2spice cthresh 0 rthresh 0
 ext2spice
 ```
 Now, we can close magic.
 
-If we run an ls in this directory we should see our .ext files and .mag files for the 
-circuit - inverter.mag inverter.ext
-We can also see a .spice netlist. This inverter.spice netlist generated post layout contains the parasitics that were absent in pre-layout netlist.
+We can see a .spice netlist. This inverter.spice netlist generated post layout contains the parasitics that were absent in pre-layout netlist.
 ![image](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/Images/inverter_netlist_from_magic.png)
 
 Now we need to use our pre-layout spice witht he post-layout parasitics netlist and perform spice simulations.
@@ -286,29 +279,8 @@ Vin Vin GND pulse(0 1.8 1ns 1ns 1ns 4ns 10ns)
 After selectively pasting this netlist into the inverter.spice generated(extracted) from Magic Tool, the inverter.spice netlist looks like this
 ```
 * SPICE3 file created from inverter.ext - technology: sky130A
-
 ** sch_path: /home/syedimaduddin/Desktop/Week-1/xschem/inverter.sch
 **.subckt inverter
-XM1 Vout Vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM2 Vout Vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-Vdd VDD GND 1.8
-.save i(vdd)
-Vin Vin GND pulse(0 1.8 1ns 1ns 1ns 4ns 10ns)
-.save i(vin)
-**** begin user architecture code
-.tran 0.01n 30n
-.save all
-.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-**** end user architecture code
-**.ends
-.GLOBAL GND
-.GLOBAL VDD
-
-.subckt inverter Vin Vdd Gnd Vout
 X0 Vout Vin Gnd VSUBS sky130_fd_pr__nfet_01v8 ad=1.218e+11p pd=1.42e+06u as=1.218e+11p ps=1.42e+06u w=420000u l=150000u
 X1 Vout Vin Vdd w_192_1556# sky130_fd_pr__pfet_01v8 ad=1.218e+11p pd=1.42e+06u as=1.218e+11p ps=1.42e+06u w=420000u l=150000u
 C0 Vin w_192_1556# 0.37fF
@@ -322,9 +294,27 @@ C7 Vin Vdd 0.10fF
 C8 Vin VSUBS 0.34fF
 C9 Vout VSUBS 0.26fF
 C10 Vdd VSUBS 0.04fF
-C11 w_192_1556# VSUBS 0.91fF **FLOATING
+C11 w_192_1556# VSUBS 0.91fF 
 C12 Gnd VSUBS 0.22fF
-.ends
+Vdd VDD GND 1.8
+.save i(vdd)
+Vin Vin GND pulse(0 1.8 1ns 1ns 1ns 4ns 10ns)
+.save i(vin)
+**** begin user architecture code
+
+.tran 0.01n 30n
+.save all
+
+
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**** end user architecture code
+**.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+
+.end
 ```
 
 Open inverter.spice with ngspice
