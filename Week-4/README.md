@@ -91,6 +91,7 @@ ext2spice
 
 To view the netlist extracted from ALIGN layout Click Here👇
 <details><summary>Netlist:</summary>
+  
 ```
 * SPICE3 file created from RING_OSCILLATOR_0.ext - technology: sky130A
 
@@ -132,6 +133,7 @@ C20 m1_398_2912# VSUBS 8.15fF **FLOATING
 
 Then, adding the design to a testbench as shown in this  
 <details><summary>Netilist:</summary>
+  
 ```
 ** sch_path: /home/syedimaduddin/Desktop/VSD_PD_Research_Program/Week-4/xschem/ring_oscillator.sch
 **.subckt ring_oscillator
@@ -180,12 +182,14 @@ We can then go ahead and create a layout manually using Magic. To do that, we fi
 
 We then extract the netlist and get this
 <details><summary>Netlist:</summary>
+  
 ```
 ```
 </details>
 
 Then, repeating the same steps that we followed in simulating ALIGN generated netlist, we create this testbench
 <details><summary>Netlist:</summary>
+  
 ```
 ```
 </details>
