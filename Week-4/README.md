@@ -170,7 +170,7 @@ Vdd VDD GND 1.8
 </details
 
 Output waveform from above post layout simulation using ALIGN
-<img src="./Images/ring_oscillator_align_waveform">
+<img src="./Images/ring_oscillator_align_waveform.png">
 
 <br><br>
 
