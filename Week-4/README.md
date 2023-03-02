@@ -295,6 +295,6 @@ We get the following waveform as the result of the simulation of ring oscillator
 
 <img src="./Images/ring_oscillator_magic_waveform.png">
 
-And, this output validates the working of out layout created in Magic.
+And, this output validates the working of the ring oscillator layout created in Magic.
 
 <!--## Analaysis of the ring oscillator pre-layout and post-layout results-->
