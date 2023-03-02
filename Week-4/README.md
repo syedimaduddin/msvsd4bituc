@@ -32,7 +32,8 @@ Vdd VDD GND 1.8
 .save i(vdd)
 **** begin user architecture code
 .lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.tran 1p 3n
+.ic V(out)=0
+.tran 1p 1n
 .save all
 **** end user architecture code
 **.ends
@@ -44,7 +45,7 @@ Vdd VDD GND 1.8
 
 Running the simulation for 3ns with a 1ps steps, we get the following output waveform. 
 
-<img src="./Images/ring_oscillator_output.png">
+<img src="./Images/ring_oscillator_output_waveform.png">
 
 <br><br>
 
