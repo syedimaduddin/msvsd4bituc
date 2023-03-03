@@ -1,5 +1,5 @@
 # Index
-- [Ring oscillator circuit desing in Xschem](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#ring-oscillator-circuit-desing-in-xschem)
+- [Ring oscillator circuit design in Xschem](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#ring-oscillator-circuit-desing-in-xschem)
 - [Generating layout for ring oscillator using ALIGN](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#generating-layout-for-ring-oscillator-using-align)
 - [Layout for the ring oscillator using Magic](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#generating-layout-for-ring-oscillator-using-align)
 - [Ring oscillator pre-layout and post-layout comparison](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-4/README.md#ring-oscillator-pre-layout-and-post-layout-comparison)
@@ -64,13 +64,13 @@ Running the simulation for 3ns with a 1ps steps, we get the following output wav
 We can then move on to generating the layout for the ring oscillator using ALIGN layout tool. The first thing that we need to do is to modify the netlist that we got from Xschem into the following. The edited netlist is given below
 
 ```
-.subckt ring_oscillator out VDD GND
-XM1 net1 out GND GND sky130_fd_pr__nfet_01v8 L=150e-09 w=10.5e-7 nf=2
-XM2 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 w=10.5e-7 nf=2
-XM3 out net2 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 w=10.5e-7 nf=2
-XM4 net1 out VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 w=10.5e-7 nf=2
-XM5 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 w=10.5e-7 nf=2
-XM6 out net2 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 w=10.5e-7 nf=2
+.subckt ring_oscillator OUT VDD GND
+XM1 net1 OUT GND GND sky130_fd_pr__nfet_01v8 L=150e-09 w=10.5e-7 nf=10 m=1
+XM2 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 w=10.5e-7 nf=10 m=1
+XM3 OUT net2 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 w=10.5e-7 nf=10 m=1
+XM4 net1 OUT VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 w=10.5e-7 nf=10 m=1
+XM5 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 w=10.5e-7 nf=10 m=1
+XM6 OUT net2 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 w=10.5e-7 nf=10 m=1
 .ends ring_oscillator
 ```
 
