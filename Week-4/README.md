@@ -308,7 +308,9 @@ And, this output validates the working of the ring oscillator layout created in 
 
 <!--## Analaysis of the ring oscillator pre-layout and post-layout results-->
 
-
+## Ring oscillator pre-layout and post-layout comparison
+According to the waveforms of the pre-layout simulation (using Xschem) and post-layout simulation (using Magic) of the ring oscillator, the post-layout simulation time-period is longer (due to capacitances). Afterwards, post-layout simulation results in a reduction in voltage magnitude.
+  
 ## Conclusion
 
 
