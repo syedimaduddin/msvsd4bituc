@@ -20,6 +20,7 @@
 - [References](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3#references)
 
 ## Installation of OpenFASOC
+In OpenFASOC we will use: **Yosys** for logic synthesis, **Openroad** for placing and routing, **Klayout** to produce the final GDS file, **Magic** for DRC and LVS checks as well as PEX, **Ngspice** for simulation
 
 ```
 $ git clone https://github.com/idea-fasoc/openfasoc
