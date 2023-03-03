@@ -2,6 +2,7 @@
 - [Ring oscillator circuit desing in Xschem](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#ring-oscillator-circuit-desing-in-xschem)
 - [Generating layout for ring oscillator using ALIGN](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#generating-layout-for-ring-oscillator-using-align)
 - [Layout for the ring oscillator using Magic](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#generating-layout-for-ring-oscillator-using-align)
+- [Ring oscillator pre-layout and post-layout comparison](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-4/README.md#ring-oscillator-pre-layout-and-post-layout-comparison)
 - [Conclusion](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-4/README.md#conclusion)
 - [References](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-4/README.md#references)
 
