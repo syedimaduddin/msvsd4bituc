@@ -5,6 +5,8 @@
 - [Conclusion](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-4/README.md#conclusion)
 - [References](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-4/README.md#references)
 
+<br><br>
+
 ## Ring oscillator circuit design in Xschem
 
 Ring oscillator generates clock-like pulses without external input except for the power it needs. A ring oscillator is a self-toggling circuit that generates clock-like pulses without external input. Inverters are cascaded back to back in odd numbers (so that the next output is different from the previous output). A 3-stage ring oscillator designed in Xschem can be seen in the following figure. 
