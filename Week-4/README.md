@@ -106,39 +106,76 @@ To view the netlist extracted from ALIGN layout Click Here👇
 ```
 * SPICE3 file created from RING_OSCILLATOR_0.ext - technology: sky130A
 
-X0 li_405_1579# STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=2.94e+11p pd=2.66e+06u as=1.6695e+12p ps=1.578e+07u w=1.05e+06u l=150000u
-X1 VSUBS STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# li_405_1579# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
-X2 STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# m1_688_4424# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=2.94e+11p pd=2.66e+06u as=0p ps=0u w=1.05e+06u l=150000u
-X3 VSUBS m1_688_4424# STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
-X4 li_405_1579# STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# m1_398_2912# m1_398_2912# sky130_fd_pr__pfet_01v8 ad=2.94e+11p pd=2.66e+06u as=1.6695e+12p ps=1.578e+07u w=1.05e+06u l=150000u
-X5 m1_398_2912# STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# li_405_1579# m1_398_2912# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
-X6 STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# m1_688_4424# m1_398_2912# m1_398_2912# sky130_fd_pr__pfet_01v8 ad=2.94e+11p pd=2.66e+06u as=0p ps=0u w=1.05e+06u l=150000u
-X7 m1_398_2912# m1_688_4424# STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# m1_398_2912# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
-X8 m1_688_4424# li_405_1579# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=2.94e+11p pd=2.66e+06u as=0p ps=0u w=1.05e+06u l=150000u
-X9 VSUBS li_405_1579# m1_688_4424# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
-X10 m1_688_4424# li_405_1579# m1_398_2912# m1_398_2912# sky130_fd_pr__pfet_01v8 ad=2.94e+11p pd=2.66e+06u as=0p ps=0u w=1.05e+06u l=150000u
-X11 m1_398_2912# li_405_1579# m1_688_4424# m1_398_2912# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
-C0 m1_688_4424# VDD 0.32fF
-C1 VDD STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# 0.03fF
-C2 m1_688_4424# li_405_1579# 0.44fF
-C3 STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# li_405_1579# 0.57fF
-C4 li_405_1579# m1_398_2912# 2.02fF
-C5 STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# GND 0.15fF
-C6 VDD li_405_1579# 1.31fF
-C7 STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# OUT 0.00fF
-C8 VDD GND 0.24fF
-C9 GND li_405_1579# 0.14fF
-C10 VDD OUT 0.24fF
-C11 OUT li_405_1579# 0.01fF
-C12 m1_688_4424# STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# 0.59fF
-C13 m1_688_4424# m1_398_2912# 2.17fF
-C14 OUT GND 0.02fF
-C15 STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# m1_398_2912# 3.01fF
-C16 VDD VSUBS 0.16fF
-C17 m1_688_4424# VSUBS 2.47fF **FLOATING
-C18 li_405_1579# VSUBS 1.73fF **FLOATING
-C19 STAGE2_INV_91993238_0_0_1677700627_0/li_491_571# VSUBS 0.49fF **FLOATING
-C20 m1_398_2912# VSUBS 8.15fF **FLOATING
+X0 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=1.47e+12p pd=1.33e+07u as=5.1975e+12p ps=4.77e+07u w=1.05e+06u l=150000u
+X1 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X2 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X3 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X4 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X5 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X6 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X7 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X8 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X9 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X10 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=1.47e+12p pd=1.33e+07u as=0p ps=0u w=1.05e+06u l=150000u
+X11 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X12 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X13 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X14 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X15 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X16 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X17 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X18 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X19 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X20 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=1.47e+12p pd=1.33e+07u as=5.1975e+12p ps=4.77e+07u w=1.05e+06u l=150000u
+X21 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X22 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X23 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X24 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X25 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X26 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X27 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X28 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X29 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X30 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=1.47e+12p pd=1.33e+07u as=0p ps=0u w=1.05e+06u l=150000u
+X31 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X32 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X33 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X34 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X35 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X36 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X37 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X38 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X39 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X40 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=1.47e+12p pd=1.33e+07u as=0p ps=0u w=1.05e+06u l=150000u
+X41 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X42 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X43 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X44 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X45 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X46 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X47 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X48 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X49 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X50 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=1.47e+12p pd=1.33e+07u as=0p ps=0u w=1.05e+06u l=150000u
+X51 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X52 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X53 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X54 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X55 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X56 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X57 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X58 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X59 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+C0 VDD OUT 8.55fF
+C1 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# 8.51fF
+C2 m1_828_1568# OUT 1.84fF
+C3 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# 1.83fF
+C4 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT 1.49fF
+C5 m1_828_1568# VDD 7.87fF
+C6 OUT GND 6.41fF 
+C7 m1_828_1568# GND 6.52fF 
+C8 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND 5.34fF 
+C9 VDD GND 17.11fF 
 ```
 </details>
 
@@ -146,37 +183,86 @@ Then, adding the design to a testbench as shown in this
 <details><summary>Netilist:</summary>
   
 ```
-** sch_path: /home/syedimaduddin/Desktop/VSD_PD_Research_Program/Week-4/xschem/ring_oscillator.sch
-**.subckt ring_oscillator
-XM1 net1 out GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM2 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM3 out net2 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM4 net1 out VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM5 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM6 out net2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-Vdd VDD GND 1.8
-.save i(vdd)
+* SPICE3 file created from RING_OSCILLATOR_0.ext - technology: sky130A
+V1 VDD GND 1.8
+x1 OUT GND VDD ring_oscillator
 **** begin user architecture code
+.ic V(OUT)=0
+.tran 1p 1n
 .lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.tran 1p 3n
-.save all
 **** end user architecture code
-**.ends
-.GLOBAL VDD
-.GLOBAL GND
-.end
+.subckt ring_oscillator OUT GND VDD
+X0 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=1.47e+12p pd=1.33e+07u as=5.1975e+12p ps=4.77e+07u w=1.05e+06u l=150000u
+X1 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X2 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X3 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X4 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X5 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X6 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X7 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X8 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X9 GND STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X10 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=1.47e+12p pd=1.33e+07u as=0p ps=0u w=1.05e+06u l=150000u
+X11 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X12 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X13 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X14 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X15 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X16 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X17 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X18 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X19 GND OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X20 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=1.47e+12p pd=1.33e+07u as=5.1975e+12p ps=4.77e+07u w=1.05e+06u l=150000u
+X21 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X22 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X23 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X24 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X25 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X26 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X27 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X28 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# m1_828_1568# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X29 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X30 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=1.47e+12p pd=1.33e+07u as=0p ps=0u w=1.05e+06u l=150000u
+X31 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X32 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X33 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X34 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X35 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X36 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X37 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X38 VDD OUT STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X39 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X40 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=1.47e+12p pd=1.33e+07u as=0p ps=0u w=1.05e+06u l=150000u
+X41 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X42 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X43 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X44 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X45 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X46 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X47 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X48 VDD m1_828_1568# OUT VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X49 OUT m1_828_1568# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X50 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=1.47e+12p pd=1.33e+07u as=0p ps=0u w=1.05e+06u l=150000u
+X51 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X52 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X53 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X54 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X55 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X56 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X57 OUT m1_828_1568# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X58 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+X59 GND m1_828_1568# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.05e+06u l=150000u
+C0 VDD OUT 8.55fF
+C1 VDD STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# 8.51fF
+C2 m1_828_1568# OUT 1.84fF
+C3 m1_828_1568# STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# 1.83fF
+C4 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# OUT 1.49fF
+C5 m1_828_1568# VDD 7.87fF
+C6 OUT GND 6.41fF 
+C7 m1_828_1568# GND 6.52fF 
+C8 STAGE2_INV_62673116_0_0_1677810101_0/li_1179_1495# GND 5.34fF 
+C9 VDD GND 17.11fF 
+.ends
 ```
 </details
 
