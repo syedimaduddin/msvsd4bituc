@@ -396,10 +396,10 @@ And, this output validates the working of the ring oscillator layout created in 
 <!--## Analaysis of the ring oscillator pre-layout and post-layout results-->
 
 ## Ring oscillator pre-layout and post-layout comparison
-According to the waveforms of the pre-layout simulation (using Xschem) and post-layout simulation (using Magic) of the ring oscillator, the post-layout simulation time-period is longer (due to capacitances). Afterwards, post-layout simulation results in a reduction in voltage magnitude.
+According to the waveforms of the pre-layout simulation (using Xschem) and post-layout simulation (using ALIGN & Magic) of the ring oscillator, the post-layout simulation time-period is longer (due to capacitances). Afterwards, post-layout simulation results in a reduction in voltage magnitude. We can also compare between post-layout simulation using ALIGN and Magic, as in ALIGN we got less time period than Magic also the magnitude of voltage is more in ALIGN.
   
 ## Conclusion
-
+Using the XSchem tool, I designed a schematic for a Ring Oscillator (3-stage) and obtained the desired output using Ngspice. Next we used ALIGN to convert netlist into layout in GDS format, then we used Magic to convert GDS into netlist again (with parasitics) to see the waveform of its output using Ngspice. It has been noticed that the output of the ALIGN tool is the same, but the time period of the oscillator has been increased, which reduces the maximum operating speed. Following the design of a custom layout for the Ring Oscillator, the output of the Magic is observed using Ngspice, which is similar to ALIGN but it has a longer time period. Therefore, we can say that ALIGN does a good job owing to the fact that it requires less effort and delivers satisfactory results.
 
 ## References
 * 
