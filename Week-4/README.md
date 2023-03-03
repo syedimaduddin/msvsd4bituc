@@ -53,7 +53,7 @@ Vdd VDD GND 1.8
 ```
 </details>
 
-Running the simulation for 3ns with a 1ps steps, we get the following output waveform. 
+Running the simulation for 1ns with a 1ps steps, we get the following output waveform. 
 
 <img src="./Images/ring_oscillator_output_waveform.png">
 
