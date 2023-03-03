@@ -1,6 +1,13 @@
-## Ring oscillator circuit desing in Xschem
+# Index
+- [Ring oscillator circuit desing in Xschem](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#ring-oscillator-circuit-desing-in-xschem)
+- [Generating layout for ring oscillator using ALIGN](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#generating-layout-for-ring-oscillator-using-align)
+- [Layout for the ring oscillator using Magic](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4#generating-layout-for-ring-oscillator-using-align)
+- [Conclusion](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-4/README.md#conclusion)
+- [References](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-4/README.md#references)
 
-It generates clock-like pulses without external input except for the power it needs. A ring oscillator is a self-toggling circuit that generates clock-like pulses without external input. Inverters are cascaded back to back in odd numbers (so that the next output is different from the previous output). A 3-stage ring oscillator designed in Xschem can be seen in the following figure. 
+## Ring oscillator circuit design in Xschem
+
+Ring oscillator generates clock-like pulses without external input except for the power it needs. A ring oscillator is a self-toggling circuit that generates clock-like pulses without external input. Inverters are cascaded back to back in odd numbers (so that the next output is different from the previous output). A 3-stage ring oscillator designed in Xschem can be seen in the following figure. 
 
 <img src="./Images/ring_oscillator_schematic.png">
 
@@ -298,3 +305,10 @@ We get the following waveform as the result of the simulation of ring oscillator
 And, this output validates the working of the ring oscillator layout created in Magic.
 
 <!--## Analaysis of the ring oscillator pre-layout and post-layout results-->
+
+
+## Conclusion
+
+
+## References
+* 
