@@ -1,5 +1,3 @@
-# Week 4 
-
 ## Index
 - [1 bit ADC](#1-bit-adc)
     * [Comparator Pre-Layout using Xschem](#comparator-pre-layout-using-xschem)
