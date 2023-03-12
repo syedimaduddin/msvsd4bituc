@@ -1,499 +1,302 @@
-# To Do Task WEEK 4
+# Week 4 
 
-1) As, we have created and verified the ring oscillator analog block of 4 Bit Asynchromous UP Counter in week 3 . Similarly , now we first need to create the 1 bit ADC which is another Analog Block in 4 bit asynchronous UP Counter . 
+## Index
+- [1 bit ADC](#1-bit-adc)
+    * [Comparator Pre-Layout using Xschem](#comparator-pre-layout-using-xschem)
+        + [150nm Comparator Design](#150nm-comparator-design)
+        + [Ring_Oscillator](#ring_oscillator)
+        + [Simulation ADC with Ring Oscillator](#simulation-adc-with-ring-oscillator)
+        + [Output](#output)
+    * [ALIGN Flow](#comparator-pre-layout-using-xschem)
+        + [RING_OSCILLATOR ALIGN SPICE Netlist](#ring_oscillator-align-spice-netlist)
+        + [ADC ALIGN SPICE Netlist](#adc-align-spice-netlist)
+        + [Simulation ADC with Ring Oscillator](#simulation-adc-with-ring-oscillator)
+        + [Magic View ADC ](#magic-view-adc)
+        + [Magic Generated Netlist](#magic-generated-netlist)
+            + [Pre-Layout Simulation with Sine Wave](#pre-layout-simulation-with-sine-wave)
+            + [Post-Layout Simulation with Sine Wave](#post-layout-simulation-with-sine-wave)
+        + [Lef & GDS File For OpenFASoC Flow](#lef--gds-file-for-openfasoc-flow)
+- [OpenFASoC Flow Verilog File](#openfasoc-flow-verilog-file)
+<!-- - [Creating inverter schematic using xschem](#creating-inverter-schematic-using-xschem)
+    * [Pre-Layout Simulation](#pre-layout-simulation)
+        + [Creating and simulating testbench Schematic](#creating-and-simulating-testbench-schematic)
+    * [Post-Layout Simulation](#post-layout-simulation)
+    * [Comparison of Pre-layout and Post-layout timing parameters for inverter](#comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
+    * [LVS Report](#lvs-report)
+     -->
 
---> For more details of 4 Bit Asynchronous Counter you can refer or visit this Repo  : https://github.com/syedimaduddin/4-bit_Asynchronous_Up_Counter_using_Mixed-Signal
 
-means , we need to create the 1 bit ADC first in xschem and also need to generate it's layout using ALIGN Tool Flow as done previously . And also need to verify the it's pre-layout and post layout simulation waveform .
+## 1 bit ADC
 
+### Comparator Pre-Layout using Xschem
+Circuit 
+#### 150nm Comparator Design
+![image](https://user-images.githubusercontent.com/83899035/224003631-a6767338-2379-40ba-b9ba-5a74d9de9567.png)
 
-### Analog Block  1 Bit ADC Circuit Diagram in Xschem 
+##### Ring_Oscillator
+![image](https://user-images.githubusercontent.com/83899035/224004372-b951437b-c905-4e66-aa1d-7852880d1c71.png)
 
-In this design, 4 bit Asynchronous UP Counter using mixed signal - The Analog Block is 1 bit ADC ,Ring Oscillator and Digital Block is T Flip Flop .
+#### Simulation ADC with Ring Oscillator
+![xschem_final](https://user-images.githubusercontent.com/83899035/224003368-c8e269ed-56e9-4df8-aa0f-6c0b9d2ffca2.png)
 
-1 Bit ADC 
-
-1 bit ADC is a type of Analog to Digital Converter circuit which basically converts the Analog Signal into the Digital signal means it takes any type of analog signal as input and gives the square or Digital signal in output .
-
-Here, in our case I have designed the 1 Bit ADC using Opamp means Opamp as a comparator is used . And this Opamp is designed uaing the CMOS which is a combination of NMOS and PMOS.
-
- <p align="center">
-<img src="">
- </p> 
-<p align="center">
-Fig 1 1 Bit ADC   
-</p>
-
- <p align="center">
-<img src="https://user-images.githubusercontent.com/90523478/224198511-4fa6f9a2-95db-474e-baf8-26294370756d.png">
- </p> 
-<p align="center">
-Fig 2 Opamp as a comparator circuit Diagram in Xschem  
-</p>
-
---> Netlist Generated from Xschem of Opamp as comparator is given below :
+For view The Full Netlist Here👇
+<details><summary>Netlist</summary>
 
 ```
-** sch_path: /home/vanshikatanwar/Desktop/Lab_1/xschem_lab/opamp_as_comparator.sch
-**.subckt opamp_as_comparator
-XM1 net1 in1 net3 net3 sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM3 out net4 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM4 net2 in2 net3 net3 sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM2 net3 net4 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM5 net4 net4 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM6 net2 net1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM7 net1 net1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM8 out net2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM9 net4 net4 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-V1 vdd GND 1.8
-.save i(v1)
-V2 vss GND 0
-.save i(v2)
-V3 in1 GND 1.2
-.save i(v3)
-V4 in2 GND sin(1.5 1.5 50MEG 0.5n)
-.save i(v4)
-** begin user architecture code
+XM1 net1 INP VCC VCC sky130_fd_pr__pfet_01v8 L=1.2 W=2.52 nf=1 
+XM2 net2 net1 VCC VCC sky130_fd_pr__pfet_01v8 L=1.2 W=2.52 nf=1 
+XM3 INP net2 VCC VCC sky130_fd_pr__pfet_01v8 L=1.2 W=2.52 nf=1 
+XM4 net1 INP GND GND sky130_fd_pr__nfet_01v8 L=1.2 W=2.52 nf=1 
+XM5 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=1.2 W=2.52 nf=1 
+XM6 INP net2 GND GND sky130_fd_pr__nfet_01v8 L=1.2 W=2.52 nf=1 
+XM7 net3 net3 VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=0.63 nf=1 
+XM8 net4 net3 VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=0.63 nf=1 
+XM9 net3 INN net5 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.63 nf=1 
+XM10 net4 INP net5 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.63 nf=1 
+XM11 net5 net6 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.63 nf=1 
+XM12 net7 net4 VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=0.63 nf=1 
+XM13 net7 net4 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.63 nf=1 
+XM14 net8 net7 VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=0.63 nf=1 
+XM15 net8 net7 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.63 nf=1 
+XM16 OUT net8 VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=0.63 nf=1 
+XM17 OUT net8 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.63 nf=1 
 
-.tran 4n 100n
-.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.save all
+V1 VCC GND 1.8
+V2 net6 GND 0.9
+V3 INN GND 1
 
+.lib ~/open_pdks/sources/sky130-pdk/libraries/sky130_fd_pr/latest/models/sky130.lib.spice tt
+.options savecurrents
+.control
+tran 1n 100n
+*set color0=rgb:f/f/f
+*set color1=rgb:0/0/0
+plot  v(inp) v(out) v(inn)
+.endc
 
-** end user architecture code
-**.ends
 .GLOBAL GND
 .end
 ```
-Simulated Result of 1 bit ADC in Xschem with transient Analysis 
+</details>
+
+![image](https://user-images.githubusercontent.com/83899035/224007341-59f63af1-2ebe-479d-8309-b4a55559a3bd.png)
+##### Output
+![image](https://user-images.githubusercontent.com/83899035/224007574-c923b93b-25f6-4fbe-80dc-026ba96192a4.png)
 
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/90523478/224199189-da63c628-aba8-4fc0-a276-4af272cdd32b.png">
- </p> 
-<p align="center">
-Fig 3 Ngspice Window view at the time of simulation    
-</p>
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/90523478/224199917-77befe4d-ff17-4a6a-899b-f12e715a7c13.png">
- </p> 
-<p align="center">
-Fig 3 Ngspice Window view for plotting waveform at the time of simulation    
-</p>
+### ALIGN Flow
 
---> Waveform Displayed after Simulation 
+#### RING_OSCILLATOR ALIGN SPICE Netlist
+Netlist
+```
+.subckt ring_oscillator VCC GND INP
+M1 net1 INP VCC VCC sky130_fd_pr__pfet_01v8 L=1200-9 W=25.2e-7
+M2 net2 net1 VCC VCC sky130_fd_pr__pfet_01v8 L=1200-9 W=25.2e-7
+M3 INP net2 VCC VCC sky130_fd_pr__pfet_01v8 L=1200-9 W=25.2e-7
+M4 net1 INP GND GND sky130_fd_pr__nfet_01v8 L=1200-9 W=25.2e-7
+M5 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=1200-9 W=25.2e-7
+M6 INP net2 GND GND sky130_fd_pr__nfet_01v8 L=1200-9 W=25.2e-7
+.ends
+```
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/90523478/224199429-79f4db96-d999-4013-8182-8f4644279335.png">
- </p> 
-<p align="center">
-Fig 4 Output Waveform displayed of 1 Bit ADC after simulation     
-</p>
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/90523478/224199733-7f2289f7-18bb-40bc-b753-cdfeea801678.png">
- </p> 
-<p align="center">
-Fig 4 Combined Input and Output Waveform displayed of 1 Bit ADC after simulation in Xschem    
-</p>
+|.gds|.lef|
+|-|-|
+|![image](https://user-images.githubusercontent.com/83899035/224212506-f19957ff-dd81-4e91-8e26-60716b07c1f1.png)|![image](https://user-images.githubusercontent.com/83899035/224212636-a5e869f4-d6ca-4f04-9ad3-18d6b15e16b2.png)|
 
 
-## Generating Layout of 1 Bit ADC which Opamp as a Comparator ADC using ALIGN Tool 
+#### ADC ALIGN SPICE Netlist
+Netlist 
+```
+.subckt comparator OUT VCC GND INP INN BIAS
+M1 net1 net1 VCC VCC sky130_fd_pr__pfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M2 net2 net1 VCC VCC sky130_fd_pr__pfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M3 net1 INN net3 GND sky130_fd_pr__nfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M4 net2 INP net3 GND sky130_fd_pr__nfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M5 net3 BIAS GND GND sky130_fd_pr__nfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M6 net4 net2 VCC VCC sky130_fd_pr__pfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M7 net4 net2 GND GND sky130_fd_pr__nfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M8 net5 net4 VCC VCC sky130_fd_pr__pfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M9 net5 net4 GND GND sky130_fd_pr__nfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M10 OUT net5 VCC VCC sky130_fd_pr__pfet_01v8 L=150e-9 W=8.4e-7 nf=4
+M11 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=150e-9 W=8.4e-7 nf=4
+.ends
+```
 
-Now, our next step is to generate the layout of Opamp as a Comparator ADC using ALIGN Tool . For  generating it we need to follow some steps : -
-
-   1) We first need to do some changes in the netlist which we got from the xschem as this netlist is given in the input of ALIGN Tool.
-   2) After done changes in the netlist , save that netlist with ".sp" extension under the ALIGN-public/ALIGN-pdk-sky130/examples/ring_osc directory 
-
-   As, in my case I have first created the folder with the name "*ring_osc*" under the directory  /Desktop/vsd_3FADC/ALIGN-public/ALIGN-pdk-sky130/examples and then,    save the modified netlist under this *ALIGN-public/ALIGN-pdk-sky130/examples/ring_osc* directory with the name "*ring_osc.sp*".
-    
-   3) Now, after saving the modified netlist, we need to run the ALIGN Layout Generator for our design Ring Oscillator using these commands:
-    
-    First go under this directory - /Desktop/vsd_3FADC/ALIGN-public
-    and then, run the folowing commands which are given below: -
-    ```
-    source general/bin/activate
-    cd work
-    schematic2layout.py ../ALIGN-pdk-sky130/examples/opamp_as_comparator -p ../pdks/SKY130_PDK/
-    ```
-   4) After , running this command, the GDS and LEF file is generated under work directory of ALIGN-public directory .
-   5) We will use klayout for observing the generated GDS and LEF file.
-   6) And , also after this we need to open the .GDS file of Ring Oscillator which we get from ALIGN Tool in Magic also, for observing the Layout of Ring Oscillator.
-       For opening the GDS file in magic , First open the Magic Tool with sky130 tech and then go to *File-->Read GDS -->Go to the file location          
-       /home/vanshikatanwar/Desktop/vsd_3FADC/ALIGN-public/work* select *RING_OSC_0.python.gds* file and click on *Open* it. 
-       Then, it opens up the layout of Ring oscilator in magic and press i so , that the whole layout is selected .
-   7) Now , we need to extract the Spice Netlist from ALIGN Layout . For extrating the netlist , go to Tkcon window and write the following commands which are given below: -
-        ```
-        extract do local
-        extract all
-        ext2spice lvs
-        ext2spice cthresh 0 rthresh 0
-        ext2spice
-        ```
-   8) Now, modify the extracted netlist from ALIGN Layout means we need to modify that netlist which is just extracted from magic tool using above commands 
-   9) Just copy and paste the content of xschem generated spice netlist into the above generated netlist . And after modifying save that netlist.
-   10) Now, open the new terminal and open Ngspice in that terminal by executing this command "ngspice" the Ngspice terminal window opens up 
-   11) Now, open your modified ring oscillator spice file uisng this command "*modified_RING_OSC.spice*" 
-   12) Then, *run* execute this in Ngspice window itself.
-   13)  After this *Plot Vout* run this command and then your waveform will be displayed in front of you.
-   14)  Match the genrated waveform wih the waveform generated from xschem . If both waveform matches then, you can proceed to next step if not then, first solve
-           the error and then move to further steps .
-         
-         
-         ### Below are the Steps by steps process shown with SS of the steps which I have explained above: 
-         
-         Step 1 Modified Netlist of opamp as comparator for ALIGN TOOL Input
-         ```
-         .subckt opamp_as_comparator in1 in2 out vdd vss
-         XM1 net1 in1 net3 net3 sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         XM2 net3 net4 vss vss sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         XM3 out net4 vss vss sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         XM4 net2 in2 net3 net3 sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         XM5 net4 net4 vss vss sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         XM6 net2 net1 vdd vdd sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         XM7 net1 net1 vdd vdd sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         XM8 out net2 vdd vdd sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         XM9 net4 net4 vdd vdd sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-         .ends opamp_as_comparator
-         
-         ```
-          
-          Step 2  Modified Netlist save
-          
-          Save the modified netlist under this *ALIGN-public/ALIGN-pdk-sky130/examples/opamp_as_comparator* directory with the name "*ring_osc.sp*".
-          
-          Step 3 Running the ALIGN Tool Generator for our design Opamp as a Comparator ADC
-          
-          <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224200899-0e58e40d-9eee-4055-af86-ccc603dd3efa.png">
-          </p> 
-          <p align="center">
-                Fig 5  Running the ALIGN Tool Generator    
-          </p>
-          
-          <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224201073-7c7d138d-138d-440b-8944-7d2aa95c3369.png">
-          </p> 
-          <p align="center">
-                Fig 6  Running the ALIGN Tool Generator
-          </p>
-          
-          Step 4 Generated GDS and LEF under work directory 
-          
-          <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224201341-f4cc957f-b20a-469c-8c02-e88764bad559.png">
-          </p> 
-          <p align="center">
-                Fig 7  Generated GDS and LEF file under work directory
-          </p>
-          
-          Step 5 Klayout Observation of GDS and LEF File
-           
-          <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224201512-032ebe0a-5876-4a63-9cf1-e9f856c185ab.png">
-          </p> 
-          <p align="center">
-                Fig 8  .GDS file view in Klayout
-          </p>
-          
-          
-          <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224201639-7188840c-8ae7-4831-bcaf-d0696627d979.png">
-          </p> 
-          <p align="center">
-                Fig 9  Back side .GDS design view in Klayout
-          </p>
-          
-           <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224201917-ea97e477-92dd-4b29-ae44-e402632f7a4b.png">
-          </p> 
-          <p align="center">
-                Fig 9  .python.GDS file view in Klayout
-          </p>
-          
-          <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224202060-2a5b9f1f-5cdf-49da-9b56-c5f9decc7f68.png">
-          </p> 
-          <p align="center">
-                Fig 10  .LEF file view in Klayout
-          </p>
-          
-          Step 6 Opening of Layout of Opamp as Comparator ADC .i.e., .gds file in Magic Tool
-          
-          <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224202407-400e3879-d4d8-406f-a85a-1420443f8c33.png">
-          </p> 
-          <p align="center">
-                Fig 11  Opening of .GDS file view in Magic Tool
-          </p> 
-          
-         Step 7 Extracting the netlist of gds file (layout of ring oscillator which opens in Magic Tool)
-         
-         <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224202754-7bd925c5-c961-4b27-891f-0c35a2d8a0cd.png">
-          </p> 
-          <p align="center">
-                Fig 13  Tkcon window view for extracting the Netlist 
-          </p>
-          
-         Extracted Netlist from ALIGN Layout is shown below:-
-          ```
-           * NGSPICE file created from OPAMP_AS_COMPARATOR.ext - technology: sky130A
-
-                                  .subckt OPAMP_AS_COMPARATOR
-                                  X0 w_1032_1512# a_230_2352# a_230_2352# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X1 a_746_2352# a_230_2352# w_1032_1512# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X2 a_147_2352# a_716_561# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=2.814 pd=26.36 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X3 a_716_561# a_716_561# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.147 pd=1.33 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X4 a_746_2352# a_716_2073# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                                  X5 a_230_2352# a_230_2352# w_1032_1512# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                                  X6 a_230_2352# a_200_2073# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                                  X7 a_147_2352# a_716_2073# a_746_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X8 a_147_2352# a_200_2073# a_230_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X9 a_147_2352# a_716_561# a_716_561# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X10 w_1032_1512# a_230_2352# a_746_2352# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X11 a_1434_840# a_746_2352# w_1032_1512# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                                  X12 w_1032_1512# a_746_2352# a_1434_840# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X13 a_147_2352# a_716_561# a_1434_840# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  X14 a_1434_840# a_716_561# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                                  X15 a_716_561# a_716_561# w_1032_1512# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                                  X16 a_147_2352# a_716_561# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0.27825 ps=2.63 w=1.05 l=0.15
-                                  X17 w_1032_1512# a_716_561# a_716_561# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                                  C0 a_1434_840# a_716_561# 0.23fF
-                                  C1 w_1032_1512# a_716_561# 2.33fF
-                                  C2 w_1032_1512# a_1434_840# 1.15fF
-                                  C3 w_1032_1512# a_200_2073# 0.00fF
-                                  C4 a_230_2352# a_746_2352# 0.67fF
-                                  C5 a_716_2073# a_746_2352# 0.12fF
-                                  C6 a_716_561# a_746_2352# 0.01fF
-                                  C7 a_1434_840# a_746_2352# 0.10fF
-                                  C8 w_1032_1512# a_746_2352# 2.70fF
-                                  C9 a_200_2073# a_746_2352# 0.00fF
-                                  C10 a_716_2073# a_230_2352# 0.06fF
-                                  C11 a_230_2352# a_716_561# 0.01fF
-                                  C12 a_716_2073# a_716_561# 0.01fF
-                                  C13 a_230_2352# a_1434_840# 0.00fF
-                                  C14 w_1032_1512# a_230_2352# 2.65fF
-                                  C15 w_1032_1512# a_716_2073# 0.04fF
-                                  C16 a_200_2073# a_230_2352# 0.12fF
-                                  C17 a_200_2073# a_716_2073# 0.04fF
-                                  C18 a_716_561# a_147_2352# 3.12fF
-                                  C19 a_1434_840# a_147_2352# 0.37fF
-                                  C20 a_746_2352# a_147_2352# 0.48fF
-                                  C21 a_230_2352# a_147_2352# 1.15fF
-                                  C22 a_716_2073# a_147_2352# 0.80fF
-                                  C23 a_200_2073# a_147_2352# 0.82fF
-                                  C24 w_1032_1512# a_147_2352# 7.65fF
-                                  .ends
-           ```
-                                       
-           
-           Step 8 and Step 9 Modifying the extracted Netlist from ALIGN Layout and saving that modified netlist 
-          
-          Modified netlist is shown below:
-          ```
-          
-                    * NGSPICE file created from OPAMP_AS_COMPARATOR.ext - technology: sky130A
-
-                    ** sch_path: /home/vanshikatanwar/Desktop/Lab_1/xschem_lab/opamp_as_comparator.sch
-                    **.subckt opamp_as_comparator
-                    XM1 net1 in1 net3 net3 sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    XM3 out net4 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    XM4 net2 in2 net3 net3 sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    XM2 net3 net4 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    XM5 net4 net4 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    XM6 net2 net1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    XM7 net1 net1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    XM8 out net2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    XM9 net4 net4 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-                    + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-                    + sa=0 sb=0 sd=0 mult=1 m=1
-                    V1 vdd GND 1.8
-                    .save i(v1)
-                    V2 vss GND 0
-                    .save i(v2)
-                    V3 in1 GND 1.2
-                    .save i(v3)
-                    V4 in2 GND sin(1.5 1.5 50MEG 0.5n)
-                    .save i(v4)
-                    ** begin user architecture code
-
-                    .tran 4n 100n
-                    .lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-                    .save all
+|.gds|.lef|
+|-|-|
+|![image](https://user-images.githubusercontent.com/83899035/224010204-ff049680-a4a4-42a8-a72b-733c101fb8b9.png)|![image](https://user-images.githubusercontent.com/83899035/224010537-28a942d3-a399-4cb7-b74c-493e96fab2f7.png) |
 
 
-                    ** end user architecture code
-                    **.ends
-                    .GLOBAL GND
-                    .end
+
+### Magic View ADC 
+
+![magic_adc](https://user-images.githubusercontent.com/83899035/224213152-7adbccbc-7faa-4248-8c39-5b3bc7370b25.png)
+
+#### Magic Generated Netlist
+For view The Full Netlist Here👇
+<details><summary>Netlist</summary>
+
+```
+* SPICE3 file created from COMPARATOR_0.ext - technology: sky130A
+
+X1 OUT VCC GND INP INN BIAS COMPARATOR_0
+
+V2 VCC GND 1.8
+V3 INN GND 1
+V4 INP GND sine(0 1.8 100000000)
+V1 BIAS GND 0.9
+
+.lib ~/open_pdks/sources/sky130-pdk/libraries/sky130_fd_pr/latest/models/sky130.lib.spice tt
+*.options savecurrents
+.control
+tran 0.1n 100n
+plot v(out) v(inp)
+.endc
+
+.subckt COMPARATOR_0 OUT VCC GND INP INN BIAS
+X0 m1_828_1316# INP m1_430_1652# GND sky130_fd_pr__nfet_01v8 ad=2.352e+11p pd=2.24e+06u as=1.1256e+12p ps=1.108e+07u w=840000u l=150000u
+X1 m1_430_1652# INP m1_828_1316# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X2 li_491_1495# INN m1_430_1652# GND sky130_fd_pr__nfet_01v8 ad=2.352e+11p pd=2.24e+06u as=0p ps=0u w=840000u l=150000u
+X3 m1_430_1652# INN li_491_1495# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X4 li_491_1495# li_491_1495# VCC VCC sky130_fd_pr__pfet_01v8 ad=2.352e+11p pd=2.24e+06u as=2.016e+12p ps=1.992e+07u w=840000u l=150000u
+X5 VCC li_491_1495# li_491_1495# VCC sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X6 m1_828_1316# li_491_1495# VCC VCC sky130_fd_pr__pfet_01v8 ad=2.352e+11p pd=2.24e+06u as=0p ps=0u w=840000u l=150000u
+X7 VCC li_491_1495# m1_828_1316# VCC sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X8 li_2125_1411# STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# GND GND sky130_fd_pr__nfet_01v8 ad=2.352e+11p pd=2.24e+06u as=1.7808e+12p ps=1.768e+07u w=840000u l=150000u
+X9 GND STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# li_2125_1411# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X10 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# m1_828_1316# GND GND sky130_fd_pr__nfet_01v8 ad=2.352e+11p pd=2.24e+06u as=0p ps=0u w=840000u l=150000u
+X11 GND m1_828_1316# STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X12 li_2125_1411# STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# VCC VCC sky130_fd_pr__pfet_01v8 ad=2.352e+11p pd=2.24e+06u as=0p ps=0u w=840000u l=150000u
+X13 VCC STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# li_2125_1411# VCC sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X14 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# m1_828_1316# VCC VCC sky130_fd_pr__pfet_01v8 ad=2.352e+11p pd=2.24e+06u as=0p ps=0u w=840000u l=150000u
+X15 VCC m1_828_1316# STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# VCC sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X16 m1_430_1652# BIAS GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X17 GND BIAS m1_430_1652# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X18 OUT li_2125_1411# GND GND sky130_fd_pr__nfet_01v8 ad=2.352e+11p pd=2.24e+06u as=0p ps=0u w=840000u l=150000u
+X19 GND li_2125_1411# OUT GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+X20 OUT li_2125_1411# VCC VCC sky130_fd_pr__pfet_01v8 ad=2.352e+11p pd=2.24e+06u as=0p ps=0u w=840000u l=150000u
+X21 VCC li_2125_1411# OUT VCC sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=840000u l=150000u
+C0 INN li_2125_1411# 0.00fF
+C1 OUT li_2125_1411# 0.66fF
+C2 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# INP 0.00fF
+C3 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# m1_430_1652# 0.00fF
+C4 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# li_491_1495# 0.01fF
+C5 li_2125_1411# VCC 2.93fF
+C6 BIAS m1_430_1652# 0.11fF
+C7 m1_828_1316# li_2125_1411# 0.03fF
+C8 BIAS li_491_1495# 0.05fF
+C9 INN STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# 0.00fF
+C10 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# OUT 0.00fF
+C11 INN BIAS 0.00fF
+C12 m1_430_1652# INP 0.12fF
+C13 li_491_1495# INP 0.00fF
+C14 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# VCC 2.60fF
+C15 m1_430_1652# li_491_1495# 1.01fF
+C16 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# m1_828_1316# 0.71fF
+C17 INN INP 0.04fF
+C18 OUT INP 0.00fF
+C19 BIAS VCC 0.08fF
+C20 BIAS m1_828_1316# 0.00fF
+C21 INN m1_430_1652# 0.13fF
+C22 OUT m1_430_1652# 0.00fF
+C23 INN li_491_1495# 0.11fF
+C24 OUT li_491_1495# 0.00fF
+C25 VCC INP 0.04fF
+C26 m1_828_1316# INP 0.15fF
+C27 m1_430_1652# VCC 0.17fF
+C28 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# li_2125_1411# 0.43fF
+C29 m1_828_1316# m1_430_1652# 0.68fF
+C30 VCC li_491_1495# 2.61fF
+C31 m1_828_1316# li_491_1495# 0.40fF
+C32 INN VCC 0.00fF
+C33 OUT VCC 0.95fF
+C34 INN m1_828_1316# 0.00fF
+C35 m1_828_1316# OUT 0.00fF
+C36 li_2125_1411# INP 0.00fF
+C37 m1_430_1652# li_2125_1411# 0.00fF
+C38 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# BIAS 0.00fF
+C39 m1_828_1316# VCC 3.18fF
+C40 li_2125_1411# li_491_1495# 0.00fF
+C41 OUT GND 0.66fF
+C42 m1_430_1652# GND 1.35fF 
+C43 BIAS GND 0.85fF
+C44 STAGE2_INV_89790208_PG0_0_0_1678373050_0/li_405_571# GND 1.23fF 
+C45 m1_828_1316# GND 0.80fF 
+C46 li_2125_1411# GND 1.63fF 
+C47 VCC GND 15.92fF
+C48 li_491_1495# GND 0.05fF 
+C49 INN GND 0.82fF
+C50 INP GND 0.75fF
+.ends
+```
+</details>
+
+<br>
+
+#### Magic Generated Netlist Simulation 
+
+##### Pre-Layout Simulation with Sine Wave
+![pre_sine_adc](https://user-images.githubusercontent.com/83899035/224213735-efad4af0-7f24-4a7c-9df0-ff65d3bc9b4c.png)
+
+##### Post-Layout Simulation with Sine Wave
+![ring+adc+square_post_layout_generated by align](https://user-images.githubusercontent.com/83899035/224213506-3e0dbef0-0a20-4152-9f1e-d28c93cf7d8f.png)
+
+#### Result 
+Pre & Post layout Simulation matched.
+
+### Lef & GDS File For OpenFASoC Flow
+|.gds|.lef|
+|-|-|
+|![image](https://user-images.githubusercontent.com/83899035/224216719-054728c3-038a-40d7-9649-952bc65c8e2b.png)| ![image](https://user-images.githubusercontent.com/83899035/224216827-0857707d-5a4b-4c61-97ae-e539cfa937e8.png)|
 
 
-                    .subckt OPAMP_AS_COMPARATOR
-                    X0 w_1032_1512# a_230_2352# a_230_2352# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X1 a_746_2352# a_230_2352# w_1032_1512# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X2 a_147_2352# a_716_561# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=2.814 pd=26.36 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X3 a_716_561# a_716_561# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.147 pd=1.33 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X4 a_746_2352# a_716_2073# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                    X5 a_230_2352# a_230_2352# w_1032_1512# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                    X6 a_230_2352# a_200_2073# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                    X7 a_147_2352# a_716_2073# a_746_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X8 a_147_2352# a_200_2073# a_230_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X9 a_147_2352# a_716_561# a_716_561# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X10 w_1032_1512# a_230_2352# a_746_2352# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X11 a_1434_840# a_746_2352# w_1032_1512# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                    X12 w_1032_1512# a_746_2352# a_1434_840# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X13 a_147_2352# a_716_561# a_1434_840# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                    X14 a_1434_840# a_716_561# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                    X15 a_716_561# a_716_561# w_1032_1512# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.147 pd=1.33 as=0.27825 ps=2.63 w=1.05 l=0.15
-                    X16 a_147_2352# a_716_561# a_147_2352# a_147_2352# sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0.27825 ps=2.63 w=1.05 l=0.15
-                    X17 w_1032_1512# a_716_561# a_716_561# w_1032_1512# sky130_fd_pr__pfet_01v8 ad=0.27825 pd=2.63 as=0.147 ps=1.33 w=1.05 l=0.15
-                    C0 a_1434_840# a_716_561# 0.23fF
-                    C1 w_1032_1512# a_716_561# 2.33fF
-                    C2 w_1032_1512# a_1434_840# 1.15fF
-                    C3 w_1032_1512# a_200_2073# 0.00fF
-                    C4 a_230_2352# a_746_2352# 0.67fF
-                    C5 a_716_2073# a_746_2352# 0.12fF
-                    C6 a_716_561# a_746_2352# 0.01fF
-                    C7 a_1434_840# a_746_2352# 0.10fF
-                    C8 w_1032_1512# a_746_2352# 2.70fF
-                    C9 a_200_2073# a_746_2352# 0.00fF
-                    C10 a_716_2073# a_230_2352# 0.06fF
-                    C11 a_230_2352# a_716_561# 0.01fF
-                    C12 a_716_2073# a_716_561# 0.01fF
-                    C13 a_230_2352# a_1434_840# 0.00fF
-                    C14 w_1032_1512# a_230_2352# 2.65fF
-                    C15 w_1032_1512# a_716_2073# 0.04fF
-                    C16 a_200_2073# a_230_2352# 0.12fF
-                    C17 a_200_2073# a_716_2073# 0.04fF
-                    C18 a_716_561# a_147_2352# 3.12fF
-                    C19 a_1434_840# a_147_2352# 0.37fF
-                    C20 a_746_2352# a_147_2352# 0.48fF
-                    C21 a_230_2352# a_147_2352# 1.15fF
-                    C22 a_716_2073# a_147_2352# 0.80fF
-                    C23 a_200_2073# a_147_2352# 0.82fF
-                    C24 w_1032_1512# a_147_2352# 7.65fF
-                    .ends
-          ```
-          
-           Step 10, 11 and 12 execution of Spice File in Ngspice is shown below :-
+## OpenFASoC Flow Verilog File
 
-          <p align="center">
-          <img src="https://user-images.githubusercontent.com/90523478/224203617-2c0eb106-ac0e-40ec-a50e-82d4d34ee941.png">
-          </p> 
-          <p align="center">
-                Fig 14  Modified Spice File execution  in Ngspice window  
-          </p>
+### Dummy Verilog For Top level
+```verilog
+module analog_async_up_down(
+    input in_ring,
+    input in_bias,
+    input in_inn,
+    output out_adc
+);
 
-           Step 13 Output Waveform From Above POST Layout simulation using ALIGN Tool.
-           <p align="center">
-            <img src="https://user-images.githubusercontent.com/90523478/224203910-11d81e79-2cef-4438-9f8e-4763dba53e64.png">
-             </p> 
-            <p align="center">
-             Fig 15  Output Waveform obtained from modified netlist from above Post Layout Simulation using ALIGN Tool  
-             </p> 
-            
-            
-          <p align="center">
-            <img src="https://user-images.githubusercontent.com/90523478/224203790-7ed5a628-a846-4077-904b-ecb382c1f159.png">
-            </p> 
-            <p align="center">
-             Fig 16  Combined Waveform obtained from modified netlist from above Post Layout Simulation using ALIGN Tool  
-             </p>             
-                        
-                        
-           ## Conclusion 
-              
-          The Pre-layout waveform and the Post Layout waveform of ADC are matching or both the waveform are same .
-          
-          
-          
-          ## Block Diagram of Analog Verilog Code Instantiation
-          
-           <p align="center">
-            <img src="https://user-images.githubusercontent.com/90523478/224402451-82723f5f-0569-4d88-bef5-0157fa2ea0dc.png">
-             </p>
-              <p align="center">
-             Fig 17 How the two analog block that is Ring Oscillator and ADC are connected with each other    
-             </p> 
-          
-        ### Analog Verilog Code Instantiation of both analog circuit Ring Oscillator and Opamp as Comparator which is ADC 
-        
-                                                 module asynchronous_up_down_Inst
-                                                 (
-                                                 input in2,
-                                                 input vdd,
-                                                 input vss,
+wire ring_adc;
 
-                                                 output out,
-                                                 );
+analog_1bit_adc one_bit_adc(
+    .in(in_ring),
+    .out(ring_adc)
+);
 
-                                                 wire Vout_ADC_in1;
+analog_ring_osc ring_osc(
+    .in(ring_adc),
+    .in(in_inn),
+    .in(in_bias),
+    .out(out_adc)
+);
 
-
-                                                 Ring_Osc RO(.VDD(vdd),
-                                                             .VSS(vss),
-                                                             .VOUT(Vout_ADC_in1));
-
-                                                 one_Bit_ADC opampADC(.INP1(Vout_ADC_in1),
-                                                                      .INP2(in2),
-                                                                      .vdd(vdd),
-                                                                      .VSS(vss),
-                                                                      .OUT(out));
-                                                 endmodule
-                                                 
-                                                 
-  ## Analog Verilog Code of Ring Osci
-  
-  module Ring_Osc (vdd,gnd,Vout);
-input vdd;
-input gnd;
-output Vout;
 endmodule
+```
 
+#### Verilog Code For ADC
+```verilog
+module analog_1bit_adc(
+    input in_bias,
+    input in_inn,
+    output out_adc
+);
 
-## Analog Verilog Code of ADC
+(*I do not know how to write @@ codes EX: @@ @no a_buffer_0 (.A(lc_0), .nbout(lc_out)); *)
 
-module one_Bit_ADC opampADC(vdd,vdd,in1,in2,out);
-     input vdd;
-     input vss;
-     input in1;
-     input in2;
-     output out;
 endmodule
+```
+#### Verilog Code For analog_ring_osc
+```verilog
+module analog_ring_osc(
+    input in_ring,
+    output rimg_adc
+);
 
+endmodule
+```
