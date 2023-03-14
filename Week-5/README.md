@@ -1,4 +1,5 @@
 ## Index
+<!--
 - [1 bit ADC](#1-bit-adc)
     * [Comparator Pre-Layout using Xschem](#comparator-pre-layout-using-xschem)
         + [150nm Comparator Design](#150nm-comparator-design)
@@ -15,7 +16,7 @@
             + [Post-Layout Simulation with Sine Wave](#post-layout-simulation-with-sine-wave)
         + [Lef & GDS File For OpenFASoC Flow](#lef--gds-file-for-openfasoc-flow)
 - [OpenFASoC Flow Verilog File](#openfasoc-flow-verilog-file)
-<!-- - [Creating inverter schematic using xschem](#creating-inverter-schematic-using-xschem)
+- [Creating inverter schematic using xschem](#creating-inverter-schematic-using-xschem)
     * [Pre-Layout Simulation](#pre-layout-simulation)
         + [Creating and simulating testbench Schematic](#creating-and-simulating-testbench-schematic)
     * [Post-Layout Simulation](#post-layout-simulation)
@@ -88,19 +89,23 @@ V2 in2 GND sin(1.5 1.5 50meg 0.5n)
 ### ADC Layout using ALIGN Tool
 Netlist used for conversion from schematic to layout using ALIGN
 ```
-.subckt ring_oscillator VCC GND INP
-M1 net1 INP VCC VCC sky130_fd_pr__pfet_01v8 L=1200-9 W=25.2e-7
-M2 net2 net1 VCC VCC sky130_fd_pr__pfet_01v8 L=1200-9 W=25.2e-7
-M3 INP net2 VCC VCC sky130_fd_pr__pfet_01v8 L=1200-9 W=25.2e-7
-M4 net1 INP GND GND sky130_fd_pr__nfet_01v8 L=1200-9 W=25.2e-7
-M5 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=1200-9 W=25.2e-7
-M6 INP net2 GND GND sky130_fd_pr__nfet_01v8 L=1200-9 W=25.2e-7
-.ends
+.subckt adc in1 in2 out VDD GND
+XM1 net4 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+XM2 out net4 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+XM3 net2 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+XM4 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+XM5 net2 in1 net3 net3 sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+XM6 net4 in2 net3 net3 sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+XM7 net1 net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+XM8 net3 net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+XM9 out net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
+.ends adc
 ```
 
 #### Magic View ADC Layout generated from ALIGN
-
+<!--
 <img src="./Images/adc_prelayout_in_out_waveform.png">
+-->
 
 Extract the netlist of above ADC Layout from magic using the following commands
 
@@ -125,11 +130,12 @@ View extracted Netlist from magic, Click Here👇
 #### Result 
 Pre & Post layout Simulation matched.
 
+<!--
 ### Lef & GDS File For OpenFASoC Flow
 |.gds|.lef|
 |-|-|
 |![image](https://user-images.githubusercontent.com/83899035/224216719-054728c3-038a-40d7-9649-952bc65c8e2b.png)| ![image](https://user-images.githubusercontent.com/83899035/224216827-0857707d-5a4b-4c61-97ae-e539cfa937e8.png)|
-
+-->
 
 ## OpenFASoC Flow Verilog File
 
