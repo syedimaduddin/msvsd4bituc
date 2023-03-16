@@ -1,29 +1,15 @@
 ## Index
-<!--
-- [1 bit ADC](#1-bit-adc)
-    * [Comparator Pre-Layout using Xschem](#comparator-pre-layout-using-xschem)
-        + [150nm Comparator Design](#150nm-comparator-design)
-        + [Ring_Oscillator](#ring_oscillator)
-        + [Simulation ADC with Ring Oscillator](#simulation-adc-with-ring-oscillator)
-        + [Output](#output)
-    * [ALIGN Flow](#comparator-pre-layout-using-xschem)
-        + [RING_OSCILLATOR ALIGN SPICE Netlist](#ring_oscillator-align-spice-netlist)
-        + [ADC ALIGN SPICE Netlist](#adc-align-spice-netlist)
-        + [Simulation ADC with Ring Oscillator](#simulation-adc-with-ring-oscillator)
-        + [Magic View ADC ](#magic-view-adc)
-        + [Magic Generated Netlist](#magic-generated-netlist)
-            + [Pre-Layout Simulation with Sine Wave](#pre-layout-simulation-with-sine-wave)
-            + [Post-Layout Simulation with Sine Wave](#post-layout-simulation-with-sine-wave)
-        + [Lef & GDS File For OpenFASoC Flow](#lef--gds-file-for-openfasoc-flow)
-- [OpenFASoC Flow Verilog File](#openfasoc-flow-verilog-file)
-- [Creating inverter schematic using xschem](#creating-inverter-schematic-using-xschem)
-    * [Pre-Layout Simulation](#pre-layout-simulation)
-        + [Creating and simulating testbench Schematic](#creating-and-simulating-testbench-schematic)
-    * [Post-Layout Simulation](#post-layout-simulation)
-    * [Comparison of Pre-layout and Post-layout timing parameters for inverter](#comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
-    * [LVS Report](#lvs-report)
-     -->
-
+- [1-bit ADC (Analog to Digital Converter)](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#1-bit-adc-analog-to-digital-converter)
+    * [ADC Schematic using Xschem](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#adc-schematic-using-xschem)
+    * [Pre-Layout Simulation of 1-bit ADC](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#pre-layout-simulation-of-1-bit-adc)
+    * [ADC Layout using ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#adc-layout-using-align-tool)
+    * [Magic View ADC Layout generated from ALIGN](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#magic-view-adc-layout-generated-from-align)
+    * [Post-layout Simulation of 1-bit ADC](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#post-layout-simulation-of-1-bit-adc)
+    * [Result](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#result)
+- [OpenFASoC Flow Verilog File](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#openfasoc-flow-verilog-file)
+    * [Dummy Verilog For Top level](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#dummy-verilog-for-top-level)
+    * [Verilog Code For ADC](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#verilog-code-for-adc)
+    * [Verilog Code For analog_ring_osc](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#verilog-code-for-analog_ring_osc)
 
 ## 1-bit ADC (Analog to Digital Converter)
 
@@ -102,7 +88,7 @@ XM9 out net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
 ```
 
 #### Magic View ADC Layout generated from ALIGN
-<img src="./Images/adc_postlayout_in_out_waveform.png">
+<!-- <img src="./Images/adc_postlayout_in_out_waveform.png"> -->
 
 
 Extract the netlist of above ADC Layout from magic using the following commands
@@ -123,6 +109,7 @@ View extracted Netlist from magic, Click Here👇
 <br>
 
 #### Post-layout Simulation of 1-bit ADC
+<img src="./Images/adc_postlayout_in_out_waveform.png">
 
 
 #### Result 
@@ -177,7 +164,7 @@ endmodule
 ```verilog
 module analog_ring_osc(
     input in_ring,
-    output rimg_adc
+    output ring_adc
 );
 
 endmodule
