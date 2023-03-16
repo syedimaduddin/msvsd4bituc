@@ -82,7 +82,6 @@ V2 in2 GND sin(1.5 1.5 50meg 0.5n)
 </details>
 
 #### Pre-Layout Simulation of 1-bit ADC
-<img src="./Images/adc_prelayout_out_waveform.png">
 <img src="./Images/adc_prelayout_in_out_waveform.png">
 
 
@@ -103,9 +102,8 @@ XM9 out net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
 ```
 
 #### Magic View ADC Layout generated from ALIGN
-<!--
-<img src="./Images/adc_prelayout_in_out_waveform.png">
--->
+<img src="./Images/adc_postlayout_in_out_waveform.png">
+
 
 Extract the netlist of above ADC Layout from magic using the following commands
 
@@ -172,8 +170,6 @@ module analog_1bit_adc(
     input in_inn,
     output out_adc
 );
-
-(*I do not know how to write @@ codes EX: @@ @no a_buffer_0 (.A(lc_0), .nbout(lc_out)); *)
 
 endmodule
 ```
