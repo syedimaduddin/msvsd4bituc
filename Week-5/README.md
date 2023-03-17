@@ -5,6 +5,7 @@
     * [ADC Layout using ALIGN Tool](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#adc-layout-using-align-tool)
     * [Magic View ADC Layout generated from ALIGN](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#magic-view-adc-layout-generated-from-align)
     * [Post-layout Simulation of 1-bit ADC](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#post-layout-simulation-of-1-bit-adc)
+    * [Lef & GDS File For OpenFASoC Flow](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#lef--gds-file-for-openfasoc-flow)
     * [Result](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#result)
 - [OpenFASoC Flow Verilog File](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#openfasoc-flow-verilog-file)
     * [Dummy Verilog For Top level](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#dummy-verilog-for-top-level)
@@ -74,21 +75,21 @@ V2 in2 GND sin(1.5 1.5 50meg 0.5n)
 ### ADC Layout using ALIGN Tool
 Netlist used for conversion from schematic to layout using ALIGN
 ```
-.subckt adc in1 in2 out VDD GND
-XM1 net4 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-XM2 out net4 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-XM3 net2 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-XM4 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-XM5 net2 in1 net3 net3 sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-XM6 net4 in2 net3 net3 sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-XM7 net1 net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-XM8 net3 net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-XM9 out net1 GND GND sky130_fd_pr__nfet_01v8 L=150e-09 W=10.5e-7 nf=2 m=1
-.ends adc
+.subckt adc_1bit VREF VIN OUT VDD VSS
+XM1 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 w=21e-7 l=150e-9 nf=2
+XM2 OUT net2 VDD VDD sky130_fd_pr__pfet_01v8 w=21e-7 l=150e-9 nf=2
+XM3 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 w=21e-7 l=150e-9 nf=2
+XM4 net3 net3 VDD VDD sky130_fd_pr__pfet_01v8 w=21e-7 l=150e-9 nf=2
+XM5 net1 VREF net4 net4 sky130_fd_pr__nfet_01v8 w=21e-7 l=150e-9 nf=2 m=4
+XM6 net2 VIN net4 net4 sky130_fd_pr__nfet_01v8 w=21e-7 l=150e-9 nf=2 m=8
+XM7 net4 net3 VSS VSS sky130_fd_pr__nfet_01v8 w=21e-7 l=150e-9 nf=2
+XM8 OUT net3 VSS VSS sky130_fd_pr__nfet_01v8 w=21e-7 l=150e-9 nf=2
+XM9 net3 net3 VSS VSS sky130_fd_pr__nfet_01v8 w=21e-7 l=150e-9 nf=2
+.ends adc_1bit
 ```
 
 #### Magic View ADC Layout generated from ALIGN
-<!-- <img src="./Images/adc_postlayout_in_out_waveform.png"> -->
+<img src="./Images/adc_align_layout.png">
 
 
 Extract the netlist of above ADC Layout from magic using the following commands
@@ -102,25 +103,115 @@ View extracted Netlist from magic, Click Here👇
 <details><summary>Netlist</summary>
 
 ```
-
+* SPICE3 file created from ADC_1BIT_0.ext - technology: sky130A
+V1 VDD GND 1.8
+.save i(v1)
+V2 VSS GND 0
+.save i(v2)
+V3 VIN GND sin(0.9 0.9 50Meg 0 0 0)
+.save i(v3)
+V4 VREF GND 0.9
+.save i(v4)
+x1 VSS VDD OUT VREF VIN adc_1bit
+**** begin user architecture code
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.control
+save all
+tran 0.01n 100n
+plot vin out vref
+.endc
+**** end user architecture code
+.subckt adc_1bit VSS VDD OUT VREF VIN
+X0 m1_226_1568# m1_226_1568# m1_398_728# m1_398_728# sky130_fd_pr__pfet_01v8 ad=5.88e+11p pd=4.76e+06u as=3.927e+12p ps=3.314e+07u w=2.1e+06u l=150000u
+X1 m1_398_728# m1_226_1568# m1_226_1568# m1_398_728# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X2 li_663_571# m1_226_1568# m1_398_728# m1_398_728# sky130_fd_pr__pfet_01v8 ad=5.88e+11p pd=4.76e+06u as=0p ps=0u w=2.1e+06u l=150000u
+X3 m1_398_728# m1_226_1568# li_663_571# m1_398_728# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X4 m1_1430_644# m1_1430_644# m1_398_728# m1_398_728# sky130_fd_pr__pfet_01v8 ad=5.88e+11p pd=4.76e+06u as=0p ps=0u w=2.1e+06u l=150000u
+X5 m1_398_728# m1_1430_644# m1_1430_644# m1_398_728# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X6 li_663_571# VIN VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=4.704e+12p pd=3.808e+07u as=1.1508e+13p ps=9.496e+07u w=2.1e+06u l=150000u
+X7 VSUBS VIN li_663_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X8 VSUBS VIN li_663_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X9 li_663_571# VIN VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X10 VSUBS VIN li_663_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X11 VSUBS VIN li_663_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X12 li_663_571# VIN VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X13 li_663_571# VIN VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X14 VSUBS VIN li_663_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X15 li_663_571# VIN VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X16 li_663_571# VIN VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X17 VSUBS VIN li_663_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X18 VSUBS VIN li_663_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X19 VSUBS VIN li_663_571# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X20 li_663_571# VIN VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X21 li_663_571# VIN VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X22 OUT m1_1430_644# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=5.88e+11p pd=4.76e+06u as=0p ps=0u w=2.1e+06u l=150000u
+X23 VSUBS m1_1430_644# OUT VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X24 m1_1430_644# m1_1430_644# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=5.88e+11p pd=4.76e+06u as=0p ps=0u w=2.1e+06u l=150000u
+X25 VSUBS m1_1430_644# m1_1430_644# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X26 VSUBS m1_1430_644# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X27 VSUBS m1_1430_644# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X28 m1_226_1568# NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=2.352e+12p pd=1.904e+07u as=0p ps=0u w=2.1e+06u l=150000u
+X29 m1_226_1568# NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X30 VSUBS NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# m1_226_1568# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X31 VSUBS NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# m1_226_1568# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X32 m1_226_1568# NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X33 m1_226_1568# NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X34 VSUBS NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# m1_226_1568# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X35 VSUBS NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# m1_226_1568# VSUBS sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+X36 OUT li_663_571# m1_398_728# m1_398_728# sky130_fd_pr__pfet_01v8 ad=5.88e+11p pd=4.76e+06u as=0p ps=0u w=2.1e+06u l=150000u
+X37 m1_398_728# li_663_571# OUT m1_398_728# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2.1e+06u l=150000u
+C0 VREF VSS 0.02fF
+C1 m1_226_1568# VDD 0.19fF
+C2 li_663_571# VSUBS 0.10fF
+C3 VSUBS m1_398_728# 0.00fF
+C4 m1_1430_644# m1_226_1568# 0.01fF
+C5 OUT li_663_571# 0.68fF
+C6 OUT m1_398_728# 0.80fF
+C7 OUT VIN 0.00fF
+C8 m1_226_1568# VSS 0.09fF
+C9 VREF m1_226_1568# 0.01fF
+C10 li_663_571# VDD 1.54fF
+C11 VDD VIN 0.01fF
+C12 m1_1430_644# li_663_571# 0.14fF
+C13 m1_1430_644# m1_398_728# 1.90fF
+C14 m1_1430_644# VIN 0.01fF
+C15 OUT VSUBS 0.10fF
+C16 li_663_571# VSS 0.62fF
+C17 VREF li_663_571# 0.00fF
+C18 VSS VIN 0.14fF
+C19 VREF VIN 0.03fF
+C20 OUT VDD 0.33fF
+C21 m1_1430_644# VSUBS 0.85fF
+C22 OUT m1_1430_644# 0.37fF
+C23 li_663_571# m1_226_1568# 0.45fF
+C24 m1_226_1568# m1_398_728# 2.07fF
+C25 OUT VSS 0.01fF
+C26 m1_1430_644# VDD 0.37fF
+C27 m1_226_1568# NMOS_S_4702537_X4_Y1_1679068307_0/a_200_252# 0.35fF
+C28 li_663_571# m1_398_728# 1.77fF
+C29 li_663_571# VIN 0.73fF
+C30 VSS VDD 0.31fF
+C31 VREF VDD 0.02fF
+C32 m1_1430_644# VSS 0.28fF
+C33 OUT m1_226_1568# 0.00fF
+.ends
 ```
 </details>
 
 <br>
 
 #### Post-layout Simulation of 1-bit ADC
-<img src="./Images/adc_postlayout_in_out_waveform.png">
+<img src="./Images/adc_postlayout_in-out_waveform.png">
+
+##### Lef & GDS File For OpenFASoC Flow
+|.gds|.lef|
+|-|-|
+|<img src="./Images/adc_align_gds.png">| <img src="./Images/adc_align_lef.png">|
+
 
 
 #### Result 
-Pre & Post layout Simulation matched.
-
-<!--
-### Lef & GDS File For OpenFASoC Flow
-|.gds|.lef|
-|-|-|
-|![image](https://user-images.githubusercontent.com/83899035/224216719-054728c3-038a-40d7-9649-952bc65c8e2b.png)| ![image](https://user-images.githubusercontent.com/83899035/224216827-0857707d-5a4b-4c61-97ae-e539cfa937e8.png)|
--->
+Pre & Post layout Simulation are not matched for now, resolving the error.
 
 ## OpenFASoC Flow Verilog File
 
