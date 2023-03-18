@@ -9,6 +9,7 @@
     * [Result](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#result)
 - [Combined Ring Oscillator and ADC](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#combined-ring-oscillator-and-adc)
     * [Combined Schematic using Xschem](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#combined-schematic-using-xschem)
+    * [Prelayout Simulation of Combined Circuit](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#prelayout-simulation-of-combined-circuit)
 - [OpenFASoC Flow Verilog File](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#openfasoc-flow-verilog-file)
     * [Dummy Verilog For Top level](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#dummy-verilog-for-top-level)
     * [Verilog code for Ring Oscillator](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#verilog-code-for-ring-oscillator)
@@ -70,7 +71,7 @@ V2 in2 GND sin(1.5 1.5 50meg 0.5n)
 ```
 </details>
 
-#### Pre-Layout Simulation of 1-bit ADC
+### Pre-Layout Simulation of 1-bit ADC
 <img src="./Images/adc_prelayout_in_out_waveform.png">
 
 
@@ -90,7 +91,7 @@ XM9 net3 net3 VSS VSS sky130_fd_pr__nfet_01v8 w=21e-7 l=150e-9 nf=2
 .ends adc_1bit
 ```
 
-#### Magic View ADC Layout generated from ALIGN
+### Magic View ADC Layout generated from ALIGN
 <img src="./Images/adc_align_layout.png">
 
 
@@ -202,17 +203,17 @@ C33 OUT m1_226_1568# 0.00fF
 
 <br>
 
-#### Post-layout Simulation of 1-bit ADC
+### Post-layout Simulation of 1-bit ADC
 <img src="./Images/adc_postlayout_in-out_waveform.png">
 
-##### Lef & GDS File For OpenFASoC Flow
+#### Lef & GDS File For OpenFASoC Flow
 |.gds|.lef|
 |-|-|
 |<img src="./Images/adc_align_gds.png">| <img src="./Images/adc_align_lef.png">|
 
 
 
-### Result 
+### Result of 1-bit ADC Prelayout and Post layout Simulation
 Pre & Post layout Simulation are not matched for now, resolving the error.
 
 
@@ -224,6 +225,9 @@ Pre & Post layout Simulation are not matched for now, resolving the error.
 
 ### Prelayout simulation of combined circuit
 <img src="./Images/combined_prelayout_simulation.png">
+
+### Result of Prelayout simulation of combined circuit
+As shown in prelayout simulation image, due to high frequency of ring oscillator we are not getting correct output. Debugging the error and trying to add more stages in ring oscillator to increase delay or increase time period (or decrease frequency) of ring oscillator.
 
 
 ## OpenFASoC Flow Verilog File
