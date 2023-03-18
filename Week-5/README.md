@@ -7,10 +7,12 @@
     * [Post-layout Simulation of 1-bit ADC](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#post-layout-simulation-of-1-bit-adc)
     * [Lef & GDS File For OpenFASoC Flow](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#lef--gds-file-for-openfasoc-flow)
     * [Result](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#result)
+- [Combined Ring Oscillator and ADC](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#combined-ring-oscillator-and-adc)
+    * [Combined Schematic using Xschem](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#combined-schematic-using-xschem)
 - [OpenFASoC Flow Verilog File](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#openfasoc-flow-verilog-file)
     * [Dummy Verilog For Top level](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#dummy-verilog-for-top-level)
-    * [Verilog Code For ADC](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#verilog-code-for-adc)
-    * [Verilog Code For analog_ring_osc](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5#verilog-code-for-analog_ring_osc)
+    * [Verilog code for Ring Oscillator](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#verilog-code-for-ring-oscillator)
+    * [Verilog code for 1-bit ADC](https://github.com/syedimaduddin/msvsd4bituc/edit/main/Week-5/README.md#verilog-code-for-1-bit-adc)
 
 ## 1-bit ADC (Analog to Digital Converter)
 
@@ -210,8 +212,17 @@ C33 OUT m1_226_1568# 0.00fF
 
 
 
-#### Result 
+### Result 
 Pre & Post layout Simulation are not matched for now, resolving the error.
+
+
+
+## Combined Ring Oscillator and ADC
+
+### Combined Schematic using Xschem
+<img src="./Images/combined_schematic.png">
+
+
 
 ## OpenFASoC Flow Verilog File
 
