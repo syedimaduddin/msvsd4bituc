@@ -217,46 +217,53 @@ Pre & Post layout Simulation are not matched for now, resolving the error.
 
 ### Dummy Verilog For Top level
 ```verilog
-module analog_async_up_down(
-    input in_ring,
-    input in_bias,
-    input in_inn,
-    output out_adc
+module async_up_counter(
+    input vdd,
+    input vss,
+    input inn,
+    output out
 );
 
 wire ring_adc;
 
-analog_1bit_adc one_bit_adc(
-    .in(in_ring),
-    .out(ring_adc)
+ring_oscillator ring_osc (
+    .vdd(vdd),
+    .vss(vss),
+    .inp(ring_adc)
 );
 
-analog_ring_osc ring_osc(
-    .in(ring_adc),
-    .in(in_inn),
-    .in(in_bias),
-    .out(out_adc)
+adc_1bit adc (
+    .vdd(vdd),
+    .vss(vss),
+    .inn(inn),
+    .inp(ring_adc),
+    .out(out)
 );
 
 endmodule
 ```
 
-#### Verilog Code For ADC
+#### Verilog code for Ring Oscillator
 ```verilog
-module analog_1bit_adc(
-    input in_bias,
-    input in_inn,
-    output out_adc
+module ring_oscillator(
+    input vdd,
+    input vss,
+    output inp
 );
 
 endmodule
 ```
-#### Verilog Code For analog_ring_osc
+
+#### Verilog code for 1-bit ADC
 ```verilog
-module analog_ring_osc(
-    input in_ring,
-    output ring_adc
+module adc_1bit(
+    input vdd,
+    input vss,
+    input inn,
+    input inp,
+    output out
 );
 
 endmodule
 ```
+
