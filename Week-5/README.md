@@ -222,6 +222,8 @@ Pre & Post layout Simulation are not matched for now, resolving the error.
 ### Combined Schematic using Xschem
 <img src="./Images/combined_schematic.png">
 
+### Prelayout simulation of combined circuit
+<img src="./Images/combined_prelayout_simulation.png">
 
 
 ## OpenFASoC Flow Verilog File
