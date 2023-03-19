@@ -1,7 +1,5 @@
 ## Index
 
-
-
 ## OpenFASoC Flow
 For OpenFASoC flow go to openfasoc install directory ```~/openfasoc/openfasoc/generators ``` create a folder ```msvsd4bituc```.
 <img src="./Images/msvsd4bituc_folder.png">
@@ -193,10 +191,10 @@ export VIN_ROUTE_CONNECTION_POINTS = 2
 ```
 </details>
 
-
+<!--
 ### Run The Flow 
 ```
- make sky130hd_build
+ make sky130hd_msvsd4bituc
 ```
 #### Run Synthesis and APR
 
@@ -280,3 +278,4 @@ For view The Full Netlist Here👇
 ```
 </details>
 <br> -->
+-->
