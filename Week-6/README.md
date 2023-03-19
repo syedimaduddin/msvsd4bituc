@@ -3,8 +3,7 @@
 
 
 ## OpenFASoC Flow
-For OpenFASoC flow go to openfasoc install directory ```~/openfasoc/openfasoc/generators ``` create a folder as your design name.
-For Me it is ```msvsd4bituc```
+For OpenFASoC flow go to openfasoc install directory ```~/openfasoc/openfasoc/generators ``` create a folder ```msvsd4bituc```.
 <img src="./Images/msvsd4bituc_folder.png">
 
 
