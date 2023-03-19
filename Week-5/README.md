@@ -326,7 +326,7 @@ As shown in the above image of prelayout simulation, the combined circuit of Rin
 
 ### Dummy Verilog For Top level
 ```verilog
-module async_up_counter(
+module msvsd4bituc(
     input vdd,
     input vss,
     input inn,
