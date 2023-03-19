@@ -221,7 +221,7 @@ Pre & Post layout Simulation are not matched for now, resolving the error.
 ## Combined Ring Oscillator and ADC
 
 ### Combined Schematic using Xschem
-<img src="./Images/combined_schematic_xschem.png">
+<img src="./Images/combined_schematic.png">
 
 ### Prelayout simulation of combined circuit
 <img src="./Images/combined_prelayout_simulation.png">
