@@ -61,7 +61,6 @@ print("#----------------------------------------------------------------------")
 print("# Verilog Generation")
 print("#----------------------------------------------------------------------")
 
-
 if args.platform == "sky130hd":
     aux1 = "ring_oscillator"
     aux2 = "adc_1bit"
@@ -95,14 +94,16 @@ print()
 if args.mode == "verilog":
     print("Exiting tool....")
     exit()
-
 ```
+
 To view the complete ```msvsd4bituc-gen.py``` file, Click Here👇
 <details><summary>Netlist</summary>
 
 ```python
 
 ```
+</details>
+
 
 ### Synthesized Verilog Code
 To create synthesized verilog run
