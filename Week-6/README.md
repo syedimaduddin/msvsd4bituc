@@ -13,23 +13,38 @@ Inside the ```msvsd4bituc``` there are many files and folders.
 Top level Makefile 
 
 ```bash
-sky130hd_verilog:
-	@@echo "=============================================================="
-	@@echo " __ 	   __ ____ ____   _____ _     ___   ___ "
-	@@echo " \ \      / /|  __|  _  \|_   _| |   / _ \ / __\ "
-	@@echo "  \ \    / / | |_|| |_) |  | | | |  | | | | |  _ " 
-	@@echo "   \ \__/ /  | |__|  __/  _| |_| |__| |_| | |_| | "
-	@@echo "    \____/   |____|_|\_\ |_____|____|\___/ \___/ "
-	@@echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	@@echo "OpenFASoC For Verilog Generation"
-	@@echo "==============================================================="
-	python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode 
+# ==============================================================================
+# Run msvsd4bituc design
+# ==============================================================================
+
+
+
+sky130hd_msvsd4bituc_verilog:
+	python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode verilog
+
+sky130hd_msvsd4bituc:
+	python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode macro
 	
-sky130hd_build:
-	@python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode full 
-	@python3 tools/parse_rpt.py
-	@tools/verify_op.sh
-	@@echo "Thank you for using OpenFASOC"
+sky130hd_msvsd4bituc_full:
+	# add --pex to also run pex simulations
+	python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode full --prepex
+
+clean:
+	rm -f search_result.csv
+	rm -rf work
+	rm -rf tools/*.pyc tools/__pycache__/
+	cd flow && make clean_all
+	cd simulations && rm -rf run
+
+banner:
+	@@echo "=============================================================="
+	@@echo "   ___  _____ ______ _   _ _____  _     ____   ___   ____"
+	@@echo "  / _ \|  _  \| ____| \ | |  ___|/ \   / ___| / _ \ / ___|"
+	@@echo " | | | | |_) ||  _| |  \| | |_  / _ \  \___ \| | | | |    "
+	@@echo " | |_| |  __/ | |___| |\  |  _|/ ___ \  ___) | |_| | |___ "
+	@@echo "  \___/|_|    |_____|_| \_|_| /_/   \_\|____/ \___/ \____|"
+	@@echo ""
+	@@echo "==============================================================="
 ```
 
 Go to ```/src/``` and place your dummy verilog code.
@@ -46,6 +61,7 @@ print("#----------------------------------------------------------------------")
 print("# Verilog Generation")
 print("#----------------------------------------------------------------------")
 
+
 if args.platform == "sky130hd":
     aux1 = "ring_oscillator"
     aux2 = "adc_1bit"
@@ -53,10 +69,25 @@ elif args.platform == "sky130hs":
     aux1 = "ring_oscillator_hs"
     aux2 = "adc_1bit_hs"
 
-shutil.copyfile(srcDir + "msvsd4bituc.v", flowDir + "design/src/msvsd4bituc/msvsd4bituc" + ".v")
-shutil.copyfile(srcDir + "ring_oscillator.v", flowDir + "design/src/msvsd4bituc/ring_oscillator" + ".v")
-shutil.copyfile(srcDir + "adc_1bit.v", flowDir + "design/src/msvsd4bituc/adc_1bit" + ".v")
+with open(srcDir + "/msvsd4bituc.v", "r") as file:
+    filedata = file.read()
+if args.mode == "verilog":
+    with open(flowDir+ "design/src/msvsd4bituc/msvsd4bituc.v", "w") as file:
+        file.write(filedata)
 
+with open(srcDir + "/ring_oscillator.v", "r") as file:
+    filedata = file.read()
+if args.mode == "verilog":
+    with open(flowDir+ "design/src/msvsd4bituc/ring_oscillator.v", "w") as file:
+        file.write(filedata)
+
+with open(srcDir + "/adc_1bit.v", "r") as file:
+    filedata = file.read()
+if args.mode == "verilog":
+    with open(flowDir+ "design/src/msvsd4bituc/adc_1bit.v", "w") as file:
+        file.write(filedata)
+ 
+print("# msvsd4bituc - Behavioural Verilog Generated")
 print("#----------------------------------------------------------------------")
 print("# Verilog Generated")
 print("#----------------------------------------------------------------------")
@@ -64,6 +95,13 @@ print()
 if args.mode == "verilog":
     print("Exiting tool....")
     exit()
+
+```
+To view the complete ```msvsd4bituc-gen.py``` file, Click Here👇
+<details><summary>Netlist</summary>
+
+```python
+
 ```
 
 ### Synthesized Verilog Code
