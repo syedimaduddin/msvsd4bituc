@@ -7,9 +7,8 @@ For OpenFASoC flow go to openfasoc install directory ```~/openfasoc/openfasoc/ge
 <img src="./Images/msvsd4bituc_folder.png">
 
 
-Inside the ```async_up_down-gen``` there are many folders/ files.
-
-![image](https://user-images.githubusercontent.com/83899035/225953263-1a1ac203-e662-4aab-8aaf-4c25f247cb45.png)
+Inside the ```msvsd4bituc``` there are many files and folders.
+<img src="./Images/folders_inside_msvsd4bituc.png">
 
 Top level Makefile 
 
