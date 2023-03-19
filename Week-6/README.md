@@ -33,11 +33,10 @@ sky130hd_build:
 ```
 
 Go to ```/src/``` and place your dummy verilog code.
-<!-- <img src="./Images/folders_inside_msvsd4bituc.png"> -->
-![image](https://user-images.githubusercontent.com/83899035/225954518-0e4fac29-00a1-4b2a-960d-8a68a72d9c3b.png)
+<img src="./Images/src_folder.png">
 
 content of the ```/tools/``` Directory
-![image](https://user-images.githubusercontent.com/83899035/225955058-f9ac226d-353e-4ccb-bede-14d13cd2c7e3.png)
+<img src="./Images/tools_folder.png">
 
 ### Verilog Genertion
 For our Simple design Verilog generation is just copying the verilog file 
