@@ -56,7 +56,7 @@ elif args.platform == "sky130hs":
 
 shutil.copyfile(srcDir + "msvsd4bituc.v", flowDir + "design/src/msvsd4bituc/msvsd4bituc" + ".v")
 shutil.copyfile(srcDir + "ring_oscillator.v", flowDir + "design/src/msvsd4bituc/ring_oscillator" + ".v")
-shutil.copyfile(srcDir + "adc_4bit.v", flowDir + "design/src/msvsd4bituc/adc_4bit" + ".v")
+shutil.copyfile(srcDir + "adc_1bit.v", flowDir + "design/src/msvsd4bituc/adc_1bit" + ".v")
 
 print("#----------------------------------------------------------------------")
 print("# Verilog Generated")
