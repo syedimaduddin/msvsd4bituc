@@ -23,17 +23,17 @@ sky130hd_verilog:
 	@@echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	@@echo "OpenFASoC For Verilog Generation"
 	@@echo "==============================================================="
-	python3 tools/async-up-down-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode 
+	python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode 
 	
 sky130hd_build:
-	@python3 tools/async-up-down-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode full 
+	@python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode full 
 	@python3 tools/parse_rpt.py
 	@tools/verify_op.sh
 	@@echo "Thank you for using OpenFASOC"
 ```
 
 Go to ```/src/``` and place your dummy verilog code.
-
+<!-- <img src="./Images/folders_inside_msvsd4bituc.png"> -->
 ![image](https://user-images.githubusercontent.com/83899035/225954518-0e4fac29-00a1-4b2a-960d-8a68a72d9c3b.png)
 
 content of the ```/tools/``` Directory
@@ -48,15 +48,15 @@ print("# Verilog Generation")
 print("#----------------------------------------------------------------------")
 
 if args.platform == "sky130hd":
-    aux1 = "COMPARATOR"
-    aux2 = "RING_OSCILLATOR"
+    aux1 = "ring_oscillator"
+    aux2 = "adc_1bit"
 elif args.platform == "sky130hs":
-    aux1 = "COMPARATOR_hs"
-    aux2 = "RING_OSCILLATOR_hs"
+    aux1 = "ring_oscillator_hs"
+    aux2 = "adc_1bit_hs"
 
-shutil.copyfile(srcDir + "async_up_down.v", flowDir + "design/src/async_up_down/async_up_down" + ".v")
-shutil.copyfile(srcDir + "COMPARATOR.v", flowDir + "design/src/async_up_down/COMPARATOR" + ".v")
-shutil.copyfile(srcDir + "RING_OSCILLATOR.v", flowDir + "design/src/async_up_down/RING_OSCILLATOR" + ".v")
+shutil.copyfile(srcDir + "msvsd4bituc.v", flowDir + "design/src/msvsd4bituc/msvsd4bituc" + ".v")
+shutil.copyfile(srcDir + "ring_oscillator.v", flowDir + "design/src/msvsd4bituc/ring_oscillator" + ".v")
+shutil.copyfile(srcDir + "adc_4bit.v", flowDir + "design/src/msvsd4bituc/adc_4bit" + ".v")
 
 print("#----------------------------------------------------------------------")
 print("# Verilog Generated")
@@ -65,7 +65,6 @@ print()
 if args.mode == "verilog":
     print("Exiting tool....")
     exit()
-
 ```
 
 ### Synthesized Verilog Code
