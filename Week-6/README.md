@@ -5,9 +5,9 @@
 
 ## OpenFASoC Flow
 For OpenFASoC flow go to openfasoc install directory ```~/openfasoc/openfasoc/generators ``` create a folder as your design name.
-For Me it is ```async_up_down-gen```
+For Me it is ```msvsd4bituc```
+<img src="./Images/msvsd4bituc_folder.png">
 
-![image](https://user-images.githubusercontent.com/83899035/225953063-7c6b174b-d940-4d33-b926-725e941f648d.png)
 
 Inside the ```async_up_down-gen``` there are many folders/ files.
 
