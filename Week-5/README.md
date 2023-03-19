@@ -221,13 +221,13 @@ Pre & Post layout Simulation are not matched for now, resolving the error.
 ## Combined Ring Oscillator and ADC
 
 ### Combined Schematic using Xschem
-<img src="./Images/combined_schematic.png">
+<img src="./Images/combined_schematic_xschem.png">
 
 ### Prelayout simulation of combined circuit
 <img src="./Images/combined_prelayout_simulation.png">
 
 ### Result of Prelayout simulation of combined circuit
-As shown in prelayout simulation image, due to high frequency of ring oscillator we are not getting correct output. Debugging the error and trying to add more stages in ring oscillator to increase delay or increase time period (or decrease frequency) of ring oscillator.
+As shown in the above image of prelayout simulation, the combined circuit of Ring Oscillator and 1-bit ADC works correctly.
 
 
 ## OpenFASoC Flow Verilog File
