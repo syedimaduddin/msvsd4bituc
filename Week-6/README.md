@@ -148,6 +148,7 @@ export DESIGN_NAME = msvsd4bituc
 export PLATFORM    = sky130hd
 
 export VERILOG_FILES 		= $(sort $(wildcard ./design/src/$(DESIGN_NICKNAME)/*.v)) 
+
 export SDC_FILE    		= ./design/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
 
 export DIE_AREA   	 	= 0 0 300 300
@@ -191,17 +192,18 @@ export VIN_ROUTE_CONNECTION_POINTS = 2
 ```
 </details>
 
-<!--
-### Run The Flow 
+
+### Run the flow by the following command 
 ```
  make sky130hd_msvsd4bituc
 ```
-#### Run Synthesis and APR
-
-![image](https://user-images.githubusercontent.com/83899035/225961844-f67544af-1b10-456d-a14c-07ff49d36957.png)
+#### Synthesis
+<img src="./Images/synthesis.png">
 
 #### Floorplan
-![image](https://user-images.githubusercontent.com/83899035/225962407-a77d721a-4df0-4891-9803-2d1e7a66a5ad.png)
+<img src="./Images/floorplan.png">
+
+<!--
 
 Design area 436 u^2 1% utilization.
 
@@ -278,4 +280,3 @@ For view The Full Netlist Here👇
 ```
 </details>
 <br> -->
--->
