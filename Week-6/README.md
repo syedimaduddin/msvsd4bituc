@@ -20,27 +20,26 @@ sky130hd_msvsd4bituc_verilog:
 
 sky130hd_msvsd4bituc:
 	python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode macro
+	@python3 tools/parse_rpt.py
+	@tools/verify_op.sh
+	@@echo "=================================================================================="
+	@@echo "Thank you for using OpenFASOC"
+	@@echo "For more info, please read the latest documentation on openfasoc.readthedocs.io"
+	@@echo "For any issues, please feel free to open an issue on GitHub repository"
+	@@echo "=================================================================================="
 	
 sky130hd_msvsd4bituc_full:
 	# add --pex to also run pex simulations
 	python3 tools/msvsd4bituc-gen.py --specfile test.json --outputDir ./work --platform sky130hd --mode full --prepex
+	@python3 tools/parse_rpt.py
+	@tools/verify_op.sh
 
 clean:
-	rm -f search_result.csv
+	rm -f error_within_x.csv golden_error_opt.csv search_result.csv
 	rm -rf work
 	rm -rf tools/*.pyc tools/__pycache__/
 	cd flow && make clean_all
 	cd simulations && rm -rf run
-
-banner:
-	@@echo "=============================================================="
-	@@echo "   ___  _____ ______ _   _ _____  _     ____   ___   ____"
-	@@echo "  / _ \|  _  \| ____| \ | |  ___|/ \   / ___| / _ \ / ___|"
-	@@echo " | | | | |_) ||  _| |  \| | |_  / _ \  \___ \| | | | |    "
-	@@echo " | |_| |  __/ | |___| |\  |  _|/ ___ \  ___) | |_| | |___ "
-	@@echo "  \___/|_|    |_____|_| \_|_| /_/   \_\|____/ \___/ \____|"
-	@@echo ""
-	@@echo "==============================================================="
 ```
 
 Go to ```/src/``` and place your dummy verilog code.
@@ -197,11 +196,13 @@ export VIN_ROUTE_CONNECTION_POINTS = 2
 ```
  make sky130hd_msvsd4bituc
 ```
-#### Synthesis
-<img src="./Images/synthesis.png">
+#### Run Synthesis
+<img src="./Images/synthesis_1.png">
+<img src="./Images/synthesis_2.png">
 
-#### Floorplan
-<img src="./Images/floorplan.png">
+#### Run Floorplan
+<img src="./Images/floorplan_1.png">
+<img src="./Images/floorplan_2.png">
 
 <!--
 
