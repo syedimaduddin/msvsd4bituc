@@ -107,9 +107,12 @@ XM9 net3 net3 VSS VSS sky130_fd_pr__nfet_01v8 w=21e-7 l=150e-9 nf=2
 Extract the netlist of above ADC Layout from magic using the following commands
 
 ```
+extract do local
 extract all
+ext2spice hierarchy off
+ext2spice scale off
 ext2spice cthresh 0 rthresh 0
-ext2spice
+ext2spice 
 ```
 View extracted Netlist from magic, Click Here👇
 <details><summary>Netlist</summary>
