@@ -211,12 +211,12 @@ C43 li_921_2923# 0 0.56fF
 #### Lef & GDS File For OpenFASoC Flow
 |.gds|.lef|
 |-|-|
-|<img src="./Images/adc_align_gds.png">| <img src="./Images/adc_align_lef.png">|
+|<img src="./Images/adc_align_lef.png">| <img src="./Images/adc_align_lef.png">|
 
 
 
 ### Result of 1-bit ADC Prelayout and Post layout Simulation
-Pre & Post layout Simulation are not matched for now, resolving the error.
+Prelayout simulation using xschem and postlayout simulation using ALIGN of 1-bit analog to digital converter is same.
 
 
 
