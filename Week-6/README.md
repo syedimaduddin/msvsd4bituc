@@ -55,6 +55,58 @@ banner:
 Go to ```/src/``` and place your dummy verilog code.
 <img src="./Images/src_folder.png">
 
+#### Dummy Verilog For Top level
+```verilog
+module msvsd4bituc(
+    input VDD,
+    input VSS,
+    input INN,
+    output OUT
+);
+
+wire ring_adc;
+
+RING_OSCILLATOR RING_OSCILLATOR (
+    .VDD(VDD),
+    .VSS(VSS),
+    .INP(ring_adc)
+);
+
+ADC_1BIT ADC_1BIT (
+    .VSS(VSS),
+    .VDD(VDD),
+    .OUT(OUT),
+    .INN(INN),
+    .INP(ring_adc)
+);
+
+endmodule
+```
+
+#### Verilog code for Ring Oscillator
+```verilog
+module RING_OSCILLATOR(
+	input VDD,
+	input VSS,
+	output INP
+);
+
+endmodule
+```
+
+#### Verilog code for 1-bit ADC
+```verilog
+module ADC_1BIT(
+	input VSS,
+	input VDD,
+	output OUT,
+	input INN,
+	input INP
+);
+
+endmodule
+```
+
 content of the ```/tools/``` Directory
 <img src="./Images/tools_folder.png">
 
@@ -376,18 +428,18 @@ export VIN_ROUTE_CONNECTION_POINTS = 2
 ```
  make sky130hd_msvsd4bituc
 ```
-#### Run Synthesis
+### Run Synthesis
 <img src="./Images/synthesis_1.png">
 <img src="./Images/synthesis_2.png">
 
-#### Run Floorplan
+### Run Floorplan
 <img src="./Images/floorplan_1.png">
 <img src="./Images/floorplan_2.png">
 <img src="./Images/floorplan_3.png">
 Design area 321 u^2 1% utilization.
 <img src="./Images/floorplan_4.png">
 
-#### Placement
+### Placement
 <img src="./Images/placement_1.png">
 <img src="./Images/placement_2.png">
 Design area 2274 u^2 4% utilization.
@@ -402,10 +454,10 @@ Placement in OpenROAD GUI
 |-|-|
 |<img src="./Images/openroad_adc.png">|<img src="./Images/openroad_ring-osc.png">|
 
-#### Error
+### Error
 <img src="./Images/placement_4.png">
 
-#### Final Files
+### Final Files
 <img src="./Images/final_files.png">
 
 <!--
