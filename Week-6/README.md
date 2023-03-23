@@ -398,7 +398,7 @@ Placement in OpenROAD GUI
 <img src="./Images/openroad_1.png">
 <img src="./Images/openroad_2.png">
 
-|ADC|RING_OSCILLATOR|
+|ADC_1BIT|RING_OSCILLATOR|
 |-|-|
 |<img src="./Images/openroad_adc.png">|<img src="./Images/openroad_ring-osc.png">|
 
