@@ -67,14 +67,10 @@ module msvsd4bituc(
 wire ring_adc;
 
 RING_OSCILLATOR RING_OSCILLATOR (
-    .VDD(VDD),
-    .VSS(VSS),
     .INP(ring_adc)
 );
 
 ADC_1BIT ADC_1BIT (
-    .VSS(VSS),
-    .VDD(VDD),
     .OUT(OUT),
     .INN(INN),
     .INP(ring_adc)
@@ -86,8 +82,6 @@ endmodule
 #### Verilog code for Ring Oscillator
 ```verilog
 module RING_OSCILLATOR(
-	input VDD,
-	input VSS,
 	output INP
 );
 
@@ -97,8 +91,6 @@ endmodule
 #### Verilog code for 1-bit ADC
 ```verilog
 module ADC_1BIT(
-	input VSS,
-	input VDD,
 	output OUT,
 	input INN,
 	input INP
