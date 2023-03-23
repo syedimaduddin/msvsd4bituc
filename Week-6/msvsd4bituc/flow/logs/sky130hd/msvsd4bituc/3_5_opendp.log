@@ -1,0 +1,72 @@
+OpenROAD v2.0-6913-gda013f4df 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL             590.5 u
+legalized HPWL            590.5 u
+delta HPWL                    0 %
+
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place check_setup
+--------------------------------------------------------------------------
+Warning: There are 3 input ports missing set_input_delay.
+Warning: There is 1 output port missing set_output_delay.
+Warning: There is 1 unconstrained endpoint.
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack INF
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: INN (input port)
+Endpoint: ADC_1BIT/INN (internal pin)
+Path Group: (none)
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00 ^ input external delay
+                  0.00    0.00    0.00 ^ INN (in)
+     1    0.04                           INN (net)
+                  0.01    0.00    0.00 ^ ADC_1BIT/INN (ADC_1BIT)
+                                  0.00   data arrival time
+-----------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+Error: detail_place.tcl, 26 domain error: argument not in valid range
+Command exited with non-zero status 1
+Elapsed time: 0:00.50[h:]min:sec. CPU time: user 0.41 sys 0.06 (94%). Peak memory: 101712KB.

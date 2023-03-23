@@ -1,0 +1,9 @@
+{
+	"detailedplace__design__instance__displacement__total": 0,
+	"detailedplace__design__instance__displacement__mean": 0,
+	"detailedplace__design__instance__displacement__max": 0,
+	"detailedplace__route__wirelength__estimated": 590.477,
+	"detailedplace__design__violations": 0,
+	"detailedplace__timing__setup__tns": 0,
+	"detailedplace__timing__setup__ws": 1e+39
+}

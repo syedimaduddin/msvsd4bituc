@@ -1,0 +1,8 @@
+OpenROAD v2.0-6913-gda013f4df 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[WARNING TAP-0014] endcap_cpp option is deprecated.
+[INFO ODB-0303] The initial 85 rows (43350 sites) were cut with 2 shapes for a total of 106 rows (42813 sites).
+[INFO TAP-0004] Inserted 212 endcaps.
+[INFO TAP-0005] Inserted 713 tapcells.
+Elapsed time: 0:00.45[h:]min:sec. CPU time: user 0.16 sys 0.28 (97%). Peak memory: 98384KB.
