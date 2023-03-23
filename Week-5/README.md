@@ -320,26 +320,26 @@ As shown in the above image of prelayout simulation, the combined circuit of Rin
 ### Dummy Verilog For Top level
 ```verilog
 module msvsd4bituc(
-    input vdd,
-    input vss,
-    input inn,
-    output out
+    input VDD,
+    input VSS,
+    input INN,
+    output OUT
 );
 
 wire ring_adc;
 
-ring_oscillator ring_osc (
-    .vdd(vdd),
-    .vss(vss),
-    .inp(ring_adc)
+RING_OSCILLATOR RING_OSCILLATOR (
+    .VDD(VDD),
+    .VSS(VSS),
+    .INP(ring_adc)
 );
 
-adc_1bit adc (
-    .vdd(vdd),
-    .vss(vss),
-    .inn(inn),
-    .inp(ring_adc),
-    .out(out)
+ADC_1BIT ADC_1BIT (
+    .VSS(VSS),
+    .VDD(VDD),
+    .OUT(OUT),
+    .INN(INN),
+    .INP(ring_adc)
 );
 
 endmodule
@@ -347,10 +347,10 @@ endmodule
 
 #### Verilog code for Ring Oscillator
 ```verilog
-module ring_oscillator(
-    input vdd,
-    input vss,
-    output inp
+module RING_OSCILLATOR(
+	input VDD,
+	input VSS,
+	output INP
 );
 
 endmodule
@@ -358,12 +358,12 @@ endmodule
 
 #### Verilog code for 1-bit ADC
 ```verilog
-module adc_1bit(
-    input vdd,
-    input vss,
-    input inn,
-    input inp,
-    output out
+module ADC_1BIT(
+	input VSS,
+	input VDD,
+	output OUT,
+	input INN,
+	input INP
 );
 
 endmodule
