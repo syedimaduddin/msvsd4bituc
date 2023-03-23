@@ -211,7 +211,7 @@ C43 li_921_2923# 0 0.56fF
 #### Lef & GDS File For OpenFASoC Flow
 |.gds|.lef|
 |-|-|
-|<img src="./Images/adc_align_lef.png">| <img src="./Images/adc_align_lef.png">|
+|<img src="./Images/adc_align_gds.png">| <img src="./Images/adc_align_lef.png">|
 
 
 
