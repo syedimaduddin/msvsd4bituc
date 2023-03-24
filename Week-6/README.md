@@ -243,6 +243,12 @@ Placement in OpenROAD GUI
 <img src="./Images/global-route_1.png">
 <img src="./Images/global-route_2.png">
 
+### Place and Route
+<img src="./Images/place-route.png">
+
+### DRC Check
+<img src="./Images/drc-check.png">
+
 ### Final Files
 <img src="./Images/final-files.png">
 
