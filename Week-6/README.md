@@ -227,12 +227,12 @@ export CUSTOM_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_custom_net.txt
 <img src="./Images/synthesis.png">
 
 ### Run Floorplan
-Design area 321 u^2 1% utilization.
+Design area 321 u^2 0% utilization.
 <img src="./Images/floorplan_1.png">
 <img src="./Images/floorplan_2.png">
 
 ### Global Place
-Design area 2274 u^2 4% utilization.
+Design area 5086 u^2 3% utilization.
 <img src="./Images/global-place_1.png">
 <img src="./Images/global-place_2.png">
 
