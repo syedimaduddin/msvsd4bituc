@@ -257,5 +257,8 @@ Placement in OpenROAD GUI
 ### Final Files
 <img src="./Images/final-files.png">
 
+### GDS File in KLayout
+<img src="./Images/gds-file.png">
+
 ### Conclusion
 RTL to GDS flow is successful using OpenFASOC
