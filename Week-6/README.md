@@ -257,20 +257,5 @@ Placement in OpenROAD GUI
 ### Final Files
 <img src="./Images/final-files.png">
 
-<!--
-
-### Final layout 
-![image](https://user-images.githubusercontent.com/83899035/225990221-50b684f7-0638-4aba-b59f-d8d36f357480.png)
-
-### Connection
-![image](https://user-images.githubusercontent.com/83899035/225990502-cc7b4534-649d-4263-b4c6-56a0d06c5678.png)
-
-
-![image](https://user-images.githubusercontent.com/83899035/225992309-945719f4-745d-40f3-b44d-946fab25266d.png)
-
-
-## OpenROAD
-
-![image](https://user-images.githubusercontent.com/83899035/225997365-e96bb189-baf7-46bf-8dee-ca7d16c06174.png)
-
- -->
+### Conclusion
+RTL to GDS flow is successful using OpenFASOC
