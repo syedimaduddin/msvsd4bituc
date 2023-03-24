@@ -436,7 +436,7 @@ Design area 321 u^2 1% utilization.
 <img src="./Images/placement_2.png">
 Design area 2274 u^2 4% utilization.
 <img src="./Images/placement_3.png">
-
+<img src="./Images/placement_4.png">
 
 Placement in OpenROAD GUI
 <img src="./Images/openroad_1.png">
@@ -446,8 +446,12 @@ Placement in OpenROAD GUI
 |-|-|
 |<img src="./Images/openroad_adc.png">|<img src="./Images/openroad_ring-osc.png">|
 
-### Error
-<img src="./Images/placement_4.png">
+### Routing
+<img src="./Images/routing_1.png">
+<img src="./Images/routing_2.png">
+<img src="./Images/routing_3.png">
+<img src="./Images/routing_4.png">
+
 
 ### Final Files
 <img src="./Images/final_files.png">
