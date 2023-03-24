@@ -156,6 +156,11 @@ endmodule
 ```
 
 ### Config.mk file
+
+```
+DIE_AREA = 0 0 455 455
+CORE_AREA = 15 15 440 440
+```
 To view the config.mk file inside folder ``` /msvsd4bituc/flow/design/sky130hd/msvsd4bituc/ ```. Click Here👇
 <details><summary>Netlist</summary>
 
@@ -168,8 +173,8 @@ export VERILOG_FILES 		= $(sort $(wildcard ./design/src/$(DESIGN_NICKNAME)/*.v))
 			  	  
 export SDC_FILE    		= ./design/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
 
-export DIE_AREA   	 	= 0 0 300 300
-export CORE_AREA   		= 15 15 250 250
+export DIE_AREA   	 	= 0 0 455 455
+export CORE_AREA   		= 15 15 440 440
 
 # area of the smaller voltage domain
 #export VD1_AREA                 = 50 50 100 150
