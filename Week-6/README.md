@@ -451,10 +451,17 @@ Placement in OpenROAD GUI
 <img src="./Images/routing_2.png">
 <img src="./Images/routing_3.png">
 <img src="./Images/routing_4.png">
-
+<img src="./Images/routing_5.png">
+<img src="./Images/routing_6.png">
+<img src="./Images/routing_7.png">
+<img src="./Images/routing_8.png">
+<img src="./Images/routing_9.png">
 
 ### Final Files
 <img src="./Images/final_files.png">
+
+### Error
+<img src="./Images/error.png">
 
 <!--
 ### Global Route
