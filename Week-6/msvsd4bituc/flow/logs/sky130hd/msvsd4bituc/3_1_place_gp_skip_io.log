@@ -1,5 +1,25 @@
 OpenROAD v2.0-6913-gda013f4df 
 This program is licensed under the BSD-3 license. See the LICENSE file for details.
 Components of this program may be licensed under more restrictive licenses which must be honored.
-Has top down IO Constraints. Skip global placement without IOs
-Elapsed time: 0:00.50[h:]min:sec. CPU time: user 0.42 sys 0.06 (95%). Peak memory: 97700KB.
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: 460 2720
+[INFO GPL-0004] CoreAreaLxLy: 15180 16320
+[INFO GPL-0005] CoreAreaUxUy: 439760 437920
+[INFO GPL-0006] NumInstances: 3099
+[INFO GPL-0007] NumPlaceInstances: 0
+[INFO GPL-0008] NumFixedInstances: 2754
+[INFO GPL-0009] NumDummyInstances: 345
+[INFO GPL-0010] NumNets: 3
+[INFO GPL-0011] NumPins: 4
+[INFO GPL-0012] DieAreaLxLy: 0 0
+[INFO GPL-0013] DieAreaUxUy: 455000 455000
+[INFO GPL-0014] CoreAreaLxLy: 15180 16320
+[INFO GPL-0015] CoreAreaUxUy: 439760 437920
+[INFO GPL-0016] CoreArea: 179002928000
+[INFO GPL-0017] NonPlaceInstsArea: 22190032000
+[INFO GPL-0018] PlaceInstsArea: 0
+[INFO GPL-0019] Util(%): 0.00
+[INFO GPL-0020] StdInstsArea: 0
+[INFO GPL-0021] MacroInstsArea: 0
+[WARNING GPL-0136] No placeable instances - skipping placement.
+Elapsed time: 0:00.47[h:]min:sec. CPU time: user 0.36 sys 0.09 (95%). Peak memory: 100164KB.

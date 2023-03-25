@@ -114,14 +114,14 @@ designName = jsonSpec["module_name"]
 
 Fmin = float(jsonSpec["specifications"]["frequency"]["min"])
 Fmax = float(jsonSpec["specifications"]["frequency"]["max"])
-if (Fmax > 12) or (Fmin < 5):
+if (Fmax > 1200) or (Fmin < 5):
     print(
-        "Error: Supported frequency must be inside the following range [5 to 12] MHz"
+        "Error: Supported frequency must be inside the following range [5 to 1200] MHz"
     )
     sys.exit(1)
 if Fmax < Fmin:
     print(
-        "Error: Supported frequency must be inside the following range [5 to 12] MHz"
+        "Error: Supported frequency must be inside the following range [5 to 1200] MHz"
     )
     sys.exit(1)
 # read the data table (csv file)

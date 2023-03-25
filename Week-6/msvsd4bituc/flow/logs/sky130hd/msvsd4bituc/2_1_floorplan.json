@@ -13,14 +13,14 @@
 	"floorplan__power__leakage__total": 0,
 	"floorplan__power__total": 0,
 	"floorplan__design__io": 4,
-	"floorplan__design__die__area": 90000,
-	"floorplan__design__core__area": 54239.5,
+	"floorplan__design__die__area": 207025,
+	"floorplan__design__core__area": 179003,
 	"floorplan__design__instance__count": 2,
 	"floorplan__design__instance__area": 321.348,
 	"floorplan__design__instance__count__stdcell": 0,
 	"floorplan__design__instance__area__stdcell": 0,
 	"floorplan__design__instance__count__macros": 2,
 	"floorplan__design__instance__area__macros": 321.348,
-	"floorplan__design__instance__utilization": 0.00592461,
+	"floorplan__design__instance__utilization": 0.00179521,
 	"floorplan__design__instance__utilization__stdcell": 0
 }

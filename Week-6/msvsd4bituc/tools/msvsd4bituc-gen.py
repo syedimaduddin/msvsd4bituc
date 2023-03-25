@@ -9,7 +9,8 @@ import sys
 import time
 
 
-from parameter import args, main, designName
+from parameter import args, check_search_done, designName
+#from simulation import generate_runs
 
 genDir = os.path.join(os.path.dirname(os.path.relpath(__file__)), "../")
 srcDir = genDir + "src/"
@@ -78,17 +79,6 @@ else:
     shutil.copy2(os.path.join(pdk, "libs.tech/netgen/sky130A_setup.tcl"), sky130A_path)
 
 
-Fmin, Fmax, ninv = main()
-
-
-print("Inv : ", ninv)
-print("INV:{0}\n".format(ninv))
-
-if args.ninv:
-    print("target number of inverters: " + args.ninv)
-    ninv = int(args.ninv)
-
-
 print("#----------------------------------------------------------------------")
 print("# Verilog Generation")
 print("#----------------------------------------------------------------------")
@@ -101,27 +91,11 @@ elif args.platform == "sky130hs":
     aux1 = "RING_OSCILLATOR_hs"
     aux2 = "ADC_1BIT_hs"
 
-with open(srcDir + "/msvsd4bituc.v", "r") as file:
-    filedata = file.read()
-if args.mode == "verilog":
-    with open(flowDir+ "design/src/msvsd4bituc/msvsd4bituc.v", "w") as file:
-        file.write(filedata)
-
-with open(srcDir + "/RING_OSCILLATOR.v", "r") as file:
-    filedata = file.read()
-if args.mode == "verilog":
-    with open(flowDir+ "design/src/msvsd4bituc/RING_OSCILLATOR.v", "w") as file:
-        file.write(filedata)
-
-with open(srcDir + "/ADC_1BIT.v", "r") as file:
-    filedata = file.read()
-if args.mode == "verilog":
-    with open(flowDir+ "design/src/msvsd4bituc/ADC_1BIT.v", "w") as file:
-        file.write(filedata)
-
+shutil.copyfile(srcDir + "msvsd4bituc.v", flowDir + "design/src/msvsd4bituc/msvsd4bituc" + ".v")
+shutil.copyfile(srcDir + "RING_OSCILLATOR.v", flowDir + "design/src/msvsd4bituc/RING_OSCILLATOR" + ".v")
+shutil.copyfile(srcDir + "ADC_1BIT.v", flowDir + "design/src/msvsd4bituc/ADC_1BIT" + ".v")
 
         
-print("# msvsd4bituc - Behavioural Verilog Generated")
 print("#----------------------------------------------------------------------")
 print("# Verilog Generated")
 print("#----------------------------------------------------------------------")
@@ -131,51 +105,60 @@ if args.mode == "verilog":
     exit()
 
 print("#----------------------------------------------------------------------")
-print("# Run Synthesis")
+print("# Run Synthesis and APR")
 print("#----------------------------------------------------------------------")
 
-p = sp.Popen(["make", "synth"], cwd=flowDir)
-p.wait()
-if p.returncode:
-    print("[Error] Snthesis failed. Refer to the log file")
-    exit(1)
-
-print("#----------------------------------------------------------------------")
-print("# Synthesis finished")
-print("#----------------------------------------------------------------------")
-
-print("#----------------------------------------------------------------------")
-print("# Run Floorplan")
-print("#----------------------------------------------------------------------")
-p = sp.Popen(["make", "floorplan"], cwd=flowDir)
-p.wait()
-if p.returncode:
-    print("[Error] Floorplan failed. Refer to the log file")
-    exit(1)
-print("#----------------------------------------------------------------------")
-print("# Floorplan finished")
-print("#----------------------------------------------------------------------")
-
-print("#----------------------------------------------------------------------")
-print("# Run Placement")
-print("#----------------------------------------------------------------------")
-p = sp.Popen(["make", "place"], cwd=flowDir)
-p.wait()
-if p.returncode:
-    print("[Error] Placement failed. Refer to the log file")
-    exit(1)
-print("#----------------------------------------------------------------------")
-print("# Placement finished")
-print("#----------------------------------------------------------------------")
-
-print("#----------------------------------------------------------------------")
-print("# Run Routing")
-print("#----------------------------------------------------------------------")
 p = sp.Popen(["make", "finish"], cwd=flowDir)
 p.wait()
 if p.returncode:
-    print("[Error] Place and route failed. Refer to the log file")
+    print("[Error] Place and Route failed. Refer to the log file")
     exit(1)
+
 print("#----------------------------------------------------------------------")
 print("# Place and Route finished")
 print("#----------------------------------------------------------------------")
+
+p = sp.Popen(["make", "magic_drc"], cwd=flowDir)
+p.wait()
+if p.returncode:
+    print("[Error] DRC failed. Refer to the report")
+    exit(1)
+
+print("#----------------------------------------------------------------------")
+print("# DRC finished")
+print("#----------------------------------------------------------------------")
+
+if os.path.isdir(args.outputDir):
+    # shutil.rmtree(genDir + args.outputDir)
+    pass
+if not args.outputDir.startswith("/"):
+    os.mkdir(genDir + args.outputDir)
+    outputDir = genDir + args.outputDir
+else:
+    os.mkdir(args.outputDir)
+    outputDir = args.outputDir
+
+shutil.copyfile(
+    flowDir + "results/" + args.platform + "/msvsd4bituc/6_final.gds",
+    outputDir + "/" + designName + ".gds",
+)
+shutil.copyfile(
+    flowDir + "results/" + args.platform + "/msvsd4bituc/6_final.def",
+    outputDir + "/" + designName + ".def",
+)
+shutil.copyfile(
+    flowDir + "results/" + args.platform + "/msvsd4bituc/6_final.v",
+    outputDir + "/" + designName + ".v",
+)
+shutil.copyfile(
+    flowDir + "results/" + args.platform + "/msvsd4bituc/6_1_fill.sdc",
+    outputDir + "/" + designName + ".sdc",
+)
+
+shutil.copyfile(
+    flowDir + "reports/" + args.platform + "/msvsd4bituc/6_final_drc.rpt",
+    outputDir + "/6_final_drc.rpt",
+)
+
+print("Exiting tool....")
+exit()

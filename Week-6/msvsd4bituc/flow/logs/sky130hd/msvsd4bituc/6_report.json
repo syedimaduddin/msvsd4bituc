@@ -1,0 +1,21 @@
+{
+	"finish__timing__setup__tns": 0,
+	"finish__timing__setup__ws": 1e+39,
+	"finish__clock__skew__setup": 0,
+	"finish__clock__skew__hold": 0,
+	"finish__power__internal__total": 0,
+	"finish__power__switching__total": 0,
+	"finish__power__leakage__total": 1.14049e-09,
+	"finish__power__total": 1.14049e-09,
+	"finish__design__io": 4,
+	"finish__design__die__area": 207025,
+	"finish__design__core__area": 179003,
+	"finish__design__instance__count": 2754,
+	"finish__design__instance__area": 5085.92,
+	"finish__design__instance__count__stdcell": 2752,
+	"finish__design__instance__area__stdcell": 4764.57,
+	"finish__design__instance__count__macros": 2,
+	"finish__design__instance__area__macros": 321.348,
+	"finish__design__instance__utilization": 0.0284125,
+	"finish__design__instance__utilization__stdcell": 0.0266651
+}

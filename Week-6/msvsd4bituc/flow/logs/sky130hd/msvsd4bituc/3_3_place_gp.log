@@ -4,28 +4,28 @@ Components of this program may be licensed under more restrictive licenses which
 [INFO GPL-0002] DBU: 1000
 [INFO GPL-0003] SiteSize: 460 2720
 [INFO GPL-0004] CoreAreaLxLy: 15180 16320
-[INFO GPL-0005] CoreAreaUxUy: 249780 247520
-[INFO GPL-0006] NumInstances: 1272
+[INFO GPL-0005] CoreAreaUxUy: 439760 437920
+[INFO GPL-0006] NumInstances: 3099
 [INFO GPL-0007] NumPlaceInstances: 0
-[INFO GPL-0008] NumFixedInstances: 927
+[INFO GPL-0008] NumFixedInstances: 2754
 [INFO GPL-0009] NumDummyInstances: 345
 [INFO GPL-0010] NumNets: 3
 [INFO GPL-0011] NumPins: 6
 [INFO GPL-0012] DieAreaLxLy: 0 0
-[INFO GPL-0013] DieAreaUxUy: 300000 300000
+[INFO GPL-0013] DieAreaUxUy: 455000 455000
 [INFO GPL-0014] CoreAreaLxLy: 15180 16320
-[INFO GPL-0015] CoreAreaUxUy: 249780 247520
-[INFO GPL-0016] CoreArea: 54239520000
-[INFO GPL-0017] NonPlaceInstsArea: 19438643200
+[INFO GPL-0015] CoreAreaUxUy: 439760 437920
+[INFO GPL-0016] CoreArea: 179002928000
+[INFO GPL-0017] NonPlaceInstsArea: 22190032000
 [INFO GPL-0018] PlaceInstsArea: 0
 [INFO GPL-0019] Util(%): 0.00
 [INFO GPL-0020] StdInstsArea: 0
 [INFO GPL-0021] MacroInstsArea: 0
-[InitialPlace]  Iter: 1 CG residual: 0.00000012 HPWL: 641680
-[InitialPlace]  Iter: 2 CG residual: 0.00000012 HPWL: 641680
-[InitialPlace]  Iter: 3 CG residual: 0.00000012 HPWL: 641680
-[InitialPlace]  Iter: 4 CG residual: 0.00000012 HPWL: 641680
-[InitialPlace]  Iter: 5 CG residual: 0.00000012 HPWL: 641680
+[InitialPlace]  Iter: 1 CG residual: 0.00000012 HPWL: 1151960
+[InitialPlace]  Iter: 2 CG residual: 0.00000012 HPWL: 1151960
+[InitialPlace]  Iter: 3 CG residual: 0.00000012 HPWL: 1151960
+[InitialPlace]  Iter: 4 CG residual: 0.00000012 HPWL: 1151960
+[InitialPlace]  Iter: 5 CG residual: 0.00000012 HPWL: 1151960
 [WARNING GPL-0136] No placeable instances - skipping placement.
 
 ==========================================================================
@@ -72,9 +72,9 @@ Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
                           0.00    0.00 ^ input external delay
                   0.00    0.00    0.00 ^ INN (in)
-     1    0.04                           INN (net)
-                  0.01    0.00    0.00 ^ ADC_1BIT/INN (ADC_1BIT)
-                                  0.00   data arrival time
+     1    0.09                           INN (net)
+                  0.04    0.02    0.02 ^ ADC_1BIT/INN (ADC_1BIT)
+                                  0.02   data arrival time
 -----------------------------------------------------------------------------
 (Path is unconstrained)
 
@@ -87,16 +87,16 @@ Group                  Internal  Switching    Leakage      Total
                           Power      Power      Power      Power (Watts)
 ----------------------------------------------------------------
 Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
-Combinational          0.00e+00   0.00e+00   6.87e-10   6.87e-10 100.0%
+Combinational          0.00e+00   0.00e+00   1.14e-09   1.14e-09 100.0%
 Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 ----------------------------------------------------------------
-Total                  0.00e+00   0.00e+00   6.87e-10   6.87e-10 100.0%
+Total                  0.00e+00   0.00e+00   1.14e-09   1.14e-09 100.0%
                            0.0%       0.0%     100.0%
 
 ==========================================================================
 global place report_design_area
 --------------------------------------------------------------------------
-Design area 2274 u^2 4% utilization.
+Design area 5086 u^2 3% utilization.
 
-Elapsed time: 0:00.52[h:]min:sec. CPU time: user 0.46 sys 0.05 (99%). Peak memory: 100536KB.
+Elapsed time: 0:00.58[h:]min:sec. CPU time: user 0.46 sys 0.07 (93%). Peak memory: 103184KB.

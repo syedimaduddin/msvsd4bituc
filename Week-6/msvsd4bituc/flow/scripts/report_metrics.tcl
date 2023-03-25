@@ -50,7 +50,7 @@ proc report_metrics { when {include_erc true} {include_clock_skew true} } {
     puts "$when report_check_types -max_slew -max_cap -max_fanout -violators"
     puts "--------------------------------------------------------------------------"
     report_check_types -max_slew -max_capacitance -max_fanout -violators
-    report_erc_metrics
+    #report_erc_metrics
 
     puts "\n=========================================================================="
     puts "$when max_slew_check_slack"

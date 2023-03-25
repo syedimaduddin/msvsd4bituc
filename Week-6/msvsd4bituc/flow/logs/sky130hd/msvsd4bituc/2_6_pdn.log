@@ -4,4 +4,4 @@ Components of this program may be licensed under more restrictive licenses which
 [INFO PDN-0001] Inserting grid: grid
 [INFO PDN-0001] Inserting grid: CORE_macro_grid_1 - ADC_1BIT
 [INFO PDN-0001] Inserting grid: CORE_macro_grid_1 - RING_OSCILLATOR
-Elapsed time: 0:00.57[h:]min:sec. CPU time: user 0.48 sys 0.08 (99%). Peak memory: 101548KB.
+Elapsed time: 0:00.58[h:]min:sec. CPU time: user 0.14 sys 0.41 (95%). Peak memory: 104160KB.

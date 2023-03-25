@@ -1,0 +1,6 @@
+Net: INN
+  Pin: ADC_1BIT/INN (ADC_1BIT)
+    Layer: met2
+      Partial area ratio:  436.70
+      Required ratio:  400.00 (Side area) (VIOLATED)
+

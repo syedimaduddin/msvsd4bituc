@@ -165,9 +165,8 @@ endif
 #       1 user include path to the executable prior to running make
 #       2 user explicit set with variable in Makefile or command line
 OPENROAD_EXE            ?= $(shell command -v openroad)
-export    OPENROAD_EXE			= $(abspath $(FLOW_HOME)/../../../../../OpenROAD/build/src/openroad)
 ifeq ($(OPENROAD_EXE),)
-#  OPENROAD_EXE           = $(abspath $(FLOW_HOME)/../tools/install/OpenROAD/bin/openroad)
+#   OPENROAD_EXE           = $(abspath $(FLOW_HOME)/../tools/install/OpenROAD/bin/openroad)
   $(error OpenROAD not found in PATH)
 endif
 OPENROAD_ARGS            = -no_init $(OR_ARGS)
@@ -181,8 +180,8 @@ ifeq ($(YOSYS_CMD),)
   $(error Yosys not found in PATH)
 endif
 
-export KLAYOUT_CMD             ?= $(shell command -v klayout)
-#export KLAYOUT_CMD 		=
+KLAYOUT_CMD             ?= $(shell command -v klayout)
+
 KLAYOUT_FOUND            = $(if $(KLAYOUT_CMD),,$(error KLayout not found in PATH))
 
 #-------------------------------------------------------------------------------
@@ -226,6 +225,10 @@ versions.txt:
 	@$(YOSYS_CMD) -V > $@
 	@echo openroad `$(OPENROAD_EXE) -version` >> $@
 	@$(KLAYOUT_CMD) -zz -v >> $@
+
+# LVS specific global var for this generator
+#-------------------------------------------------------------------------------
+export __open_generator_name__=msvsd4bituc-gen
 
 # Pre-process libraries
 # ==============================================================================
@@ -410,7 +413,7 @@ endif
 $(RESULTS_DIR)/3_3_place_gp.odb: $(RESULTS_DIR)/3_2_place_iop.odb $(RESULTS_DIR)/2_floorplan.sdc $(LIB_FILES)
 	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/global_place.tcl -metrics $(LOG_DIR)/3_3_place_gp.json) 2>&1 | tee $(LOG_DIR)/3_3_place_gp.log
 
-# # STEP 4: Resizing & Buffering (not needed for the PLL)
+# # STEP 4: Resizing & Buffering (not needed for the msvsd4bituc)
 # #-------------------------------------------------------------------------------
 # $(RESULTS_DIR)/3_4_place_resized.odb: $(RESULTS_DIR)/3_3_place_gp.odb $(RESULTS_DIR)/2_floorplan.sdc
 # 	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/resize.tcl -metrics $(LOG_DIR)/3_4_resizer.json) 2>&1 | tee $(LOG_DIR)/3_4_resizer.log
@@ -451,7 +454,7 @@ cts: $(RESULTS_DIR)/4_cts.odb \
      $(RESULTS_DIR)/4_cts.sdc
 # ==============================================================================
 
-# # Run TritonCTS (not needed for the PLL)
+# # Run TritonCTS (not needed for the msvsd4bituc)
 # # ------------------------------------------------------------------------------
 # $(RESULTS_DIR)/4_1_cts.odb: $(RESULTS_DIR)/3_place.odb $(RESULTS_DIR)/3_place.sdc
 # 	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/cts.tcl -metrics $(LOG_DIR)/4_1_cts.json) 2>&1 | tee $(LOG_DIR)/4_1_cts.log
@@ -463,7 +466,7 @@ $(RESULTS_DIR)/4_1_cts.odb: $(RESULTS_DIR)/3_place.odb $(RESULTS_DIR)/3_place.sd
 $(RESULTS_DIR)/4_2_cts_fillcell.odb: $(RESULTS_DIR)/4_1_cts.odb
 	($(TIME_CMD) $(OPENROAD_CMD) $(SCRIPTS_DIR)/fillcell.tcl -metrics $(LOG_DIR)/4_2_cts_fillcell.json) 2>&1 | tee $(LOG_DIR)/4_2_cts_fillcell.log
 
-# $(RESULTS_DIR)/4_cts.sdc: $(RESULTS_DIR)/4_cts.odb
+ $(RESULTS_DIR)/4_cts.sdc: $(RESULTS_DIR)/4_cts.odb
 # Changed due to suppresion of TritonCTS step
 $(RESULTS_DIR)/4_cts.sdc: $(RESULTS_DIR)/3_place.sdc # just copy file to not break dependencies
 	cp $< $@
@@ -659,7 +662,7 @@ endif
 
 clean_finish:
 	rm -rf $(RESULTS_DIR)/6_*.gds $(RESULTS_DIR)/6_*.oas $(RESULTS_DIR)/6_*.odb $(RESULTS_DIR)/6_*.v $(RESULTS_DIR)/6_*.sdc $(RESULTS_DIR)/6_*.spef
-	rm -rf $(REPORTS_DIR)/6_*.rpt
+	rm -rf $(REPORTS_DIR)/6_*.rpt $(REPORTS_DIR)/6_*.dir
 	rm -f  $(LOG_DIR)/6_*
 
 
