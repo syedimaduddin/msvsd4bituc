@@ -33,10 +33,8 @@ export VERILOG_FILES 		= $(sort $(wildcard ./design/src/$(DESIGN_NICKNAME)/*.v))
 			  	  
 export SDC_FILE    		= ./design/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
 
-
 export DIE_AREA   	 	= 0 0 100 60
 export CORE_AREA   		= 10 10 90 50
-
 
 # area of the smaller voltage domain
 #export VD1_AREA                 = 50 50 100 150
@@ -83,4 +81,39 @@ export CUSTOM_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_custom_net.txt
 export VIN_ROUTE_CONNECTION_POINTS = 3
 ```
 
+### Run Synthesis
+<img src="./Images/synthesis.png">
 
+### Run Floorplan
+Design area 321 u^2 0% utilization.
+<img src="./Images/floorplan_1.png">
+<img src="./Images/floorplan_2.png">
+
+### Global Place
+Design area 5086 u^2 3% utilization.
+<img src="./Images/global-place_1.png">
+<img src="./Images/global-place_2.png">
+
+Placement in OpenROAD GUI
+<img src="./Images/openroad_1.png">
+<img src="./Images/openroad_2.png">
+
+|ADC_1BIT|RING_OSCILLATOR|
+|-|-|
+|<img src="./Images/openroad_adc.png">|<img src="./Images/openroad_ring-osc.png">|
+
+### Global Route
+<img src="./Images/global-route_1.png">
+<img src="./Images/global-route_2.png">
+
+### Place and Route
+<img src="./Images/place-route.png">
+
+### DRC Check
+<img src="./Images/drc-check.png">
+
+### GDS File in KLayout
+<img src="./Images/gds-file.png">
+
+### Conclusion
+Area has been reduced successfully and the layout is DRC clean.
