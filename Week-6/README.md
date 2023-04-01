@@ -1,4 +1,20 @@
 ## Index
+- [OpenFASoC Flow](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#openfasoc-flow)
+    * [Dummy Verilog For Top level](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#dummy-verilog-for-top-level)
+    * [Verilog code for Ring Oscillator](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#verilog-code-for-ring-oscillator)
+    * [Verilog code for 1-bit ADC](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#verilog-code-for-1-bit-adc)
+    * [Verilog Genertion](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#verilog-genertion)
+    * [Synthesized Verilog Code](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#synthesized-verilog-code)
+    * [Config.mk file](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#configmk-file)
+    * [Run the flow by the following command](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#run-the-flow-by-the-following-command)
+    * [Run Synthesis](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#run-synthesis)
+    * [Run Floorplan](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#run-floorplan)
+    * [Global Place](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#global-place)
+    * [Global Route](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#global-route)
+    * [DRC Check](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#drc-check)
+    * [Final Files](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#final-files)
+    * [GDS File in KLayout](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#gds-file-in-klayout)
+
 
 ## OpenFASoC Flow
 For OpenFASoC flow go to openfasoc install directory ```~/openfasoc/openfasoc/generators ``` create a folder ```msvsd4bituc```.
@@ -48,8 +64,6 @@ Go to ```/src/``` and place your dummy verilog code.
 #### Dummy Verilog For Top level
 ```verilog
 module msvsd4bituc(
-    input VDD,
-    input VSS,
     input INN,
     output OUT
 );
