@@ -101,8 +101,11 @@ Design area 746 u^2 25% utilization.
 ### DRC Check
 <img src="./Images/drc_clean.png">
 
+### GDS File in Magic
+<img src="./Images/gds_magic.png">
+
 ### GDS File in KLayout
-<img src="./Images/gds-file.png">
+<img src="./Images/gds_klayout.png">
 
 ## Connection of VSS and VDD
 
