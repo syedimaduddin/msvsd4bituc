@@ -83,32 +83,23 @@ export VIN_ROUTE_CONNECTION_POINTS = 3
 <img src="./Images/synthesis.png">
 
 ### Run Floorplan
-Design area 321 u^2 0% utilization.
+Design area 409 u^2 13% utilization.
 <img src="./Images/floorplan_1.png">
 <img src="./Images/floorplan_2.png">
 
 ### Global Place
-Design area 5086 u^2 3% utilization.
+Design area 746 u^2 25% utilization.
 <img src="./Images/global-place_1.png">
 <img src="./Images/global-place_2.png">
 
-Placement in OpenROAD GUI
-<img src="./Images/openroad_1.png">
-<img src="./Images/openroad_2.png">
-
-|ADC_1BIT|RING_OSCILLATOR|
-|-|-|
-|<img src="./Images/openroad_adc.png">|<img src="./Images/openroad_ring-osc.png">|
-
 ### Global Route
-<img src="./Images/global-route_1.png">
-<img src="./Images/global-route_2.png">
+<img src="./Images/global_route.png">
 
-### Place and Route
-<img src="./Images/place-route.png">
+### Check Antennas
+<img src="./Images/check_antenna.png">
 
 ### DRC Check
-<img src="./Images/drc-check.png">
+<img src="./Images/drc_clean.png">
 
 ### GDS File in KLayout
 <img src="./Images/gds-file.png">
