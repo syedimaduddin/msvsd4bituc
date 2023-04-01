@@ -4,12 +4,10 @@
     * []()
     * []()
     * []()
-- []()
+- [Connection of Ground and VDD]()
     * []()
     * []()
-- []()
-    * []()
-    * []()
+
     
 ## Reduction of Area
 Firsly, I have made my gds files imported in magic to be placed at (0,0) point, as given in below image.
@@ -115,5 +113,7 @@ Placement in OpenROAD GUI
 ### GDS File in KLayout
 <img src="./Images/gds-file.png">
 
-### Conclusion
-Area has been reduced successfully and the layout is DRC clean.
+## Connection of VSS and VDD
+
+## Conclusion
+The area is successfully reduced along with DRC clean, and VDD and VSS connections are made as well.
