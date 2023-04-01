@@ -79,32 +79,32 @@ export CUSTOM_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_custom_net.txt
 export VIN_ROUTE_CONNECTION_POINTS = 3
 ```
 
-### Run Synthesis
+#### Run Synthesis
 <img src="./Images/synthesis.png">
 
-### Run Floorplan
+#### Run Floorplan
 Design area 409 u^2 13% utilization.
 <img src="./Images/floorplan_1.png">
 <img src="./Images/floorplan_2.png">
 
-### Global Place
+#### Global Place
 Design area 746 u^2 25% utilization.
 <img src="./Images/global-place_1.png">
 <img src="./Images/global-place_2.png">
 
-### Global Route
+#### Global Route
 <img src="./Images/global_route.png">
 
-### Check Antennas
+#### Check Antennas
 <img src="./Images/check_antenna.png">
 
-### DRC Check
+#### DRC Check
 <img src="./Images/drc_clean.png">
 
-### GDS File in Magic
+#### GDS File in Magic
 <img src="./Images/gds_magic.png">
 
-### GDS File in KLayout
+#### GDS File in KLayout
 <img src="./Images/gds_klayout.png">
 
 ## Connection of VSS and VDD
