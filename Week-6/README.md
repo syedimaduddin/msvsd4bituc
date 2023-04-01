@@ -14,6 +14,7 @@
     * [DRC Check](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#drc-check)
     * [Final Files](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#final-files)
     * [GDS File in KLayout](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#gds-file-in-klayout)
+    * [Conclusion](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6#conclusion)
 
 
 ## OpenFASoC Flow
