@@ -8,101 +8,90 @@
   
 ### [Week-1](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-1)
 1. Tools installed
-<li> Magic<br>   
-<li> Xschem<br>
-<li> Ngspice<br>
-<li> Netgen <br>
-<li> Align<br>
-
-2. Pre-layout simulation for an inverter<br>
-<li> Inverter schematic in Xschem<br>
-<li> Making symbol <br>
-<li> Test and simulate the inverter<br>
-
-3. Post-layout simulation for an inverter<br>
-<li> Layout implementation <br>
-<li> Run LVS with using netgen<br>
-<li> Post-layout simulation<br>
-<li> Generating layout with using Align<br>
+    - Magic
+    - Xschem
+    - Ngspice
+    - Netgen
+    - ALIGN
+2. Pre-layout simulation for an inverter
+    - Inverter schematic in Xschem
+    - Making symbol
+    - Test and simulate the inverter
+3. Post-layout simulation for an inverter
+    - Layout implementation
+    - Run LVS with using netgen 
+    - Post-layout simulation
+    - Generating layout with using Align
 
 <hr>
   
-### [Week-1](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2)
+### [Week-2](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-2)
 1. Post-layout simulation for Inverter by using Align 
 2. Pre-layout simulation of FN
-<li> Schematic implementation
-<li> Test and simulation
-<li> Calculation of the delay
-<br>
-
+    - Schematic implementation
+    - Test and simulation
+    - Calculation of the delay
 3. Post-layout simulation of FN
-<li> Layout implementation with Align
-<li> Extracting parasitic capicitances using magic
-<li> Post-layout simulation
-<li> comparison between pre-layout and post-layout
+    - Layout implementation with Align
+    - Extracting parasitic capicitances using magic
+    - Post-layout simulation
+    - comparison between pre-layout and post-layout
 
 <hr>
   
-### [Week-2](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3)
+### [Week-3](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-3)
 1. OpenFASoC installation
-<li> Openroad installation
-<li> Yosys installation
-<li> Klayout installation
-<li> OpenFASoC installation
-<br>
-
+    - Openroad installation
+    - Yosys installation
+    - Klayout installation
+    - OpenFASoC installation
 2. Running a sample using OpenFASoC
-<li> Circuit structure
-<li> Verilog generation
-<li> Synthesis
+    - Circuit structure
+    - Verilog generation
+    - Synthesis
 
 <hr>
 
 ### [Week-4](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-4)
 1. Basics of ring oscillator
-
 2. Pre-layout simulation of a ring oscillator
-<li> Schematic implementation
-<li> Test and simulation
-<li> calculation of the period<br>
-
+    - Schematic implementation
+    - Test and simulation
+    - calculation of the period
 3. Post-layout simulation of a ring oscillator
-<li> Layout implementation with Align
-<li> Extracting parasitic capicitances using magic
-<li> Post-layout simulation<br>
-
+    - Layout implementation with Align
+    - Extracting parasitic capicitances using magic
+    - Post-layout simulation
 4. comparison between pre-layout and post-layout
 
 <hr>
 
 ### [Week-5](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5)
 1. Basics of Analogue to Digital Converter
-2. 1-Bit ADC<br>
+2. 1-Bit ADC
 3. Pre-Layout Simulation of a 1-Bit ADC
-<li> Schematic implementation
-<li> calculation of the period<br>
+    - Schematic implementation
+    - calculation of the period
 4. Post-Layout Simulation of a 1-Bit ADC
-<li> Layout implementation with Align
-<li> Extracting parasitic capicitances using magic
-<li> Post-layout simulation<br>
-5. Comparison Between Post-Layout and Pre-Layout Results of ADC<br>
-6. Pre-Layout simulation of combination of RO and ADC(RO_ADC)<br>
-7. Post-Layout simulation of RO_ADC<br>
-8. Comparison of Pre and Post-Layout results of RO_ADC<br>
+    - Layout implementation with Align
+    - Extracting parasitic capicitances using magic
+    - Post-layout simulation
+5. Comparison Between Post-Layout and Pre-Layout Results of ADC
+6. Pre-Layout simulation of combination of RO and ADC(RO_ADC)
+7. Post-Layout simulation of RO_ADC
+8. Comparison of Pre and Post-Layout results of RO_ADC
 9. Top Module of Verilog Code for RO and ADC
 
 <hr>
 
 ### [Week-6](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-6)
-1. Layout implementation for RO and ADC by using OpenFASoC 
+1. Layout implementation for Ring Oscillator and ADC using OpenFASoC
+
 <hr>
 
 ### [Week-7](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7)
-1. Checking the correctness of Ro_ADC implementation using OpenFASoC 
-2. basics of window comparator
-3. Pre-Layout simulation of window comparator
-4. Post-Layout simulation of window comparator
-
+1. Reduce the area of the Macro in OpenFASoC
+2. Connect the VDD and VSS Macro
 <hr>
   
 <!-- # Acknowledgement -->
