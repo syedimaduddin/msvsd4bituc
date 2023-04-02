@@ -108,6 +108,44 @@ Design area 746 u^2 25% utilization.
 <img src="./Images/gds_klayout.png">
 
 ## Connection of VSS and VDD
+It is necessary to manually edit many files in order to set up the routable nets so power and ground pins can be connected to the macro. These include ```pdn.tcl```, ```config.mk```, ```pre_global_route.tcl```, as well as 2 new files for creating custom connections to the macro power and ground lines ```msvsd4bituc_VSS_connection.tcl``` and ```msvsd4bituc_VDD_connection.tcl```. The ```manual_macro.tcl``` script is needed for setting macro positions and fine-tuning if unwanted DRC errors occur. In order to add VDD and VSS custom routings correctly, ```add_ndr_rules.txt``` must also be edited.
+
+Here is a brief explanation of the files for future reference.
+**pdn.tcl**
+```
+# Location of file inside msvsd4bituc folder -> ./
+```
+
+**config.mk**
+```
+# Location of file inside msvsd4bituc folder -> ./
+```
+
+**pre_global_route.tcl**
+```
+# Location of file inside msvsd4bituc folder -> ./
+```
+
+**msvsd4bituc_VSS_connection.tcl**
+```
+# Location of file inside msvsd4bituc folder -> ./
+```
+
+**msvsd4bituc_VDD_connection.tcl**
+```
+# Location of file inside msvsd4bituc folder -> ./
+```
+
+**manual_macro_tcl**
+```
+# Location of file inside msvsd4bituc folder -> ./
+```
+
+**add_ndr_rules.txt**
+```
+# Location of file inside msvsd4bituc folder -> ./
+```
+
 
 ## Conclusion
 The area is successfully reduced along with DRC clean, and VDD and VSS connections are made as well.
