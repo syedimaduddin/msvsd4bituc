@@ -166,8 +166,8 @@ add_pdn_connect -grid {stdcell} -layers {met4 met5}
 
 Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/manual_macro.tcl
 ```bash
-RING_OSCILLATOR N 20 20
-ADC_1BIT N 60 20
+RING_OSCILLATOR N 35 30
+ADC_1BIT N 75 30
 ```
 
 #### msvsd4bituc_VSS_connection.txt
@@ -177,9 +177,7 @@ Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VSS_
 This file has the definitions for the macro ground nets
 ```bash
 r_VSS
-
 RING_OSCILLATOR VSS
-
 ADC_1BIT VSS
 ```
 
@@ -190,9 +188,7 @@ Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VDD_
 This file has the definitions for the macro power nets
 ```bash
 r_VDD
-
 RING_OSCILLATOR VDD
-
 ADC_1BIT VDD
 ```
 
@@ -203,7 +199,6 @@ Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_doma
 One more important bit is to set the correct name of the name of the instance used while defining in the dummy verilog files, like if RING_OSCILLATOR was defined as RING_OSCILLATOR RING_OSCILLATOR(....) the msvsd4bituc_domain_insts.txt also need to have the same user-defined name- RING_OSCILLATOR. the file contents are below
 ```bash
 RING_OSCILLATOR
-
 ADC_1BIT
 ```
 
@@ -222,7 +217,7 @@ source $::env(SCRIPTS_DIR)/openfasoc/add_ndr_rules.tcl
 # Custom connections
 source $::env(SCRIPTS_DIR)/openfasoc/create_custom_connections.tcl
 if {[info exist ::env(VSS_VSS_CONNECTION)]} {
-  create_custom_connections $::env(GND_VSS_CONNECTION)
+  create_custom_connections $::env(VSS_VSS_CONNECTION)
 }
 if {[info exist ::env(VDD_VDD_CONNECTION)]} {
   create_custom_connections $::env(VDD_VDD_CONNECTION)
@@ -261,8 +256,11 @@ export PLATFORM    = sky130hd
 export VERILOG_FILES 		= $(sort $(wildcard ./design/src/$(DESIGN_NICKNAME)/*.v)) 		  	  
 export SDC_FILE    		= ./design/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
 
-export DIE_AREA   	 	= 0 0 100 60
-export CORE_AREA   		= 10 10 90 50
+#export DIE_AREA   	 	= 0 0 100 60
+#export CORE_AREA   		= 10 10 90 50
+
+export DIE_AREA   	 	= 0 0 120 90
+export CORE_AREA   		= 25 23 100 65
 
 # power delivery network config file
 export PDN_TCL 			= ../blocks/$(PLATFORM)/pdn.tcl
@@ -281,10 +279,21 @@ export MACRO_PLACE_HALO         = 1 1
 export MACRO_PLACE_CHANNEL      = 30 30
 export MACRO_PLACEMENT          = ../blocks/$(PLATFORM)/manual_macro.tcl
 
+# don't run global place w/o IOs
+export HAS_IO_CONSTRAINTS = 1
+# don't run non-random IO placement (step 3_2)
+export PLACE_PINS_ARGS = -random
+
+export GPL_ROUTABILITY_DRIVEN = 1
+
+# DPO optimization currently fails on the tempsense
+export ENABLE_DPO = 0
+
 # configuration for routing
 export PRE_GLOBAL_ROUTE = $(SCRIPTS_DIR)/openfasoc/pre_global_route.tcl
+
 # informs any short circuits that should be forced during routing
-export GND_VSS_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_VSS_connection.txt
+export VSS_VSS_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_VSS_connection.txt
 export VDD_VDD_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_VDD_connection.txt
 
 # don't run non-random IO placement (step 3_2)
@@ -293,9 +302,6 @@ export GPL_ROUTABILITY_DRIVEN = 1
 
 # DPO optimization currently fails on the msvsd4bituc
 export ENABLE_DPO = 0
-
-# informs any short circuits that should be forced during routing
-export CUSTOM_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_custom_net.txt
 
 # indicates with how many connections the VIN route connects to the VIN power ring
 export VIN_ROUTE_CONNECTION_POINTS = 3
