@@ -108,7 +108,7 @@ Design area 746 u^2 25% utilization.
 <img src="./Images/gds_klayout.png">
 
 ## Connection of VSS and VDD
-It is necessary to manually edit many files in order to set up the routable nets so power and ground pins can be connected to the macro. These include ```pdn.tcl```, ```config.mk```, ```pre_global_route.tcl```, as well as 2 new files for creating custom connections to the macro power and ground lines ```msvsd4bituc_VSS_connection.tcl``` and ```msvsd4bituc_VDD_connection.tcl```. The ```manual_macro.tcl``` script is needed for setting macro positions and fine-tuning if unwanted DRC errors occur. In order to add VDD and VSS custom routings correctly, ```add_ndr_rules.txt``` must also be edited.
+It is necessary to manually edit many files in order to set up the routable nets so power and ground pins can be connected to the macro. These include ```pdn.tcl```, ```config.mk```, ```pre_global_route.tcl```, as well as 2 new files for creating custom connections to the macro power and ground lines ```msvsd4bituc_VSS_connection.txt``` and ```msvsd4bituc_VDD_connection.txt```, and some changes in ```msvsd4bituc_domain_insts.txt```. The ```manual_macro.tcl``` script is needed for setting macro positions and fine-tuning if unwanted DRC errors occur. In order to add VDD and VSS custom routings correctly, ```add_ndr_rules.tcl``` must also be edited.
 
 Here is a brief explanation of the files mentioned above.
 
@@ -153,9 +153,11 @@ RING_OSCILLATOR N 20 20
 ADC_1BIT N 60 20
 ```
 
-**msvsd4bituc_VSS_connection.tcl**
+**msvsd4bituc_VSS_connection.txt**
 
-Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VSS_connection.tcl
+Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VSS_connection.txt
+
+This file has the definitions for the macro ground nets
 ```bash
 r_VSS
 
@@ -164,24 +166,28 @@ RING_OSCILLATOR VSS
 ADC_1BIT VSS
 ```
 
-**msvsd4bituc_VDD_connection.tcl**
+**msvsd4bituc_VDD_connection.txt**
 
-Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VDD_connection.tcl
-```bash
-RING_OSCILLATOR
+Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VDD_connection.txt
 
-ADC_1BIT
-```
-
-**msvsd4bituc_domain_insts.txt**
-
-Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_domain_insts.txt
+This file has the definitions for the macro power nets
 ```bash
 r_VDD
 
 RING_OSCILLATOR VDD
 
 ADC_1BIT VDD
+```
+
+**msvsd4bituc_domain_insts.txt**
+
+Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_domain_insts.txt
+
+One more important bit is to set the correct name of the name of the instance used while defining in the dummy verilog files, like if RING_OSCILLATOR was defined as RING_OSCILLATOR RING_OSCILLATOR(....) the msvsd4bituc_domain_insts.txt also need to have the same user-defined name- RING_OSCILLATOR. the file contents are below
+```bash
+RING_OSCILLATOR
+
+ADC_1BIT
 ```
 
 **pre_global_route.tcl**
@@ -206,9 +212,12 @@ if {[info exist ::env(VDD_VDD_CONNECTION)]} {
 }
 ```
 
-**add_ndr_rules.txt**
+Here create_custom_connections is used to define the vdd and vss connections we defined earlier.
 
-Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/add_ndr_rules.txt
+**add_ndr_rules.tcl**
+
+Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/add_ndr_rules.tcl
+This file needs editing and although not that critical, it ensures that the certain routing rules are followed for routing the power and vss.
 ```bash
 set block [ord::get_db_block]
 
