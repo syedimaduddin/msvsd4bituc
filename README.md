@@ -90,7 +90,7 @@
 
 ### [Week-7](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7)
 1. Reduce the area of the Macro in OpenFASoC
-2. Connect the VDD and VSS Macro
+2. Connect the VDD and VSS to the Macro
 <hr>
   
 <!-- # Acknowledgement -->
