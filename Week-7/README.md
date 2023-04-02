@@ -111,19 +111,20 @@ Design area 746 u^2 25% utilization.
 It is necessary to manually edit many files in order to set up the routable nets so power and ground pins can be connected to the macro. These include ```pdn.tcl```, ```config.mk```, ```pre_global_route.tcl```, as well as 2 new files for creating custom connections to the macro power and ground lines ```msvsd4bituc_VSS_connection.tcl``` and ```msvsd4bituc_VDD_connection.tcl```. The ```manual_macro.tcl``` script is needed for setting macro positions and fine-tuning if unwanted DRC errors occur. In order to add VDD and VSS custom routings correctly, ```add_ndr_rules.txt``` must also be edited.
 
 Here is a brief explanation of the files for future reference.
+
 **pdn.tcl**
 ```
-# Location of file inside msvsd4bituc folder -> ./
+# Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/pdn.tcl
+```
+
+**manual_macro.tcl**
+```
+# Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/manual_macro.tcl
 ```
 
 **config.mk**
 ```
-# Location of file inside msvsd4bituc folder -> ./
-```
-
-**pre_global_route.tcl**
-```
-# Location of file inside msvsd4bituc folder -> ./
+# Location of file inside msvsd4bituc folder -> ./flow/design/sky130hd/msvsd4bituc/config.mk
 ```
 
 **msvsd4bituc_VSS_connection.tcl**
@@ -136,14 +137,14 @@ Here is a brief explanation of the files for future reference.
 # Location of file inside msvsd4bituc folder -> ./
 ```
 
-**manual_macro_tcl**
+**pre_global_route.tcl**
 ```
-# Location of file inside msvsd4bituc folder -> ./
+# Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/pre_global_route.tcl
 ```
 
 **add_ndr_rules.txt**
 ```
-# Location of file inside msvsd4bituc folder -> ./
+# Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/add_ndr_rules.txt
 ```
 
 
