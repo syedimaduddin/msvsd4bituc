@@ -1,0 +1,8 @@
+{
+    "module_name": "msvsd4bituc",
+    "generator": "msvsd4bituc-gen",
+    "specifications": {
+    	"frequency": { "min": 5, "max": 1200 }
+    }
+}
+
