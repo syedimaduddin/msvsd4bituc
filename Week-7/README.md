@@ -20,6 +20,8 @@
 
     
 ## Reduction of Area
+
+#### Changes Made
 Firsly, I have made my gds files imported in magic to be placed at (0,0) point, as given in below image.
 <img src="./Images/gds_0_0.png">
 
