@@ -1,10 +1,9 @@
 # VSD Mixed-signal PD Research Program 
-<li> This repository is related to a 10-week program for taping out a chip using SKY130 technology.<br>
-<li> In each week, participants need to do some tasks and meet requirements for being eligible to continue.<br>
-<li> Some tasks could be covered in weeks.<br>
-<li> For each week, a directory with all tasks and simulations I have done can be found. <br>
+<li> This repository contains information about a 10-week program that uses SKY130 PDK and open-source flow tools to tape out chips.
+<li> Each week, participants must perform tasks and meet requirements to stay in the program.
+<li> My weekly tasks and simulations are compiled in a directory for each week.
   
- ## What I have done in each week is summarized below:<br>
+## Below is a summary of my activities each week
   
 ### [Week-1](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-1)
 1. Tools installed
