@@ -110,41 +110,166 @@ Design area 746 u^2 25% utilization.
 ## Connection of VSS and VDD
 It is necessary to manually edit many files in order to set up the routable nets so power and ground pins can be connected to the macro. These include ```pdn.tcl```, ```config.mk```, ```pre_global_route.tcl```, as well as 2 new files for creating custom connections to the macro power and ground lines ```msvsd4bituc_VSS_connection.tcl``` and ```msvsd4bituc_VDD_connection.tcl```. The ```manual_macro.tcl``` script is needed for setting macro positions and fine-tuning if unwanted DRC errors occur. In order to add VDD and VSS custom routings correctly, ```add_ndr_rules.txt``` must also be edited.
 
-Here is a brief explanation of the files for future reference.
+Here is a brief explanation of the files mentioned above.
 
 **pdn.tcl**
+
+Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/pdn.tcl
+```bash
+####################################
+# global connections
+####################################
+add_global_connection -net VDD -inst_pattern {.*} -pin_pattern {VPWR|VPB} -power ; # default: VDD as power
+add_global_connection -net VSS -inst_pattern {.*} -pin_pattern {VGND|VNB} -ground
+global_connect
+
+####################################
+# voltage domains
+####################################
+set_voltage_domain -name {CORE} -power {VDD} -ground {VSS}
+
+####################################
+# standard cell grid
+####################################
+define_pdn_grid -name stdcell -pins met5 -starts_with POWER -voltage_domains CORE
+
+## horizontal lines-----
+add_pdn_stripe -grid {stdcell} -layer {met1} -width {0.48} -pitch {5} -offset {2.0} -extend_to_core_ring -followpins
+add_pdn_ring -grid stdcell -layer {met4 met5} -widths {5.0 5.0} -spacings {2.0 2.0} -core_offsets {1.0 1.0}
+
+##----vertical lines
+add_pdn_stripe -grid {stdcell} -layer {met4} -width {0.48} -pitch {30} -offset {0.5} -extend_to_core_ring
+add_pdn_connect -grid {stdcell} -layers {met1 met4}
+add_pdn_connect -grid {stdcell} -layers {met4 met5}
 ```
-# Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/pdn.tcl
-```
+
+```add_pdn_ring``` is used to define a ring for delivering power an gnd to the core which is also used by the macros, so extra power domains is not necessary in this case. For adding horizontal connections between filler and tapcells, the following stripe definitions is needed and horizontal is actually differentiated by ```-followpins```. For adding vertical connections between filler and tapcells, the stripe definitions is needed. Here the vertical layers is using metal4 so is defined, here -pitch {30} defines the distance between consecutive power and gnd lines.(Note: if facing drc errors manually adjust the pitch and offset values).
 
 **manual_macro.tcl**
-```
-# Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/manual_macro.tcl
-```
 
-**config.mk**
-```
-# Location of file inside msvsd4bituc folder -> ./flow/design/sky130hd/msvsd4bituc/config.mk
+Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/manual_macro.tcl
+```bash
+RING_OSCILLATOR N 20 20
+ADC_1BIT N 60 20
 ```
 
 **msvsd4bituc_VSS_connection.tcl**
-```
-# Location of file inside msvsd4bituc folder -> ./
+
+Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VSS_connection.tcl
+```bash
+r_VSS
+
+RING_OSCILLATOR VSS
+
+ADC_1BIT VSS
 ```
 
 **msvsd4bituc_VDD_connection.tcl**
+
+Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VDD_connection.tcl
+```bash
+RING_OSCILLATOR
+
+ADC_1BIT
 ```
-# Location of file inside msvsd4bituc folder -> ./
+
+**msvsd4bituc_domain_insts.txt**
+
+Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_domain_insts.txt
+```bash
+r_VDD
+
+RING_OSCILLATOR VDD
+
+ADC_1BIT VDD
 ```
 
 **pre_global_route.tcl**
-```
-# Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/pre_global_route.tcl
+
+Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/pre_global_route.tcl
+```bash
+# Create r_VIN net
+source $::env(SCRIPTS_DIR)/openfasoc/create_routable_power_net.tcl
+create_routable_power_net "VSS" $::env(VIN_ROUTE_CONNECTION_POINTS)
+create_routable_power_net "VDD" $::env(VIN_ROUTE_CONNECTION_POINTS)
+
+# NDR rules
+source $::env(SCRIPTS_DIR)/openfasoc/add_ndr_rules.tcl
+
+# Custom connections
+source $::env(SCRIPTS_DIR)/openfasoc/create_custom_connections.tcl
+if {[info exist ::env(VSS_VSS_CONNECTION)]} {
+  create_custom_connections $::env(GND_VSS_CONNECTION)
+}
+if {[info exist ::env(VDD_VDD_CONNECTION)]} {
+  create_custom_connections $::env(VDD_VDD_CONNECTION)
+}
 ```
 
 **add_ndr_rules.txt**
+
+Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/add_ndr_rules.txt
+```bash
+set block [ord::get_db_block]
+
+# Add 2W, 2S rule to ring oscillator input
+create_ndr -name NDR_5W_5S \
+           -spacing { *5 } \
+           -width { *5 }
+
+set ndr [$block findNonDefaultRule NDR_5W_5S]
+$ndr setHardSpacing 1
+
+assign_ndr -ndr NDR_5W_5S -net VSS
+assign_ndr -ndr NDR_5W_5S -net VDD
 ```
-# Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/add_ndr_rules.txt
+
+**config.mk**
+
+Location of file inside msvsd4bituc folder -> ./flow/design/sky130hd/msvsd4bituc/config.mk
+```bash
+export DESIGN_NICKNAME = msvsd4bituc
+export DESIGN_NAME = msvsd4bituc
+export PLATFORM    = sky130hd
+
+export VERILOG_FILES 		= $(sort $(wildcard ./design/src/$(DESIGN_NICKNAME)/*.v)) 		  	  
+export SDC_FILE    		= ./design/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
+
+export DIE_AREA   	 	= 0 0 100 60
+export CORE_AREA   		= 10 10 90 50
+
+# power delivery network config file
+export PDN_TCL 			= ../blocks/$(PLATFORM)/pdn.tcl
+
+export ADDITIONAL_LEFS  	= ../blocks/$(PLATFORM)/lef/RING_OSCILLATOR.lef \
+                        	  ../blocks/$(PLATFORM)/lef/ADC_1BIT.lef
+                        	  
+export ADDITIONAL_GDS_FILES 	= ../blocks/$(PLATFORM)/gds/RING_OSCILLATOR.gds \
+			      	  ../blocks/$(PLATFORM)/gds/ADC_1BIT.gds
+			      	  
+# informs what cells should be placed in the smaller voltage domain
+export DOMAIN_INSTS_LIST 	= ../blocks/$(PLATFORM)/msvsd4bituc_domain_insts.txt
+			      	  
+# configuration for placement
+export MACRO_PLACE_HALO         = 1 1
+export MACRO_PLACE_CHANNEL      = 30 30
+export MACRO_PLACEMENT          = ../blocks/$(PLATFORM)/manual_macro.tcl
+
+# configuration for routing
+export PRE_GLOBAL_ROUTE = $(SCRIPTS_DIR)/openfasoc/pre_global_route.tcl
+# informs any short circuits that should be forced during routing
+export GND_VSS_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_VSS_connection.txt
+export VDD_VDD_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_VDD_connection.txt
+
+# don't run non-random IO placement (step 3_2)
+export PLACE_PINS_ARGS = -random
+export GPL_ROUTABILITY_DRIVEN = 1
+
+# DPO optimization currently fails on the msvsd4bituc
+export ENABLE_DPO = 0
+
+# indicates with how many connections the VIN route connects to the VIN power ring
+export VIN_ROUTE_CONNECTION_POINTS = 2
 ```
 
 
