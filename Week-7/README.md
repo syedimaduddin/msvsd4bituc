@@ -1,6 +1,6 @@
 ## Index
 - [Reduction of Area](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#reduction-of-area)
-    * [Changes Made]()
+    * [Changes Made](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#changes-made)
     * [Run Synthesis](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#run-synthesis)
     * [Run Floorplan](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#run-floorplan)
     * [Global Place](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#global-place)
@@ -10,13 +10,15 @@
     * [GDS in Magic](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#gds-file-in-magic)
     * [GDS in KLayout](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#gds-file-in-klayout)
 - [Connection of VSS and VDD](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#connection-of-vss-and-vdd)
-    * []()
-    * []()
-    * []()
-    * []()
-    * []()
-    * []()
-    * []()
+    * [Changes in pdn.tcl](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#pdntcl)
+    * [Changes in manual_macro.tcl](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#manual_macrotcl)
+    * [Changes in msvsd4bituc_VSS_connection.txt](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#msvsd4bituc_vss_connectiontxt)
+    * [Changes in msvsd4bituc_VDD_connection.txt](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#msvsd4bituc_vdd_connectiontxt)
+    * [Changes in msvsd4bituc_domain_insts.txt](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#msvsd4bituc_domain_inststxt)
+    * [Changes in pre_global_route.tcl](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#pre_global_routetcl)
+    * [Changes in add_ndr_rules.tcl](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#add_ndr_rulestcl)
+    * [Changes in config.mk](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#configmk)
+- [Conclusion](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#conclusion)
 
     
 ## Reduction of Area
