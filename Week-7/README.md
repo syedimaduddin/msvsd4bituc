@@ -229,6 +229,7 @@ Here create_custom_connections is used to define the vdd and vss connections we 
 #### add_ndr_rules.tcl
 
 Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/add_ndr_rules.tcl
+
 This file needs editing and although not that critical, it ensures that the certain routing rules are followed for routing the power and vss.
 ```bash
 set block [ord::get_db_block]
@@ -255,9 +256,6 @@ export PLATFORM    = sky130hd
 
 export VERILOG_FILES 		= $(sort $(wildcard ./design/src/$(DESIGN_NICKNAME)/*.v)) 		  	  
 export SDC_FILE    		= ./design/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
-
-#export DIE_AREA   	 	= 0 0 100 60
-#export CORE_AREA   		= 10 10 90 50
 
 export DIE_AREA   	 	= 0 0 120 90
 export CORE_AREA   		= 25 23 100 65
