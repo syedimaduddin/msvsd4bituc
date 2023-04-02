@@ -18,6 +18,9 @@
     * [Changes in pre_global_route.tcl](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#pre_global_routetcl)
     * [Changes in add_ndr_rules.tcl](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#add_ndr_rulestcl)
     * [Changes in config.mk](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#configmk)
+    * [DRC Check after VDD and VSS Connections]()
+    * [GDS after VDD and VSS Connections in Magic]()
+    * [GDS after VDD and VSS Connections in KLayout]()
 - [Conclusion](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-7/README.md#conclusion)
 
     
@@ -298,6 +301,14 @@ export CUSTOM_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_custom_net.txt
 export VIN_ROUTE_CONNECTION_POINTS = 3
 ```
 
+#### DRC Check after VDD and VSS Connections
+<img src="./Images/drc_clean_with_connections.png">
+
+#### GDS File with VDD and VSS Connections in Magic
+<img src="./Images/gds_with_connections_magic.png">
+
+#### GDS File with VDD and VSS Connections in KLayout
+<img src="./Images/gds_with_connections_klayout.png">
 
 ## Conclusion
 The area is successfully reduced along with DRC clean, and VDD and VSS connections are made as well.
