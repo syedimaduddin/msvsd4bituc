@@ -1,10 +1,20 @@
 ## Index
-- [Reduction of Area]()
+- [Reduction of Area](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#reduction-of-area)
+    * [Changes Made]()
+    * [Run Synthesis](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#run-synthesis)
+    * [Run Floorplan](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#run-floorplan)
+    * [Global Place](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#global-place)
+    * [Global Route](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#global-route)
+    * [Check Antennas](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#check-antennas)
+    * [DRC Check](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#drc-check)
+    * [GDS in Magic](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#gds-file-in-magic)
+    * [GDS in KLayout](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#gds-file-in-klayout)
+- [Connection of VSS and VDD](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-7#connection-of-vss-and-vdd)
     * []()
     * []()
     * []()
     * []()
-- [Connection of Ground and VDD]()
+    * []()
     * []()
     * []()
 
@@ -112,7 +122,7 @@ It is necessary to manually edit many files in order to set up the routable nets
 
 Here is a brief explanation of the files mentioned above.
 
-**pdn.tcl**
+#### pdn.tcl
 
 Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/pdn.tcl
 ```bash
@@ -145,7 +155,7 @@ add_pdn_connect -grid {stdcell} -layers {met4 met5}
 
 ```add_pdn_ring``` is used to define a ring for delivering power an gnd to the core which is also used by the macros, so extra power domains is not necessary in this case. For adding horizontal connections between filler and tapcells, the following stripe definitions is needed and horizontal is actually differentiated by ```-followpins```. For adding vertical connections between filler and tapcells, the stripe definitions is needed. Here the vertical layers is using metal4 so is defined, here -pitch {30} defines the distance between consecutive power and gnd lines.(Note: if facing drc errors manually adjust the pitch and offset values).
 
-**manual_macro.tcl**
+#### manual_macro.tcl
 
 Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/manual_macro.tcl
 ```bash
@@ -153,7 +163,7 @@ RING_OSCILLATOR N 20 20
 ADC_1BIT N 60 20
 ```
 
-**msvsd4bituc_VSS_connection.txt**
+#### msvsd4bituc_VSS_connection.txt
 
 Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VSS_connection.txt
 
@@ -166,7 +176,7 @@ RING_OSCILLATOR VSS
 ADC_1BIT VSS
 ```
 
-**msvsd4bituc_VDD_connection.txt**
+#### msvsd4bituc_VDD_connection.txt
 
 Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_VDD_connection.txt
 
@@ -179,7 +189,7 @@ RING_OSCILLATOR VDD
 ADC_1BIT VDD
 ```
 
-**msvsd4bituc_domain_insts.txt**
+#### msvsd4bituc_domain_insts.txt
 
 Location of file inside msvsd4bituc folder -> ./blocks/sky130hd/msvsd4bituc_domain_insts.txt
 
@@ -190,7 +200,7 @@ RING_OSCILLATOR
 ADC_1BIT
 ```
 
-**pre_global_route.tcl**
+#### pre_global_route.tcl
 
 Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/pre_global_route.tcl
 ```bash
@@ -214,7 +224,7 @@ if {[info exist ::env(VDD_VDD_CONNECTION)]} {
 
 Here create_custom_connections is used to define the vdd and vss connections we defined earlier.
 
-**add_ndr_rules.tcl**
+#### add_ndr_rules.tcl
 
 Location of file inside msvsd4bituc folder -> ./flow/scripts/openfasoc/add_ndr_rules.tcl
 This file needs editing and although not that critical, it ensures that the certain routing rules are followed for routing the power and vss.
@@ -233,7 +243,7 @@ assign_ndr -ndr NDR_5W_5S -net VSS
 assign_ndr -ndr NDR_5W_5S -net VDD
 ```
 
-**config.mk**
+#### config.mk
 
 Location of file inside msvsd4bituc folder -> ./flow/design/sky130hd/msvsd4bituc/config.mk
 ```bash
@@ -277,8 +287,11 @@ export GPL_ROUTABILITY_DRIVEN = 1
 # DPO optimization currently fails on the msvsd4bituc
 export ENABLE_DPO = 0
 
+# informs any short circuits that should be forced during routing
+export CUSTOM_CONNECTION 	= ../blocks/$(PLATFORM)/msvsd4bituc_custom_net.txt
+
 # indicates with how many connections the VIN route connects to the VIN power ring
-export VIN_ROUTE_CONNECTION_POINTS = 2
+export VIN_ROUTE_CONNECTION_POINTS = 3
 ```
 
 
