@@ -1,7 +1,7 @@
 Here is the update of Week-1 of VSD Mixed-signal PD Research Program
 
 # Index
-- [Installation of Oracle Virtual Box with Ubuntu 22.04](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#1-installation-of-oracle-virtual-box-with-ubuntu-2204)
+- [Installation of Oracle Virtual Box with Ubuntu 20.04](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#1-installation-of-oracle-virtual-box-with-ubuntu-2004)
 - [Installation of required tools](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2-installation-of-tools-and-sky130-pdks)
   * [Magic](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2i-magic)
   * [Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#2ii-ngspice)
@@ -14,14 +14,14 @@ Here is the update of Week-1 of VSD Mixed-signal PD Research Program
   * [Post-Layout Simulation of Inverter using Magic and Ngspice](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#3ii-post-layout-simulation-of-inverter-using-ngspice)
   * [Comparison of Pre-Layout and Post-Layout timing parameters for Inverter](https://github.com/syedimaduddin/msvsd4bituc/blob/main/Week-1/README.md#4-comparison-of-pre-layout-and-post-layout-timing-parameters-for-inverter)
   
-# 1. Installation of Oracle Virtual Box with Ubuntu 22.04
+# 1. Installation of Oracle Virtual Box with Ubuntu 20.04
 
 1. Create a new directory **Opensourcetoolinstall** in D: Drive. Make sure there is atleast 150 GB disk space in the drive.
 2. Go to [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 3. Under VirtualBox 7.0.6 platform packages, click on **Windows hosts** save the .exe file in **Opensourcetoolinstall** folder.
 4. Install the VirtualBox.
-5. Download **Ubuntu 22.04.1 LTS** from [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop) and save the .exe file in **Opensourcetoolinstall** folder.
-6. Install Ubuntu 22.04.1 LTS in the virtualbox.
+5. Download **Ubuntu 20.04 LTS** from [https://ubuntu.com/download/desktop](https://releases.ubuntu.com/20.04.6/) and save the .exe file in **Opensourcetoolinstall** folder.
+6. Install Ubuntu 20.04 LTS in the virtualbox.
 
 # 2. Installation of Tools and SKY130 PDKs
 ## 2.i. Magic
