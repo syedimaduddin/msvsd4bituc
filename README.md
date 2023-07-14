@@ -66,7 +66,7 @@
 <hr>
 
 ### [Week-5](https://github.com/syedimaduddin/msvsd4bituc/tree/main/Week-5)
-1. Basics of Analogue to Digital Converter
+1. Basics of Analog to Digital Converter
 2. 1-Bit ADC
 3. Pre-Layout Simulation of a 1-Bit ADC
     - Schematic implementation
