@@ -18,7 +18,7 @@ Here is the update of Week-1 of VSD Mixed-signal PD Research Program
 
 1. Create a new directory **Opensourcetoolinstall** in D: Drive. Make sure there is atleast 150 GB disk space in the drive.
 2. Go to [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
-3. Under VirtualBox 7.0.6 platform packages, click on **Windows hosts** save the .exe file in **Opensourcetoolinstall** folder.
+3. Under VirtualBox platform packages, click on **Windows hosts** save the .exe file in **Opensourcetoolinstall** folder.
 4. Install the VirtualBox.
 5. Download **Ubuntu 20.04 LTS** from [https://ubuntu.com/download/desktop](https://releases.ubuntu.com/20.04.6/) and save the .exe file in **Opensourcetoolinstall** folder.
 6. Install Ubuntu 20.04 LTS in the virtualbox.
